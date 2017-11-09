@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		C7AB09511FB501F90040195E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB09501FB501F90040195E /* AppDelegate.swift */; };
-		C7AB09531FB501F90040195E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB09521FB501F90040195E /* ViewController.swift */; };
+		C7AB09531FB501F90040195E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB09521FB501F90040195E /* HomeViewController.swift */; };
 		C7AB09561FB501F90040195E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7AB09541FB501F90040195E /* Main.storyboard */; };
 		C7AB09581FB501F90040195E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7AB09571FB501F90040195E /* Assets.xcassets */; };
 		C7AB095B1FB501F90040195E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7AB09591FB501F90040195E /* LaunchScreen.storyboard */; };
+		C7AB09651FB50D0D0040195E /* MyListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB09641FB50D0D0040195E /* MyListsViewController.swift */; };
+		C7AB09671FB50D540040195E /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB09661FB50D540040195E /* FriendsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C7AB094D1FB501F90040195E /* SocialToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7AB09501FB501F90040195E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C7AB09521FB501F90040195E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C7AB09521FB501F90040195E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C7AB09551FB501F90040195E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C7AB09571FB501F90040195E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7AB095A1FB501F90040195E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7AB095C1FB501F90040195E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7AB09641FB50D0D0040195E /* MyListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListsViewController.swift; sourceTree = "<group>"; };
+		C7AB09661FB50D540040195E /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +59,9 @@
 			isa = PBXGroup;
 			children = (
 				C7AB09501FB501F90040195E /* AppDelegate.swift */,
-				C7AB09521FB501F90040195E /* ViewController.swift */,
+				C7AB09521FB501F90040195E /* HomeViewController.swift */,
+				C7AB09641FB50D0D0040195E /* MyListsViewController.swift */,
+				C7AB09661FB50D540040195E /* FriendsViewController.swift */,
 				C7AB09541FB501F90040195E /* Main.storyboard */,
 				C7AB09571FB501F90040195E /* Assets.xcassets */,
 				C7AB09591FB501F90040195E /* LaunchScreen.storyboard */,
@@ -136,7 +142,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7AB09531FB501F90040195E /* ViewController.swift in Sources */,
+				C7AB09531FB501F90040195E /* HomeViewController.swift in Sources */,
+				C7AB09671FB50D540040195E /* FriendsViewController.swift in Sources */,
+				C7AB09651FB50D0D0040195E /* MyListsViewController.swift in Sources */,
 				C7AB09511FB501F90040195E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
