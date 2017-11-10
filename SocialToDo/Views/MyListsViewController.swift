@@ -8,12 +8,14 @@
 
 import UIKit
 
-class MyListsViewController: UIViewController {
-	
+class MyListsViewController: UIViewController, TodoControllerDelegate {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var todoControl:TodoController?
 	@IBOutlet weak var tableView: UITableView!
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        todoControl = appDelegate.todoControl
 		// Do any additional setup after loading the view, typically from a nib.
 	}
 	
