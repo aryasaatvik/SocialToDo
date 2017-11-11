@@ -16,6 +16,7 @@ class MyListsViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
         todoControl = appDelegate.todoControl
+        tableView.dataSource = todoControl
         //todoControl?.delegate = self
 		// Do any additional setup after loading the view, typically from a nib.
 	}

@@ -10,7 +10,7 @@
 class TodoList {
     /*A TodoList wrapper so the actual implementation of the TodoList
     could be changed in the future without breaking everything*/
-    typealias TodoListItem = String
+    typealias TodoListItem = (String,Bool)
     //Using swift arrays to store the items for now
     private var todoList:[TodoListItem] = [TodoListItem]()
     
