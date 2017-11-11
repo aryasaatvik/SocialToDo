@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyListsViewController: UIViewController, TodoControllerDelegate {
+class MyListsViewController: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var todoControl:TodoController?
 	@IBOutlet weak var tableView: UITableView!
@@ -16,6 +16,7 @@ class MyListsViewController: UIViewController, TodoControllerDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
         todoControl = appDelegate.todoControl
+        //todoControl?.delegate = self
 		// Do any additional setup after loading the view, typically from a nib.
 	}
 	
@@ -23,8 +24,6 @@ class MyListsViewController: UIViewController, TodoControllerDelegate {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
-	
-	
 }
 
 

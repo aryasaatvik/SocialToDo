@@ -8,13 +8,28 @@
 
 import UIKit
 
-protocol TodoControllerDelegate {
+class TodoController:NSObject,UITableViewDataSource {
+    //var delegate: TodoControllerDelegate?
+    var currentTodo: TodoList = TodoList(listItems:"Task One","Task Two")
+    override init(){
+        super.init()
+        //TODO: Load todoLists from storage
+    }
     
-}
-
-class TodoController {
-    var delegate: UIViewController? //Or we could make a custom
-    init(){
-        
+    func addElement(items:TodoList.TodoListItem...){
+        currentTodo.add(listItems: items)
+    }
+    
+    func removeElement(atIndex:Int){
+        currentTodo.remove(atIndex: atIndex)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return currentTodo.getElements().count
+        //At one point add one for the add entry UITableViewCell
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return TodoItemTableViewCell(//TODO:todo)
     }
 }

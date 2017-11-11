@@ -15,6 +15,9 @@
 		C7AB09651FB50D0D0040195E /* MyListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB09641FB50D0D0040195E /* MyListsViewController.swift */; };
 		C7AB09671FB50D540040195E /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB09661FB50D540040195E /* FriendsViewController.swift */; };
 		E9EF071B1FB6644B0096CBCD /* TodoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EF071A1FB6644B0096CBCD /* TodoController.swift */; };
+		E9EF071D1FB674660096CBCD /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EF071C1FB674660096CBCD /* TodoList.swift */; };
+		E9EF071F1FB68DDB0096CBCD /* TodoItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EF071E1FB68DDB0096CBCD /* TodoItemTableViewCell.swift */; };
+		E9EF07211FB68E6B0096CBCD /* AddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EF07201FB68E6B0096CBCD /* AddTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		C7AB09641FB50D0D0040195E /* MyListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListsViewController.swift; sourceTree = "<group>"; };
 		C7AB09661FB50D540040195E /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		E9EF071A1FB6644B0096CBCD /* TodoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoController.swift; sourceTree = "<group>"; };
+		E9EF071C1FB674660096CBCD /* TodoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
+		E9EF071E1FB68DDB0096CBCD /* TodoItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemTableViewCell.swift; sourceTree = "<group>"; };
+		E9EF07201FB68E6B0096CBCD /* AddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,7 @@
 		E9EF07171FB6640A0096CBCD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E9EF071C1FB674660096CBCD /* TodoList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -85,6 +92,8 @@
 				C7AB09521FB501F90040195E /* HomeViewController.swift */,
 				C7AB09641FB50D0D0040195E /* MyListsViewController.swift */,
 				C7AB09661FB50D540040195E /* FriendsViewController.swift */,
+				E9EF071E1FB68DDB0096CBCD /* TodoItemTableViewCell.swift */,
+				E9EF07201FB68E6B0096CBCD /* AddTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -170,8 +179,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7AB09531FB501F90040195E /* HomeViewController.swift in Sources */,
+				E9EF071F1FB68DDB0096CBCD /* TodoItemTableViewCell.swift in Sources */,
 				C7AB09671FB50D540040195E /* FriendsViewController.swift in Sources */,
 				C7AB09651FB50D0D0040195E /* MyListsViewController.swift in Sources */,
+				E9EF071D1FB674660096CBCD /* TodoList.swift in Sources */,
+				E9EF07211FB68E6B0096CBCD /* AddTableViewCell.swift in Sources */,
 				C7AB09511FB501F90040195E /* AppDelegate.swift in Sources */,
 				E9EF071B1FB6644B0096CBCD /* TodoController.swift in Sources */,
 			);
