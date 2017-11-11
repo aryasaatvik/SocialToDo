@@ -9,11 +9,15 @@
 import UIKit
 
 class MyListsViewController: UIViewController {
-	
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var todoControl:TodoController?
 	@IBOutlet weak var tableView: UITableView!
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        todoControl = appDelegate.todoControl
+        tableView.dataSource = todoControl
+        //todoControl?.delegate = self
 		// Do any additional setup after loading the view, typically from a nib.
 	}
 	
@@ -21,8 +25,6 @@ class MyListsViewController: UIViewController {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
-	
-	
 }
 
 
