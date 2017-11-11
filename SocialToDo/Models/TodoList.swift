@@ -10,7 +10,6 @@
 class TodoList {
     /*A TodoList wrapper so the actual implementation of the TodoList
     could be changed in the future without breaking everything*/
-    typealias TodoListItem = (String,Bool)
     //Using swift arrays to store the items for now
     private var todoList:[TodoListItem] = [TodoListItem]()
     
@@ -45,6 +44,7 @@ class TodoList {
     public func getElementAt(atIndex:Int) -> TodoListItem{
         return todoList[atIndex]
     }
+
     /* These functions search the array, they are
     O(n), do not use these unless there is some situation
     in which an element needs to be removed and the index
@@ -53,7 +53,7 @@ class TodoList {
     public func remove(listItems:[TodoListItem]){
         for item in listItems {
             var i = 0
-            while (item != todoList[i]){
+            while (item.equals(todoList[i])){
                 i += 1
             }
             if (i < listItems.count){

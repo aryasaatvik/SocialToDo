@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,17 +22,47 @@
                                 <rect key="frame" x="0.0" y="60" width="375" height="558"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="acG-ER-W1C">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="todoItem" rowHeight="50" id="6bN-vw-Mn2" customClass="todoItem" customModule="SocialToDo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="acG-ER-W1C" id="J1w-cT-agk">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6bN-vw-Mn2" id="QL5-tQ-aJq">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jar-sv-osc" customClass="Checkbox" customModule="SocialToDo" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="2.5" width="45" height="45"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="45" id="WNE-W5-t6w"/>
+                                                        <constraint firstAttribute="height" constant="45" id="dTz-dB-uDI"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SF5-pr-A7t">
+                                                    <rect key="frame" x="69" y="2.5" width="298" height="45"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="45" id="sBf-tu-jqm"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="jar-sv-osc" firstAttribute="centerY" secondItem="QL5-tQ-aJq" secondAttribute="centerY" id="1rI-Fh-dUJ"/>
+                                                <constraint firstItem="SF5-pr-A7t" firstAttribute="leading" secondItem="jar-sv-osc" secondAttribute="trailing" constant="8" id="EDM-uL-r1J"/>
+                                                <constraint firstItem="SF5-pr-A7t" firstAttribute="centerY" secondItem="QL5-tQ-aJq" secondAttribute="centerY" id="QxK-Lr-dtj"/>
+                                                <constraint firstItem="jar-sv-osc" firstAttribute="leading" secondItem="QL5-tQ-aJq" secondAttribute="leadingMargin" constant="8" id="YYb-Aq-AgI"/>
+                                                <constraint firstAttribute="trailing" secondItem="SF5-pr-A7t" secondAttribute="trailing" constant="8" id="yvJ-Fy-FLA"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkbox" destination="jar-sv-osc" id="b6k-OX-cif"/>
+                                            <outlet property="label" destination="SF5-pr-A7t" id="ID7-sX-Eex"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Lists" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJH-UE-hB5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJH-UE-hB5">
                                 <rect key="frame" x="20" y="28" width="335" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="dLo-Fd-JOQ"/>
@@ -113,44 +144,75 @@
             </objects>
             <point key="canvasLocation" x="606" y="1162"/>
         </scene>
-        <!--Home-->
+        <!--New List-->
         <scene sceneID="5XG-WB-ikw">
             <objects>
-                <viewController id="SFO-wg-e2A" customClass="HomeViewController" customModule="SocialToDo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SFO-wg-e2A" customClass="NewListViewController" customModule="SocialToDo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SEl-51-LHO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="EAz-Qj-Onv">
-                                <rect key="frame" x="149" y="213" width="76" height="240"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R0T-8K-fXx">
-                                        <rect key="frame" x="0.0" y="0.0" width="76" height="30"/>
-                                        <state key="normal" title="New List"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oSr-4g-ed1">
-                                        <rect key="frame" x="0.0" y="105" width="76" height="30"/>
-                                        <state key="normal" title="My Lists"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c97-RS-cbK">
-                                        <rect key="frame" x="0.0" y="210" width="76" height="30"/>
-                                        <state key="normal" title="My Friends"/>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finish Today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E79-DE-Dfy">
+                                <rect key="frame" x="8" y="28" width="359" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CMf-zd-MbM">
+                                <rect key="frame" x="0.0" y="57" width="375" height="561"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="todoItem" id="ITQ-Sc-cVD">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ITQ-Sc-cVD" id="bxO-QR-sst">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kMb-fj-F1A" customClass="Checkbox" customModule="SocialToDo" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="9.5" width="25" height="25"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="Cu7-RK-ory"/>
+                                                        <constraint firstAttribute="height" constant="25" id="b0b-BP-nQE"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMB-Ep-NE5">
+                                                    <rect key="frame" x="49" y="11" width="318" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="XMB-Ep-NE5" secondAttribute="trailing" constant="8" id="7HH-1d-0J7"/>
+                                                <constraint firstItem="kMb-fj-F1A" firstAttribute="leading" secondItem="bxO-QR-sst" secondAttribute="leadingMargin" constant="8" id="IN9-4C-8yt"/>
+                                                <constraint firstItem="XMB-Ep-NE5" firstAttribute="leading" secondItem="kMb-fj-F1A" secondAttribute="trailing" constant="8" id="Vsb-9j-Pmp"/>
+                                                <constraint firstItem="kMb-fj-F1A" firstAttribute="centerY" secondItem="bxO-QR-sst" secondAttribute="centerY" id="tmj-5M-WbQ"/>
+                                                <constraint firstItem="XMB-Ep-NE5" firstAttribute="centerY" secondItem="bxO-QR-sst" secondAttribute="centerY" id="w3P-A1-OlP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="EAz-Qj-Onv" firstAttribute="centerY" secondItem="SEl-51-LHO" secondAttribute="centerY" id="JCk-EG-bk1"/>
-                            <constraint firstItem="EAz-Qj-Onv" firstAttribute="centerX" secondItem="SEl-51-LHO" secondAttribute="centerX" id="V3d-06-RCJ"/>
+                            <constraint firstItem="CMf-zd-MbM" firstAttribute="top" secondItem="E79-DE-Dfy" secondAttribute="bottom" constant="8" id="FfX-R5-xVB"/>
+                            <constraint firstItem="E79-DE-Dfy" firstAttribute="top" secondItem="12X-2n-OBK" secondAttribute="top" constant="8" id="H7U-Qc-nWN"/>
+                            <constraint firstItem="E79-DE-Dfy" firstAttribute="leading" secondItem="SEl-51-LHO" secondAttribute="leading" constant="8" id="IK3-rR-lvQ"/>
+                            <constraint firstItem="12X-2n-OBK" firstAttribute="trailing" secondItem="E79-DE-Dfy" secondAttribute="trailing" constant="8" id="Tf0-6N-eqm"/>
+                            <constraint firstAttribute="trailing" secondItem="CMf-zd-MbM" secondAttribute="trailing" id="mbb-nx-Yco"/>
+                            <constraint firstItem="12X-2n-OBK" firstAttribute="bottom" secondItem="CMf-zd-MbM" secondAttribute="bottom" id="qRe-bi-xZX"/>
+                            <constraint firstItem="CMf-zd-MbM" firstAttribute="leading" secondItem="12X-2n-OBK" secondAttribute="leading" id="zdw-1R-FsH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="12X-2n-OBK"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="D69-yv-3ci"/>
+                    <tabBarItem key="tabBarItem" title="New List" id="D69-yv-3ci"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iwl-c3-Lwm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="606" y="-205"/>
+            <point key="canvasLocation" x="605.60000000000002" y="-205.54722638680661"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="QKc-CQ-Zny">
