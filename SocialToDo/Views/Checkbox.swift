@@ -134,11 +134,19 @@ public class Checkbox: UIControl {
 	}
 	
 	override public func draw(_ rect: CGRect) {
-		drawBorder(shape: borderStyle, in: rect)
+		drawBorder(shape: borderStyle, in: resizeRect(rect: rect))
 		if isChecked {
 			drawCheckmark(style: checkmarkStyle, in: rect)
 		}
 	}
+    
+    private func resizeRect(rect:CGRect) -> CGRect{
+        let newOrigin = CGPoint(x:rect.origin.x+2,y:rect.origin.y+2)
+        var newBounds = CGSize()
+        newBounds.width = 35
+        newBounds.height = 35
+        return CGRect(origin:newOrigin,size:newBounds)
+    }
 	
 	// MARK: - Borders
 	
