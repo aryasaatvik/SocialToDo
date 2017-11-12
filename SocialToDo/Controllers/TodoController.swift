@@ -23,7 +23,20 @@ class TodoController:NSObject,UITableViewDataSource {
     func removeElement(atIndex:Int){
         currentTodo.remove(atIndex: atIndex)
     }
-    
+	
+	@objc func changeValues(checkbox: Checkbox) {
+		if(checkbox.isSelected == true){
+			checkbox.isSelected = false
+			let todo = currentTodo.getElementAt(atIndex: checkbox.index)
+			todo.isChecked = false
+		}
+		else {
+			checkbox.isSelected = true
+			let todo = currentTodo.getElementAt(atIndex: checkbox.index)
+			todo.isChecked = true
+		}
+	}
+	
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (currentTodo.getElements().count+1)
         //At one point add one for the add entry UITableViewCell
@@ -32,18 +45,15 @@ class TodoController:NSObject,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.row != currentTodo.getElements().count){
             //TODO: Design custom cell that allows a item to be both checked and removed
+			tableView.rowHeight = 75
 			let cell = tableView.dequeueReusableCell(withIdentifier: "todoItem") as! todoItem
-            cell.label!.text = currentTodo.getElementAt(atIndex: indexPath.row).title
+			cell.selectionStyle = .none
+			let todo = currentTodo.getElementAt(atIndex: indexPath.row)
+            cell.label!.text = todo.title
             // initialize checkbox
-            cell.checkbox.checkmarkStyle = .tick
-            cell.checkbox.borderWidth = 4
-            cell.checkbox.uncheckedBorderColor = .magenta
-            cell.checkbox.checkedBorderColor = .green
-            cell.checkbox.checkmarkColor = .green
-            cell.checkbox.isChecked = currentTodo.getElementAt(atIndex: indexPath.row).isChecked
-            cell.checkbox.valueChanged = { (value) in
-                self.currentTodo.getElementAt(atIndex: indexPath.row).isChecked = value
-            }
+            cell.checkbox.isSelected = todo.isChecked
+			cell.checkbox.index = indexPath.row
+			cell.checkbox.addTarget(self, action: #selector(changeValues(checkbox:)), for: .touchUpInside)
             return cell
         } else {
             //TDOD: Design custom cell that allows a button to be added

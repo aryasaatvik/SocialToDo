@@ -22,37 +22,36 @@
                                 <rect key="frame" x="0.0" y="60" width="375" height="558"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="todoItem" rowHeight="50" id="6bN-vw-Mn2" customClass="todoItem" customModule="SocialToDo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="50"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="todoItem" rowHeight="75" id="6bN-vw-Mn2" customClass="todoItem" customModule="SocialToDo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6bN-vw-Mn2" id="QL5-tQ-aJq">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jar-sv-osc" customClass="Checkbox" customModule="SocialToDo" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="2.5" width="45" height="45"/>
+                                                    <rect key="frame" x="16" y="12.5" width="50" height="50"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="45" id="WNE-W5-t6w"/>
-                                                        <constraint firstAttribute="height" constant="45" id="dTz-dB-uDI"/>
+                                                        <constraint firstAttribute="width" constant="50" id="WNE-W5-t6w"/>
+                                                        <constraint firstAttribute="height" constant="50" id="dTz-dB-uDI"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SF5-pr-A7t">
-                                                    <rect key="frame" x="69" y="2.5" width="298" height="45"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="45" id="sBf-tu-jqm"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="74" y="12.5" width="301" height="49.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="jar-sv-osc" firstAttribute="centerY" secondItem="QL5-tQ-aJq" secondAttribute="centerY" id="1rI-Fh-dUJ"/>
-                                                <constraint firstItem="SF5-pr-A7t" firstAttribute="leading" secondItem="jar-sv-osc" secondAttribute="trailing" constant="8" id="EDM-uL-r1J"/>
-                                                <constraint firstItem="SF5-pr-A7t" firstAttribute="centerY" secondItem="QL5-tQ-aJq" secondAttribute="centerY" id="QxK-Lr-dtj"/>
+                                                <constraint firstItem="SF5-pr-A7t" firstAttribute="leading" secondItem="jar-sv-osc" secondAttribute="trailing" constant="8" id="3JZ-cm-cav"/>
+                                                <constraint firstItem="SF5-pr-A7t" firstAttribute="centerY" secondItem="QL5-tQ-aJq" secondAttribute="centerY" id="K9D-y2-5if"/>
                                                 <constraint firstItem="jar-sv-osc" firstAttribute="leading" secondItem="QL5-tQ-aJq" secondAttribute="leadingMargin" constant="8" id="YYb-Aq-AgI"/>
-                                                <constraint firstAttribute="trailing" secondItem="SF5-pr-A7t" secondAttribute="trailing" constant="8" id="yvJ-Fy-FLA"/>
+                                                <constraint firstItem="SF5-pr-A7t" firstAttribute="trailing" secondItem="QL5-tQ-aJq" secondAttribute="trailingMargin" constant="8" id="bM6-Ng-Jnj"/>
+                                                <constraint firstItem="SF5-pr-A7t" firstAttribute="top" secondItem="jar-sv-osc" secondAttribute="top" id="diU-Z2-B8k"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
