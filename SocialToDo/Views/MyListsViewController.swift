@@ -12,7 +12,9 @@ class MyListsViewController: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var todoControl:TodoController?
 	@IBOutlet weak var tableView: UITableView!
-
+	@IBOutlet weak var addTodoField: UITextField!
+	@IBOutlet weak var addTodoButton: AddButton!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
         todoControl = appDelegate.todoControl
@@ -24,6 +26,12 @@ class MyListsViewController: UIViewController {
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
+	}
+	
+	@IBAction func handleAddTodoButton(_ sender: Any) {
+		let todoText = addTodoField.text!
+		todoControl?.addElement(items: TodoListItem(todoText))
+		tableView.reloadData()
 	}
 }
 

@@ -38,28 +38,19 @@ class TodoController:NSObject,UITableViewDataSource {
 	}
 	
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (currentTodo.getElements().count+1)
-        //At one point add one for the add entry UITableViewCell
+        return (currentTodo.getElements().count)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if (indexPath.row != currentTodo.getElements().count){
-            //TODO: Design custom cell that allows a item to be both checked and removed
-			tableView.rowHeight = 75
-			let cell = tableView.dequeueReusableCell(withIdentifier: "todoItem") as! todoItem
-			cell.selectionStyle = .none
-			let todo = currentTodo.getElementAt(atIndex: indexPath.row)
-            cell.label!.text = todo.title
-            // initialize checkbox
-            cell.checkbox.isSelected = todo.isChecked
-			cell.checkbox.index = indexPath.row
-			cell.checkbox.addTarget(self, action: #selector(changeValues(checkbox:)), for: .touchUpInside)
-            return cell
-        } else {
-            //TDOD: Design custom cell that allows a button to be added
-            let addItemCell = UITableViewCell(style:.value1, reuseIdentifier: nil)
-            addItemCell.textLabel!.text = "PUT (ADD NEW ITEM) BUTTON HERE"
-            return addItemCell
-        }
+		tableView.rowHeight = 75
+		let cell = tableView.dequeueReusableCell(withIdentifier: "todoItem") as! todoItem
+		cell.selectionStyle = .none
+		let todo = currentTodo.getElementAt(atIndex: indexPath.row)
+		cell.label!.text = todo.title
+		// initialize checkbox
+		cell.checkbox.isSelected = todo.isChecked
+		cell.checkbox.index = indexPath.row
+		cell.checkbox.addTarget(self, action: #selector(changeValues(checkbox:)), for: .touchUpInside)
+		return cell
     }
 }

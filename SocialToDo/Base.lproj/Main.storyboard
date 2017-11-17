@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mKc-90-D6w">
-                                <rect key="frame" x="0.0" y="80" width="375" height="538"/>
+                                <rect key="frame" x="0.0" y="80" width="375" height="483"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="todoItem" rowHeight="75" id="6bN-vw-Mn2" customClass="todoItem" customModule="SocialToDo" customModuleProvider="target">
@@ -82,6 +82,40 @@
                                     <constraint firstAttribute="trailing" secondItem="qJH-UE-hB5" secondAttribute="trailing" constant="8" id="qGe-QY-KI6"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G9e-NZ-KUe">
+                                <rect key="frame" x="0.0" y="563" width="375" height="55"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Todo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8cj-Z1-zHl">
+                                        <rect key="frame" x="8" y="2.5" width="301" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="kyC-k9-1S0"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QH7-xH-uAf">
+                                        <rect key="frame" x="317" y="2.5" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="ceS-X8-uK1"/>
+                                            <constraint firstAttribute="width" constant="50" id="sIU-d7-tgv"/>
+                                        </constraints>
+                                        <state key="normal" image="add"/>
+                                        <connections>
+                                            <action selector="handleAddTodoButton:" destination="8ia-gI-IJi" eventType="touchUpInside" id="3Yr-ZZ-bKp"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="QH7-xH-uAf" secondAttribute="trailing" constant="8" id="3OC-uf-vc6"/>
+                                    <constraint firstItem="8cj-Z1-zHl" firstAttribute="leading" secondItem="G9e-NZ-KUe" secondAttribute="leading" constant="8" id="3VW-xd-tg1"/>
+                                    <constraint firstItem="QH7-xH-uAf" firstAttribute="centerY" secondItem="G9e-NZ-KUe" secondAttribute="centerY" id="A0T-FV-bNH"/>
+                                    <constraint firstAttribute="height" constant="55" id="Dur-cV-ZoA"/>
+                                    <constraint firstItem="8cj-Z1-zHl" firstAttribute="centerY" secondItem="G9e-NZ-KUe" secondAttribute="centerY" id="OpW-Hl-TUk"/>
+                                    <constraint firstItem="QH7-xH-uAf" firstAttribute="leading" secondItem="8cj-Z1-zHl" secondAttribute="trailing" constant="8" id="U6J-yX-ZhN"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -89,15 +123,20 @@
                             <constraint firstItem="nQ7-IF-xSa" firstAttribute="leading" secondItem="8iw-Gc-WkC" secondAttribute="leading" id="1og-AG-2XR"/>
                             <constraint firstItem="mKc-90-D6w" firstAttribute="leading" secondItem="8iw-Gc-WkC" secondAttribute="leading" id="7Z4-mb-RSL"/>
                             <constraint firstItem="nQ7-IF-xSa" firstAttribute="top" secondItem="MO5-pz-47m" secondAttribute="top" id="JIH-wE-i5B"/>
+                            <constraint firstItem="8iw-Gc-WkC" firstAttribute="bottom" secondItem="G9e-NZ-KUe" secondAttribute="bottom" id="SXr-rt-Kka"/>
+                            <constraint firstItem="G9e-NZ-KUe" firstAttribute="trailing" secondItem="8iw-Gc-WkC" secondAttribute="trailing" id="VOC-7u-xoj"/>
+                            <constraint firstItem="G9e-NZ-KUe" firstAttribute="top" secondItem="mKc-90-D6w" secondAttribute="bottom" id="ZLh-bM-aFK"/>
+                            <constraint firstItem="G9e-NZ-KUe" firstAttribute="leading" secondItem="8iw-Gc-WkC" secondAttribute="leading" id="j77-mP-nq0"/>
                             <constraint firstItem="nQ7-IF-xSa" firstAttribute="trailing" secondItem="8iw-Gc-WkC" secondAttribute="trailing" id="s3D-3f-9Sq"/>
                             <constraint firstItem="mKc-90-D6w" firstAttribute="trailing" secondItem="8iw-Gc-WkC" secondAttribute="trailing" id="uTr-yu-g3y"/>
                             <constraint firstItem="mKc-90-D6w" firstAttribute="top" secondItem="nQ7-IF-xSa" secondAttribute="bottom" id="vSO-2B-XCC"/>
-                            <constraint firstItem="8iw-Gc-WkC" firstAttribute="bottom" secondItem="mKc-90-D6w" secondAttribute="bottom" id="wLc-qc-dmV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8iw-Gc-WkC"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="My Lists" id="A58-oH-S3B"/>
                     <connections>
+                        <outlet property="addTodoButton" destination="QH7-xH-uAf" id="1Hj-DP-3hh"/>
+                        <outlet property="addTodoField" destination="8cj-Z1-zHl" id="s7e-Ta-yuc"/>
                         <outlet property="tableView" destination="mKc-90-D6w" id="Kr4-uY-Pj9"/>
                     </connections>
                 </viewController>
@@ -275,4 +314,7 @@
             <point key="canvasLocation" x="-344" y="122"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="add" width="26" height="26"/>
+    </resources>
 </document>
