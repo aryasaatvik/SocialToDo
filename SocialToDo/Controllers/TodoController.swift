@@ -24,16 +24,21 @@ class TodoController:NSObject,UITableViewDataSource {
 	func fetchMyList(){
 		var ref:DatabaseReference!
 		ref = Database.database().reference()
-		ref.child("users/\(userID)/privateLists/0/tasks").observeSingleEvent(of: .value, with: { (snapshot) in
-			let tasks = snapshot.value as! [String]
+		let tasksRef = ref.child("users/\(userID)/privateLists/0/tasks/")
+		tasksRef.observeSingleEvent(of: .value, with: { (snapshot) in
+			let tasks = snapshot.value as! [[String: String]]
 			for i in (0..<self.currentTodo.getElements().count){
-				if(tasks[i] != self.currentTodo.getElementAt(atIndex: i).title){
-					let todo = TodoListItem(tasks[i])
+				let title = tasks[i]["title"]!
+				let checked = (tasks[i]["checked"]! == "true")
+				if(tasks[i]["title"] != self.currentTodo.getElementAt(atIndex: i).title){
+					let todo = TodoListItem(title, checked)
 					self.currentTodo.add(listItems: [todo])
 				}
 			}
 			for i in (self.currentTodo.getElements().count..<tasks.count){
-				let todo = TodoListItem(tasks[i])
+				let title = tasks[i]["title"]!
+				let checked = (tasks[i]["checked"]! == "true")
+				let todo = TodoListItem(title, checked)
 				self.currentTodo.add(listItems: [todo])
 			}
 		}) { (error) in
@@ -41,17 +46,14 @@ class TodoController:NSObject,UITableViewDataSource {
 		}
 	}
 	
-    func addElement(items:TodoListItem...){
+    func addElement(item:TodoListItem){
 		var ref:DatabaseReference!
 		ref = Database.database().reference()
 		let tasksRef = ref.child("users/\(userID)/privateLists/0/tasks/")
-		
-		for item in items {
-			let key = tasksRef.child("\(currentTodo.getElements().count)").key
-			let childUpdate = ["users/\(userID)/privateLists/0/tasks/\(key)": item.title]
-			ref.updateChildValues(childUpdate)
-			currentTodo.add(listItems: [item])
-		}
+		let childUpdate = ["\(currentTodo.getElements().count)/title": item.title,
+		                   "\(currentTodo.getElements().count)/checked": "false"]
+		tasksRef.updateChildValues(childUpdate)
+		currentTodo.add(listItems: [item])
     }
     
     func removeElement(atIndex:Int){
@@ -59,14 +61,24 @@ class TodoController:NSObject,UITableViewDataSource {
     }
 	
 	@objc func changeValues(checkbox: Checkbox) {
+		var ref:DatabaseReference!
+		ref = Database.database().reference()
+		let tasksRef = ref.child("users/\(userID)/privateLists/0/tasks/")
+		
 		if(checkbox.isSelected == true){
 			checkbox.isSelected = false
 			let todo = currentTodo.getElementAt(atIndex: checkbox.index)
+			let childUpdate = ["\(checkbox.index)/checked": "false"]
+			tasksRef.updateChildValues(childUpdate)
+			
 			todo.isChecked = false
+			
 		}
 		else {
 			checkbox.isSelected = true
 			let todo = currentTodo.getElementAt(atIndex: checkbox.index)
+			let childUpdate = ["\(checkbox.index)/checked": "true"]
+			tasksRef.updateChildValues(childUpdate)
 			todo.isChecked = true
 		}
 	}

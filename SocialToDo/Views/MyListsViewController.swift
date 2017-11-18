@@ -32,7 +32,7 @@ class MyListsViewController: UIViewController {
 	
 	@IBAction func handleAddTodoButton(_ sender: Any) {
 		let todoText = addTodoField.text!
-		todoControl?.addElement(items: TodoListItem(todoText))
+		todoControl?.addElement(item: TodoListItem(todoText))
 		
 		tableView.reloadData()
 	}
