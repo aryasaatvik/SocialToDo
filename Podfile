@@ -7,4 +7,5 @@ target 'SocialToDo' do
 
   # Pods for SocialToDo
   pod 'Firebase/Core'
+  pod 'Firebase/Database'
 end

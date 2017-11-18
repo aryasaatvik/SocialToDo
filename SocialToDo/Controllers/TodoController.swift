@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class TodoController:NSObject,UITableViewDataSource {
     //var delegate: TodoControllerDelegate?
@@ -15,7 +16,31 @@ class TodoController:NSObject,UITableViewDataSource {
         super.init()
         //TODO: Load todoLists from storage
     }
-    
+	
+	func fetchMyList(){
+		var ref:DatabaseReference!
+		ref = Database.database().reference()
+		let userID = "F3OWhPHczIUehu7BV7C0mDVCO8Q2" // TODO: Firebase Authentication
+		ref.child("users").child("\(userID)/privateLists").observeSingleEvent(of: .value, with: { (snapshot) in
+			let lists = snapshot.value as! [NSDictionary]
+			print(lists)
+			for list in lists {
+				let tasks = list["tasks"] as! NSArray
+				print(tasks)
+				for task in tasks {
+					let todo = TodoListItem(task as! String)
+					self.currentTodo.add(listItems: [todo])
+				}
+				
+			}
+			
+		}) { (error) in
+			print(error.localizedDescription)
+		}
+
+
+	}
+	
     func addElement(items:TodoListItem...){
         currentTodo.add(listItems: items)
     }

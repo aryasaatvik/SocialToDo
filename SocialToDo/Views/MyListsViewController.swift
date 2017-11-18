@@ -13,12 +13,14 @@ class MyListsViewController: UIViewController {
     var todoControl:TodoController?
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var addTodoField: UITextField!
-	@IBOutlet weak var addTodoButton: AddButton!
+	@IBOutlet weak var addTodoButton: UIButton!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
         todoControl = appDelegate.todoControl
         tableView.dataSource = todoControl
+		todoControl?.fetchMyList()
+		tableView.reloadData()
         //todoControl?.delegate = self
 		// Do any additional setup after loading the view, typically from a nib.
 	}
