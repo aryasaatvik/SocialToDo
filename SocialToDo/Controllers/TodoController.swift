@@ -11,38 +11,47 @@ import FirebaseDatabase
 
 class TodoController:NSObject,UITableViewDataSource {
     //var delegate: TodoControllerDelegate?
-    var currentTodo: TodoList = TodoList(listItems:TodoListItem("Task One",false),TodoListItem("Task Two", true))
+    var currentTodo: TodoList = TodoList()
+	// TODO: Firebase Authentication
+	let userID = "F3OWhPHczIUehu7BV7C0mDVCO8Q2"
+	
     override init(){
         super.init()
         //TODO: Load todoLists from storage
+		fetchMyList()
     }
 	
 	func fetchMyList(){
 		var ref:DatabaseReference!
 		ref = Database.database().reference()
-		let userID = "F3OWhPHczIUehu7BV7C0mDVCO8Q2" // TODO: Firebase Authentication
-		ref.child("users").child("\(userID)/privateLists").observeSingleEvent(of: .value, with: { (snapshot) in
-			let lists = snapshot.value as! [NSDictionary]
-			print(lists)
-			for list in lists {
-				let tasks = list["tasks"] as! NSArray
-				print(tasks)
-				for task in tasks {
-					let todo = TodoListItem(task as! String)
+		ref.child("users/\(userID)/privateLists/0/tasks").observeSingleEvent(of: .value, with: { (snapshot) in
+			let tasks = snapshot.value as! [String]
+			for i in (0..<self.currentTodo.getElements().count){
+				if(tasks[i] != self.currentTodo.getElementAt(atIndex: i).title){
+					let todo = TodoListItem(tasks[i])
 					self.currentTodo.add(listItems: [todo])
 				}
-				
 			}
-			
+			for i in (self.currentTodo.getElements().count..<tasks.count){
+				let todo = TodoListItem(tasks[i])
+				self.currentTodo.add(listItems: [todo])
+			}
 		}) { (error) in
 			print(error.localizedDescription)
 		}
-
-
 	}
 	
     func addElement(items:TodoListItem...){
-        currentTodo.add(listItems: items)
+		var ref:DatabaseReference!
+		ref = Database.database().reference()
+		let tasksRef = ref.child("users/\(userID)/privateLists/0/tasks/")
+		
+		for item in items {
+			let key = tasksRef.child("\(currentTodo.getElements().count)").key
+			let childUpdate = ["users/\(userID)/privateLists/0/tasks/\(key)": item.title]
+			ref.updateChildValues(childUpdate)
+			currentTodo.add(listItems: [item])
+		}
     }
     
     func removeElement(atIndex:Int){

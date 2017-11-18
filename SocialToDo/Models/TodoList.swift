@@ -11,10 +11,11 @@ class TodoList {
     /*A TodoList wrapper so the actual implementation of the TodoList
     could be changed in the future without breaking everything*/
     //Using swift arrays to store the items for now
-    private var todoList:[TodoListItem] = [TodoListItem]()
-    
+    private var todoList:[TodoListItem]
+	
     init(){
         //Returns an empty todolist
+		todoList = [TodoListItem]()
     }
     
     init(listItems:TodoListItem...){
