@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		992D05B3EE5BA0209E8FA780 /* Pods_SocialToDo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841200F7123301917C3F0DD0 /* Pods_SocialToDo.framework */; };
+		C74E9D681FC230C600DC4D45 /* Trash.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74E9D671FC230C600DC4D45 /* Trash.swift */; };
 		C777E17D1FB79BED00EAD4C5 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = C777E17C1FB79BED00EAD4C5 /* Checkbox.swift */; };
 		C777E1811FB7A3A600EAD4C5 /* todoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C777E1801FB7A3A600EAD4C5 /* todoItem.swift */; };
 		C79D23AC1FB7B0BC00DB6B90 /* TodoListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79D23AB1FB7B0BC00DB6B90 /* TodoListItem.swift */; };
@@ -27,6 +28,7 @@
 		21916608D31EE545ADD86C63 /* Pods-SocialToDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialToDo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialToDo/Pods-SocialToDo.release.xcconfig"; sourceTree = "<group>"; };
 		290D148450AC571B74F6E146 /* Pods-SocialToDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialToDo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialToDo/Pods-SocialToDo.debug.xcconfig"; sourceTree = "<group>"; };
 		841200F7123301917C3F0DD0 /* Pods_SocialToDo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialToDo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C74E9D671FC230C600DC4D45 /* Trash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trash.swift; sourceTree = "<group>"; };
 		C777E17C1FB79BED00EAD4C5 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		C777E1801FB7A3A600EAD4C5 /* todoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todoItem.swift; sourceTree = "<group>"; };
 		C79D23AB1FB7B0BC00DB6B90 /* TodoListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TodoListItem.swift; path = SocialToDo/Models/TodoListItem.swift; sourceTree = SOURCE_ROOT; };
@@ -123,6 +125,7 @@
 				C7AB09641FB50D0D0040195E /* MyListsViewController.swift */,
 				C7AB09661FB50D540040195E /* FriendsViewController.swift */,
 				C777E17C1FB79BED00EAD4C5 /* Checkbox.swift */,
+				C74E9D671FC230C600DC4D45 /* Trash.swift */,
 				C777E1801FB7A3A600EAD4C5 /* todoItem.swift */,
 			);
 			path = Views;
@@ -272,6 +275,7 @@
 				C79D23AC1FB7B0BC00DB6B90 /* TodoListItem.swift in Sources */,
 				E9EF071D1FB674660096CBCD /* TodoList.swift in Sources */,
 				C777E17D1FB79BED00EAD4C5 /* Checkbox.swift in Sources */,
+				C74E9D681FC230C600DC4D45 /* Trash.swift in Sources */,
 				C7AB09511FB501F90040195E /* AppDelegate.swift in Sources */,
 				C777E1811FB7A3A600EAD4C5 /* todoItem.swift in Sources */,
 				E9EF071B1FB6644B0096CBCD /* TodoController.swift in Sources */,

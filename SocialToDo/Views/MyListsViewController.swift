@@ -18,11 +18,8 @@ class MyListsViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
         todoControl = appDelegate.todoControl
+		todoControl?.delegate = self
         tableView.dataSource = todoControl
-		todoControl?.fetchMyList()
-		tableView.reloadData()
-        //todoControl?.delegate = self
-		// Do any additional setup after loading the view, typically from a nib.
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -33,9 +30,14 @@ class MyListsViewController: UIViewController {
 	@IBAction func handleAddTodoButton(_ sender: Any) {
 		let todoText = addTodoField.text!
 		todoControl?.addElement(item: TodoListItem(todoText))
-		
 		tableView.reloadData()
 	}
 }
 
+extension MyListsViewController: TodoControllerDelegate {
+	func reloadTableView() {
+		print("RELOAD TABLE VIEW")
+		self.tableView.reloadData()
+	}
+}
 

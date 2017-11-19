@@ -10,7 +10,7 @@ import UIKit
 import FirebaseDatabase
 
 class TodoController:NSObject,UITableViewDataSource {
-    //var delegate: TodoControllerDelegate?
+	var delegate: TodoControllerDelegate?
     var currentTodo: TodoList = TodoList()
 	// TODO: Firebase Authentication
 	let userID = "F3OWhPHczIUehu7BV7C0mDVCO8Q2"
@@ -27,23 +27,16 @@ class TodoController:NSObject,UITableViewDataSource {
 		let tasksRef = ref.child("users/\(userID)/privateLists/0/tasks/")
 		tasksRef.observeSingleEvent(of: .value, with: { (snapshot) in
 			let tasks = snapshot.value as! [[String: String]]
-			for i in (0..<self.currentTodo.getElements().count){
-				let title = tasks[i]["title"]!
-				let checked = (tasks[i]["checked"]! == "true")
-				if(tasks[i]["title"] != self.currentTodo.getElementAt(atIndex: i).title){
-					let todo = TodoListItem(title, checked)
-					self.currentTodo.add(listItems: [todo])
-				}
-			}
-			for i in (self.currentTodo.getElements().count..<tasks.count){
-				let title = tasks[i]["title"]!
-				let checked = (tasks[i]["checked"]! == "true")
+			for task in tasks {
+				let title = task["title"]!
+				let checked = task["checked"]! == "true"
 				let todo = TodoListItem(title, checked)
 				self.currentTodo.add(listItems: [todo])
 			}
 		}) { (error) in
 			print(error.localizedDescription)
 		}
+		self.delegate?.reloadTableView()
 	}
 	
     func addElement(item:TodoListItem){
@@ -56,9 +49,14 @@ class TodoController:NSObject,UITableViewDataSource {
 		currentTodo.add(listItems: [item])
     }
     
-    func removeElement(atIndex:Int){
-        currentTodo.remove(atIndex: atIndex)
-    }
+	@objc func removeElement(trash: Trash){
+        currentTodo.remove(atIndex: trash.index)
+		var ref:DatabaseReference!
+		ref = Database.database().reference()
+		let tasksRef = ref.child("users/\(userID)/privateLists/0/tasks/")
+		tasksRef.child("\(trash.index)").removeValue()
+		self.delegate?.reloadTableView()
+	}
 	
 	@objc func changeValues(checkbox: Checkbox) {
 		var ref:DatabaseReference!
@@ -70,7 +68,6 @@ class TodoController:NSObject,UITableViewDataSource {
 			let todo = currentTodo.getElementAt(atIndex: checkbox.index)
 			let childUpdate = ["\(checkbox.index)/checked": "false"]
 			tasksRef.updateChildValues(childUpdate)
-			
 			todo.isChecked = false
 			
 		}
@@ -97,6 +94,12 @@ class TodoController:NSObject,UITableViewDataSource {
 		cell.checkbox.isSelected = todo.isChecked
 		cell.checkbox.index = indexPath.row
 		cell.checkbox.addTarget(self, action: #selector(changeValues(checkbox:)), for: .touchUpInside)
+		cell.trash.index = indexPath.row
+		cell.trash.addTarget(self, action: #selector(removeElement(trash:)), for: .touchUpInside)
 		return cell
     }
+}
+
+protocol TodoControllerDelegate {
+	func reloadTableView()
 }

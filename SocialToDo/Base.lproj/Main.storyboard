@@ -38,25 +38,35 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SF5-pr-A7t">
-                                                    <rect key="frame" x="81" y="13" width="287" height="50"/>
+                                                    <rect key="frame" x="81" y="13" width="243" height="50"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H5T-bA-vAW" customClass="Trash" customModule="SocialToDo" customModuleProvider="target">
+                                                    <rect key="frame" x="332" y="13" width="36" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="SKB-Yn-Uxl"/>
+                                                        <constraint firstAttribute="width" constant="36" id="twe-fV-2qv"/>
+                                                    </constraints>
+                                                </button>
                                             </subviews>
                                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="jar-sv-osc" firstAttribute="centerY" secondItem="QL5-tQ-aJq" secondAttribute="centerY" id="1rI-Fh-dUJ"/>
                                                 <constraint firstItem="SF5-pr-A7t" firstAttribute="leading" secondItem="jar-sv-osc" secondAttribute="trailing" constant="8" id="3JZ-cm-cav"/>
                                                 <constraint firstItem="SF5-pr-A7t" firstAttribute="centerY" secondItem="QL5-tQ-aJq" secondAttribute="centerY" id="K9D-y2-5if"/>
+                                                <constraint firstItem="H5T-bA-vAW" firstAttribute="leading" secondItem="SF5-pr-A7t" secondAttribute="trailing" constant="8" id="RO8-nr-WQe"/>
                                                 <constraint firstItem="jar-sv-osc" firstAttribute="leading" secondItem="QL5-tQ-aJq" secondAttribute="leadingMargin" constant="8" id="YYb-Aq-AgI"/>
-                                                <constraint firstItem="SF5-pr-A7t" firstAttribute="trailing" secondItem="QL5-tQ-aJq" secondAttribute="trailingMargin" constant="8" id="bM6-Ng-Jnj"/>
                                                 <constraint firstItem="SF5-pr-A7t" firstAttribute="top" secondItem="jar-sv-osc" secondAttribute="top" id="diU-Z2-B8k"/>
+                                                <constraint firstItem="H5T-bA-vAW" firstAttribute="centerY" secondItem="QL5-tQ-aJq" secondAttribute="centerY" id="hFs-sx-ZgD"/>
+                                                <constraint firstItem="H5T-bA-vAW" firstAttribute="trailing" secondItem="QL5-tQ-aJq" secondAttribute="trailingMargin" constant="8" id="zwY-ka-64z"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="checkbox" destination="jar-sv-osc" id="b6k-OX-cif"/>
                                             <outlet property="label" destination="SF5-pr-A7t" id="ID7-sX-Eex"/>
+                                            <outlet property="trash" destination="H5T-bA-vAW" id="CAn-xY-Dip"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

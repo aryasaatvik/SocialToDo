@@ -21,7 +21,7 @@ class TodoListItem {
             return _isChecked
         }
         
-        set {
+		set {
             _isChecked = newValue
         }
     }
