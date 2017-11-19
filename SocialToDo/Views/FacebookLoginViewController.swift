@@ -10,11 +10,15 @@ import UIKit
 import FacebookLogin
 
 class FacebookLoginViewController: UIViewController {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var fbControl:FBController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let loginButton = LoginButton(readPermissions: [.user_friends,.public_profile])
+        fbControl = appDelegate.fbControl
+        let loginButton = LoginButton(readPermissions: [.userFriends,.publicProfile])
         loginButton.center = view.center
+        loginButton.delegate = fbControl
         
         view.addSubview(loginButton)
         // Do any additional setup after loading the view.
@@ -26,7 +30,7 @@ class FacebookLoginViewController: UIViewController {
     }
 
     @IBAction func backPress(_ sender: UIButton) {
-        dismissViewControllerAnimated(flag:true, completion: ()->())
+        dismiss(animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation
@@ -37,5 +41,4 @@ class FacebookLoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

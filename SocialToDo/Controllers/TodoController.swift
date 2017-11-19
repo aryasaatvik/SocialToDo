@@ -10,7 +10,6 @@ import UIKit
 import FirebaseDatabase
 
 class TodoController:NSObject,UITableViewDataSource {
-    //var delegate: TodoControllerDelegate?
     var currentTodo: TodoList = TodoList()
 	// TODO: Firebase Authentication
 	let userID = "F3OWhPHczIUehu7BV7C0mDVCO8Q2"
@@ -21,7 +20,7 @@ class TodoController:NSObject,UITableViewDataSource {
 		fetchMyList()
     }
 	
-	func fetchMyList(){
+    func fetchMyList(){
 		var ref:DatabaseReference!
 		ref = Database.database().reference()
 		let tasksRef = ref.child("users/\(userID)/privateLists/0/tasks/")

@@ -21,6 +21,7 @@ class MyListsViewController: UIViewController, FBControllerDelegate {
         todoControl = appDelegate.todoControl
         fbControl = appDelegate.fbControl
         fbControl?.delegate = self
+        fbControl?.checkLogin()
         tableView.dataSource = todoControl
 		todoControl?.fetchMyList()
 		tableView.reloadData()
@@ -40,8 +41,8 @@ class MyListsViewController: UIViewController, FBControllerDelegate {
 	}
     
     func promptFacebookLogin() {
-        presentViewController(FacebookLoginViewController,animated:true)
-    }
-}
+        let facebookLoginViewController = storyboard?.instantiateViewController(withIdentifier: "Facebook Login")
+        present(facebookLoginViewController!, animated: true, completion: nil)
+    }}
 
 
