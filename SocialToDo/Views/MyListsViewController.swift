@@ -8,9 +8,10 @@
 
 import UIKit
 
-class MyListsViewController: UIViewController {
+class MyListsViewController: UIViewController, FBControllerDelegate {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var todoControl:TodoController?
+    var fbControl:FBController?
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var addTodoField: UITextField!
 	@IBOutlet weak var addTodoButton: UIButton!
@@ -18,10 +19,11 @@ class MyListsViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
         todoControl = appDelegate.todoControl
+        fbControl = appDelegate.fbControl
+        fbControl?.delegate = self
         tableView.dataSource = todoControl
 		todoControl?.fetchMyList()
 		tableView.reloadData()
-        //todoControl?.delegate = self
 		// Do any additional setup after loading the view, typically from a nib.
 	}
 	
@@ -36,6 +38,10 @@ class MyListsViewController: UIViewController {
 		
 		tableView.reloadData()
 	}
+    
+    func promptFacebookLogin() {
+        presentViewController(FacebookLoginViewController,animated:true)
+    }
 }
 
 

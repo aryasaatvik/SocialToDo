@@ -8,4 +8,7 @@ target 'SocialToDo' do
   # Pods for SocialToDo
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'Firebase/Auth'
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
 end

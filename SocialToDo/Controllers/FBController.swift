@@ -7,3 +7,23 @@
 //
 
 import Foundation
+import FirebaseAuth
+import FacebookLogin
+
+protocol FBControllerDelegate {
+    func promptFacebookLogin()
+}
+
+class FBController{
+    var delegate:FBControllerDelegate?
+    
+    init(){
+        
+    }
+    
+    func checkLogin(){
+        if (AccessToken.current == null){
+            delegate.promptFacebookLogin()
+        }
+    }
+}

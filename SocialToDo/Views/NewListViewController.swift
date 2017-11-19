@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewListViewController: UIViewController {
+class NewListViewController: UIViewController, FBControllerDelegate {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -19,6 +19,8 @@ class NewListViewController: UIViewController {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
+    
+    
 
 
 }
