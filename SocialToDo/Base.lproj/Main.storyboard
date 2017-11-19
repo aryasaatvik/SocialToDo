@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bUd-Yq-v6D">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bUd-Yq-v6D">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,7 +30,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jar-sv-osc" customClass="Checkbox" customModule="SocialToDo" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="13" width="50" height="50"/>
+                                                    <rect key="frame" x="23" y="13" width="50" height="50"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="WNE-W5-t6w"/>
@@ -38,7 +38,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SF5-pr-A7t">
-                                                    <rect key="frame" x="74" y="13" width="301" height="50"/>
+                                                    <rect key="frame" x="81" y="13" width="287" height="50"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -76,6 +76,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.76862745099999996" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="5gz-eE-oAQ"/>
                                     <constraint firstItem="qJH-UE-hB5" firstAttribute="centerX" secondItem="nQ7-IF-xSa" secondAttribute="centerX" id="CYp-0a-zyP"/>
                                     <constraint firstItem="qJH-UE-hB5" firstAttribute="leading" secondItem="nQ7-IF-xSa" secondAttribute="leading" constant="8" id="JeM-CE-YBo"/>
                                     <constraint firstItem="qJH-UE-hB5" firstAttribute="centerY" secondItem="nQ7-IF-xSa" secondAttribute="centerY" id="hOn-Od-9vS"/>
@@ -119,7 +120,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="8iw-Gc-WkC" firstAttribute="bottom" secondItem="nQ7-IF-xSa" secondAttribute="bottom" constant="538" id="0HS-Oq-KSf"/>
                             <constraint firstItem="nQ7-IF-xSa" firstAttribute="leading" secondItem="8iw-Gc-WkC" secondAttribute="leading" id="1og-AG-2XR"/>
                             <constraint firstItem="mKc-90-D6w" firstAttribute="leading" secondItem="8iw-Gc-WkC" secondAttribute="leading" id="7Z4-mb-RSL"/>
                             <constraint firstItem="nQ7-IF-xSa" firstAttribute="top" secondItem="MO5-pz-47m" secondAttribute="top" id="JIH-wE-i5B"/>
@@ -250,7 +250,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kMb-fj-F1A" customClass="Checkbox" customModule="SocialToDo" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="10" width="25" height="25"/>
+                                                    <rect key="frame" x="23" y="10" width="25" height="25"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="25" id="Cu7-RK-ory"/>
@@ -258,7 +258,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMB-Ep-NE5">
-                                                    <rect key="frame" x="49" y="11" width="318" height="21"/>
+                                                    <rect key="frame" x="56" y="11" width="311" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
