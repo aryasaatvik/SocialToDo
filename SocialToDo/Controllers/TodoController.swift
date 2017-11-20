@@ -50,11 +50,11 @@ class TodoController:NSObject,UITableViewDataSource {
     }
     
 	@objc func removeElement(trash: Trash){
-        currentTodo.remove(atIndex: trash.index)
 		var ref:DatabaseReference!
 		ref = Database.database().reference()
 		let tasksRef = ref.child("users/\(userID)/privateLists/0/tasks/")
 		tasksRef.child("\(trash.index)").removeValue()
+		currentTodo.remove(atIndex: trash.index)
 		self.delegate?.reloadTableView()
 	}
 	

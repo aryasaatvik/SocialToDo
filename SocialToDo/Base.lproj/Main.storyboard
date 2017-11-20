@@ -96,14 +96,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G9e-NZ-KUe">
                                 <rect key="frame" x="0.0" y="563" width="375" height="55"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Todo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8cj-Z1-zHl">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Todo" textAlignment="natural" minimumFontSize="18" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8cj-Z1-zHl">
                                         <rect key="frame" x="8" y="2.5" width="301" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="kyC-k9-1S0"/>
                                         </constraints>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QH7-xH-uAf">
                                         <rect key="frame" x="317" y="2.5" width="50" height="50"/>
@@ -147,6 +147,7 @@
                     <connections>
                         <outlet property="addTodoButton" destination="QH7-xH-uAf" id="1Hj-DP-3hh"/>
                         <outlet property="addTodoField" destination="8cj-Z1-zHl" id="s7e-Ta-yuc"/>
+                        <outlet property="keyboardHeightLayoutConstraint" destination="SXr-rt-Kka" id="idn-iK-U8r"/>
                         <outlet property="tableView" destination="mKc-90-D6w" id="Kr4-uY-Pj9"/>
                     </connections>
                 </viewController>
