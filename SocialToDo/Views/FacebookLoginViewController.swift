@@ -16,7 +16,7 @@ class FacebookLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fbControl = appDelegate.fbControl
-        let loginButton = LoginButton(readPermissions: [.userFriends,.publicProfile])
+        let loginButton = LoginButton(readPermissions: [.userFriends,.publicProfile,.email])
         loginButton.center = view.center
         loginButton.delegate = fbControl
         
