@@ -25,7 +25,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mKc-90-D6w">
-                                <rect key="frame" x="0.0" y="80" width="375" height="483"/>
+                                <rect key="frame" x="0.0" y="80" width="375" height="439"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="todoItem" rowHeight="75" id="6bN-vw-Mn2" customClass="todoItem" customModule="SocialToDo" customModuleProvider="target">
@@ -89,18 +89,27 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E5l-C4-gPT">
+                                        <rect key="frame" x="312" y="25" width="55" height="30"/>
+                                        <state key="normal" title="Log Out"/>
+                                        <connections>
+                                            <action selector="handleLogoutButton:" destination="8ia-gI-IJi" eventType="touchUpInside" id="z9b-Xd-6Dm"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.76862745099999996" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="5gz-eE-oAQ"/>
                                     <constraint firstItem="qJH-UE-hB5" firstAttribute="centerX" secondItem="nQ7-IF-xSa" secondAttribute="centerX" id="CYp-0a-zyP"/>
+                                    <constraint firstAttribute="trailing" secondItem="E5l-C4-gPT" secondAttribute="trailing" constant="8" id="DzO-TF-1nL"/>
+                                    <constraint firstItem="E5l-C4-gPT" firstAttribute="centerY" secondItem="nQ7-IF-xSa" secondAttribute="centerY" id="Hfw-2z-nbS"/>
                                     <constraint firstItem="qJH-UE-hB5" firstAttribute="leading" secondItem="nQ7-IF-xSa" secondAttribute="leading" constant="8" id="JeM-CE-YBo"/>
                                     <constraint firstItem="qJH-UE-hB5" firstAttribute="centerY" secondItem="nQ7-IF-xSa" secondAttribute="centerY" id="hOn-Od-9vS"/>
                                     <constraint firstAttribute="trailing" secondItem="qJH-UE-hB5" secondAttribute="trailing" constant="8" id="qGe-QY-KI6"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G9e-NZ-KUe">
-                                <rect key="frame" x="0.0" y="563" width="375" height="55"/>
+                                <rect key="frame" x="0.0" y="519" width="375" height="55"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Todo" textAlignment="natural" minimumFontSize="18" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8cj-Z1-zHl">
                                         <rect key="frame" x="8" y="2.5" width="301" height="50"/>
@@ -150,6 +159,8 @@
                         <viewLayoutGuide key="safeArea" id="8iw-Gc-WkC"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="My Lists" id="A58-oH-S3B"/>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addTodoButton" destination="QH7-xH-uAf" id="1Hj-DP-3hh"/>
                         <outlet property="addTodoField" destination="8cj-Z1-zHl" id="s7e-Ta-yuc"/>
@@ -230,9 +241,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fLk-d3-jbS"/>
                     </view>
-                    <connections>
-                        <outlet property="loginButton" destination="EA7-vg-xw4" id="2Le-bo-FzF"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mMH-rW-Mbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -392,6 +400,8 @@
         <scene sceneID="QKc-CQ-Zny">
             <objects>
                 <tabBarController storyboardIdentifier="tabBarVC" id="bUd-Yq-v6D" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cTq-hT-wXc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

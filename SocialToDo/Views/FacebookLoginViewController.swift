@@ -13,12 +13,9 @@ class FacebookLoginViewController: UIViewController {
 	let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var fbControl:FBController?
 	
-	@IBOutlet weak var loginButton: UIButton!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         fbControl = appDelegate.fbControl
-	
 	}
 
     override func didReceiveMemoryWarning() {

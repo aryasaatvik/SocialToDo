@@ -21,7 +21,7 @@ class NewListViewController: UIViewController, FBControllerDelegate {
 	}
     
     func promptFacebookLogin() {
-        let facebookLoginViewController = storyboard?.instantiateViewController(withIdentifier: "Facebook Login")
+        let facebookLoginViewController = storyboard?.instantiateViewController(withIdentifier: "FacebookLogin")
         present(facebookLoginViewController!, animated: true, completion: nil)
     }
 }

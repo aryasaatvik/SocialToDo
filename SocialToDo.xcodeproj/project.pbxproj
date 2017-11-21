@@ -96,12 +96,21 @@
 				E9EF07171FB6640A0096CBCD /* Models */,
 				C7AB09501FB501F90040195E /* AppDelegate.swift */,
 				C7AB09541FB501F90040195E /* Main.storyboard */,
-				C7AB09571FB501F90040195E /* Assets.xcassets */,
 				C7AB09591FB501F90040195E /* LaunchScreen.storyboard */,
+				C7AB09571FB501F90040195E /* Assets.xcassets */,
 				C7EE57931FBF692A00840821 /* GoogleService-Info.plist */,
 				C7AB095C1FB501F90040195E /* Info.plist */,
 			);
 			path = SocialToDo;
+			sourceTree = "<group>";
+		};
+		C7B070901FC4D83300AD648D /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				C777E17C1FB79BED00EAD4C5 /* Checkbox.swift */,
+				C74E9D671FC230C600DC4D45 /* Trash.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		C85D750D1C19B628EAC6E394 /* Pods */ = {
@@ -125,12 +134,11 @@
 		E9EF07181FB6641C0096CBCD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C7B070901FC4D83300AD648D /* Buttons */,
 				C7AB09521FB501F90040195E /* NewListViewController.swift */,
 				E953CED81FC107D000FDDF91 /* FacebookLoginViewController.swift */,
 				C7AB09641FB50D0D0040195E /* MyListsViewController.swift */,
 				C7AB09661FB50D540040195E /* FriendsViewController.swift */,
-				C777E17C1FB79BED00EAD4C5 /* Checkbox.swift */,
-				C74E9D671FC230C600DC4D45 /* Trash.swift */,
 				C777E1801FB7A3A600EAD4C5 /* todoItem.swift */,
 			);
 			path = Views;

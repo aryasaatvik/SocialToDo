@@ -72,14 +72,17 @@ class MyListsViewController: UIViewController, UITextFieldDelegate, FBController
         tableView.reloadData()
     }
     
-    func promptFacebookLogin() {
+	@IBAction func handleLogoutButton(_ sender: Any) {
+		fbControl?.logout(vc: self)
+	}
+	
+	func promptFacebookLogin() {
         let facebookLoginViewController = storyboard?.instantiateViewController(withIdentifier: "FacebookLogin")
         present(facebookLoginViewController!, animated: true, completion: nil)
     }}
 
 extension MyListsViewController: TodoControllerDelegate {
     func reloadTableView() {
-        print("RELOAD TABLE VIEW")
         self.tableView.reloadData()
     }
 }

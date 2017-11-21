@@ -19,14 +19,9 @@ protocol FBControllerDelegate {
 class FBController{
     var loggedIn = false
     var delegate:FBControllerDelegate?
-    var accessToken:AccessToken?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    var todoControl:TodoController?
-    
-    init(){
-        todoControl = appDelegate.todoControl
-    }
-    
+	
+
     func checkLogin(){
         if (!loggedIn){
             delegate!.promptFacebookLogin()
@@ -42,7 +37,6 @@ class FBController{
 			case .cancelled:
 				print("User cancelled login.")
 			case .success(let grantedPermissions, let declinedPermissions, let fbAccessToken):
-				self.accessToken = fbAccessToken
 				let credential = FacebookAuthProvider.credential(withAccessToken: fbAccessToken.authenticationToken)
 				// login to firebase
 				Auth.auth().signIn(with: credential, completion: { (user, error) in
@@ -98,6 +92,9 @@ class FBController{
 					}
 					connection.start()
 					
+					// initialize MyLists TodoController
+					self.appDelegate.todoControl = TodoController()
+					
 					// segue to tabbarcontroller
 					let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
 					if let tabBarVC = storyboard.instantiateViewController(withIdentifier: "tabBarVC") as? UITabBarController {
@@ -108,8 +105,25 @@ class FBController{
 		}
 	}
     
-    func logout() {
-        accessToken = nil
-        loggedIn = false
+	func logout(vc: UIViewController) {
+		let loginManager = LoginManager()
+		loginManager.logOut()
+		
+		// TODO:// firebase logout
+		do {
+			try Auth.auth().signOut()
+		} catch let signOutError as NSError {
+			print("Error signing out: \(signOutError)")
+		}
+		
+		loggedIn = false
+		
+		// TODO:// present loginvc
+		
+		let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+		let loginVC = storyboard.instantiateViewController(withIdentifier: "FacebookLogin")
+		vc.present(loginVC, animated: true, completion: nil)
+		
+
     }
 }

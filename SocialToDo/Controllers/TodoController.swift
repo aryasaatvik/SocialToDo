@@ -10,14 +10,12 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-class TodoController:NSObject,UITableViewDataSource {
+class TodoController: NSObject, UITableViewDataSource {
 	var delegate: TodoControllerDelegate?
     var currentTodo: TodoList = TodoList()
-	// TODO: Firebase Authentication
-	// let userID = "F3OWhPHczIUehu7BV7C0mDVCO8Q2"
 	var userID: String
-	var ref:DatabaseReference!
-	var tasksRef:DatabaseReference!
+	var ref: DatabaseReference!
+	var tasksRef: DatabaseReference!
 	
     override init(){
 		userID = (Auth.auth().currentUser?.uid)!
