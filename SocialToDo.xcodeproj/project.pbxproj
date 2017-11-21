@@ -1,495 +1,494 @@
 // !$*UTF8*$!
 {
-    archiveVersion = 1;
-    classes = {
-    };
-    objectVersion = 48;
-    objects = {
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
 
 /* Begin PBXBuildFile section */
-		992D05B3EE5BA0209E8FA780 /* Pods_SocialToDo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841200F7123301917C3F0DD0 /* Pods_SocialToDo.framework */; };
 		C74E9D681FC230C600DC4D45 /* Trash.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74E9D671FC230C600DC4D45 /* Trash.swift */; };
-        C777E17D1FB79BED00EAD4C5 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = C777E17C1FB79BED00EAD4C5 /* Checkbox.swift */; };
-        C777E1811FB7A3A600EAD4C5 /* todoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C777E1801FB7A3A600EAD4C5 /* todoItem.swift */; };
-        C79D23AC1FB7B0BC00DB6B90 /* TodoListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79D23AB1FB7B0BC00DB6B90 /* TodoListItem.swift */; };
-        C7AB09511FB501F90040195E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB09501FB501F90040195E /* AppDelegate.swift */; };
-        C7AB09531FB501F90040195E /* NewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB09521FB501F90040195E /* NewListViewController.swift */; };
-        C7AB09561FB501F90040195E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7AB09541FB501F90040195E /* Main.storyboard */; };
-        C7AB09581FB501F90040195E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7AB09571FB501F90040195E /* Assets.xcassets */; };
-        C7AB095B1FB501F90040195E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7AB09591FB501F90040195E /* LaunchScreen.storyboard */; };
-        C7AB09651FB50D0D0040195E /* MyListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB09641FB50D0D0040195E /* MyListsViewController.swift */; };
-        C7AB09671FB50D540040195E /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB09661FB50D540040195E /* FriendsViewController.swift */; };
-        C7EE57941FBF692A00840821 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C7EE57931FBF692A00840821 /* GoogleService-Info.plist */; };
-        E953CED91FC107D000FDDF91 /* FacebookLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E953CED81FC107D000FDDF91 /* FacebookLoginViewController.swift */; };
-        E99A1F701FC0A1E800E0E8AA /* FBController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99A1F6F1FC0A1E800E0E8AA /* FBController.swift */; };
-        E9EF071B1FB6644B0096CBCD /* TodoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EF071A1FB6644B0096CBCD /* TodoController.swift */; };
-        E9EF071D1FB674660096CBCD /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EF071C1FB674660096CBCD /* TodoList.swift */; };
+		C777E17D1FB79BED00EAD4C5 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = C777E17C1FB79BED00EAD4C5 /* Checkbox.swift */; };
+		C777E1811FB7A3A600EAD4C5 /* todoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C777E1801FB7A3A600EAD4C5 /* todoItem.swift */; };
+		C79D23AC1FB7B0BC00DB6B90 /* TodoListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79D23AB1FB7B0BC00DB6B90 /* TodoListItem.swift */; };
+		C7AB09511FB501F90040195E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB09501FB501F90040195E /* AppDelegate.swift */; };
+		C7AB09531FB501F90040195E /* NewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB09521FB501F90040195E /* NewListViewController.swift */; };
+		C7AB09561FB501F90040195E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7AB09541FB501F90040195E /* Main.storyboard */; };
+		C7AB09581FB501F90040195E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7AB09571FB501F90040195E /* Assets.xcassets */; };
+		C7AB095B1FB501F90040195E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7AB09591FB501F90040195E /* LaunchScreen.storyboard */; };
+		C7AB09651FB50D0D0040195E /* MyListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB09641FB50D0D0040195E /* MyListsViewController.swift */; };
+		C7AB09671FB50D540040195E /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB09661FB50D540040195E /* FriendsViewController.swift */; };
+		C7EE57941FBF692A00840821 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C7EE57931FBF692A00840821 /* GoogleService-Info.plist */; };
+		E953CED91FC107D000FDDF91 /* FacebookLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E953CED81FC107D000FDDF91 /* FacebookLoginViewController.swift */; };
+		E99A1F701FC0A1E800E0E8AA /* FBController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99A1F6F1FC0A1E800E0E8AA /* FBController.swift */; };
+		E9EF071B1FB6644B0096CBCD /* TodoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EF071A1FB6644B0096CBCD /* TodoController.swift */; };
+		E9EF071D1FB674660096CBCD /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EF071C1FB674660096CBCD /* TodoList.swift */; };
+		F1A4EB4F1DC6E788CC761504 /* Pods_SocialToDo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2342B2372430E41BF44EC3 /* Pods_SocialToDo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		21916608D31EE545ADD86C63 /* Pods-SocialToDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialToDo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialToDo/Pods-SocialToDo.release.xcconfig"; sourceTree = "<group>"; };
-		290D148450AC571B74F6E146 /* Pods-SocialToDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialToDo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialToDo/Pods-SocialToDo.debug.xcconfig"; sourceTree = "<group>"; };
-		841200F7123301917C3F0DD0 /* Pods_SocialToDo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialToDo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2097AD559D73D5438FDA6227 /* Pods-SocialToDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialToDo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialToDo/Pods-SocialToDo.release.xcconfig"; sourceTree = "<group>"; };
+		9B2342B2372430E41BF44EC3 /* Pods_SocialToDo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialToDo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C74E9D671FC230C600DC4D45 /* Trash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trash.swift; sourceTree = "<group>"; };
-        C777E17C1FB79BED00EAD4C5 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
-        C777E1801FB7A3A600EAD4C5 /* todoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todoItem.swift; sourceTree = "<group>"; };
-        C79D23AB1FB7B0BC00DB6B90 /* TodoListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TodoListItem.swift; path = SocialToDo/Models/TodoListItem.swift; sourceTree = SOURCE_ROOT; };
-        C7AB094D1FB501F90040195E /* SocialToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-        C7AB09501FB501F90040195E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-        C7AB09521FB501F90040195E /* NewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListViewController.swift; sourceTree = "<group>"; };
-        C7AB09551FB501F90040195E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-        C7AB09571FB501F90040195E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-        C7AB095A1FB501F90040195E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-        C7AB095C1FB501F90040195E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-        C7AB09641FB50D0D0040195E /* MyListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListsViewController.swift; sourceTree = "<group>"; };
-        C7AB09661FB50D540040195E /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
-        C7EE57931FBF692A00840821 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-        DFAC99766192C08585D4E5A4 /* Pods-SocialToDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialToDo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialToDo/Pods-SocialToDo.debug.xcconfig"; sourceTree = "<group>"; };
-        E953CED81FC107D000FDDF91 /* FacebookLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookLoginViewController.swift; sourceTree = "<group>"; };
-        E99A1F6F1FC0A1E800E0E8AA /* FBController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBController.swift; sourceTree = "<group>"; };
-        E9EF071A1FB6644B0096CBCD /* TodoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoController.swift; sourceTree = "<group>"; };
-        E9EF071C1FB674660096CBCD /* TodoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
+		C777E17C1FB79BED00EAD4C5 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
+		C777E1801FB7A3A600EAD4C5 /* todoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todoItem.swift; sourceTree = "<group>"; };
+		C79D23AB1FB7B0BC00DB6B90 /* TodoListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TodoListItem.swift; path = SocialToDo/Models/TodoListItem.swift; sourceTree = SOURCE_ROOT; };
+		C7AB094D1FB501F90040195E /* SocialToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7AB09501FB501F90040195E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C7AB09521FB501F90040195E /* NewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListViewController.swift; sourceTree = "<group>"; };
+		C7AB09551FB501F90040195E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C7AB09571FB501F90040195E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C7AB095A1FB501F90040195E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C7AB095C1FB501F90040195E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7AB09641FB50D0D0040195E /* MyListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListsViewController.swift; sourceTree = "<group>"; };
+		C7AB09661FB50D540040195E /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		C7EE57931FBF692A00840821 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DFAC99766192C08585D4E5A4 /* Pods-SocialToDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialToDo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialToDo/Pods-SocialToDo.debug.xcconfig"; sourceTree = "<group>"; };
+		E953CED81FC107D000FDDF91 /* FacebookLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookLoginViewController.swift; sourceTree = "<group>"; };
+		E99A1F6F1FC0A1E800E0E8AA /* FBController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBController.swift; sourceTree = "<group>"; };
+		E9EF071A1FB6644B0096CBCD /* TodoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoController.swift; sourceTree = "<group>"; };
+		E9EF071C1FB674660096CBCD /* TodoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-        C7AB094A1FB501F90040195E /* Frameworks */ = {
-            isa = PBXFrameworksBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-                199F4D81B88339DF16A1FCC3 /* Pods_SocialToDo.framework in Frameworks */,
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
+		C7AB094A1FB501F90040195E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1A4EB4F1DC6E788CC761504 /* Pods_SocialToDo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-        4D4490EEF86980EEE3A94ED2 /* Frameworks */ = {
-            isa = PBXGroup;
-            children = (
-                1A77B4CFFE67989F54FFE6A7 /* Pods_SocialToDo.framework */,
-            );
-            name = Frameworks;
-            sourceTree = "<group>";
-        };
-        C7AB09441FB501F90040195E = {
-            isa = PBXGroup;
-            children = (
-                C7AB094F1FB501F90040195E /* SocialToDo */,
-                C7AB094E1FB501F90040195E /* Products */,
-                C85D750D1C19B628EAC6E394 /* Pods */,
-                4D4490EEF86980EEE3A94ED2 /* Frameworks */,
-            );
-            sourceTree = "<group>";
-        };
-        C7AB094E1FB501F90040195E /* Products */ = {
-            isa = PBXGroup;
-            children = (
-                C7AB094D1FB501F90040195E /* SocialToDo.app */,
-            );
-            name = Products;
-            sourceTree = "<group>";
-        };
-        C7AB094F1FB501F90040195E /* SocialToDo */ = {
-            isa = PBXGroup;
-            children = (
-                E9EF07191FB664230096CBCD /* Controllers */,
-                E9EF07181FB6641C0096CBCD /* Views */,
-                E9EF07171FB6640A0096CBCD /* Models */,
-                C7AB09501FB501F90040195E /* AppDelegate.swift */,
-                C7AB09541FB501F90040195E /* Main.storyboard */,
-                C7AB09571FB501F90040195E /* Assets.xcassets */,
-                C7AB09591FB501F90040195E /* LaunchScreen.storyboard */,
-                C7EE57931FBF692A00840821 /* GoogleService-Info.plist */,
-                C7AB095C1FB501F90040195E /* Info.plist */,
-            );
-            path = SocialToDo;
-            sourceTree = "<group>";
-        };
-        C85D750D1C19B628EAC6E394 /* Pods */ = {
-            isa = PBXGroup;
-            children = (
-                DFAC99766192C08585D4E5A4 /* Pods-SocialToDo.debug.xcconfig */,
-                782AD3FF9E2CE024C47DA74B /* Pods-SocialToDo.release.xcconfig */,
-            );
-            name = Pods;
-            sourceTree = "<group>";
-        };
-        E9EF07171FB6640A0096CBCD /* Models */ = {
-            isa = PBXGroup;
-            children = (
-                E9EF071C1FB674660096CBCD /* TodoList.swift */,
-                C79D23AB1FB7B0BC00DB6B90 /* TodoListItem.swift */,
-            );
-            path = Models;
-            sourceTree = "<group>";
-        };
-        E9EF07181FB6641C0096CBCD /* Views */ = {
-            isa = PBXGroup;
-            children = (
-                C7AB09521FB501F90040195E /* NewListViewController.swift */,
-                E953CED81FC107D000FDDF91 /* FacebookLoginViewController.swift */,
-                C7AB09641FB50D0D0040195E /* MyListsViewController.swift */,
-                C7AB09661FB50D540040195E /* FriendsViewController.swift */,
-                C777E17C1FB79BED00EAD4C5 /* Checkbox.swift */,
-                C74E9D671FC230C600DC4D45 /* Trash.swift */,
-                C777E1801FB7A3A600EAD4C5 /* todoItem.swift */,
-            );
-            path = Views;
-            sourceTree = "<group>";
-        };
-        E9EF07191FB664230096CBCD /* Controllers */ = {
-            isa = PBXGroup;
-            children = (
-                E9EF071A1FB6644B0096CBCD /* TodoController.swift */,
-                E99A1F6F1FC0A1E800E0E8AA /* FBController.swift */,
-            );
-            path = Controllers;
-            sourceTree = "<group>";
-        };
+		4D4490EEF86980EEE3A94ED2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B2342B2372430E41BF44EC3 /* Pods_SocialToDo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C7AB09441FB501F90040195E = {
+			isa = PBXGroup;
+			children = (
+				C7AB094F1FB501F90040195E /* SocialToDo */,
+				C7AB094E1FB501F90040195E /* Products */,
+				C85D750D1C19B628EAC6E394 /* Pods */,
+				4D4490EEF86980EEE3A94ED2 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C7AB094E1FB501F90040195E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7AB094D1FB501F90040195E /* SocialToDo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C7AB094F1FB501F90040195E /* SocialToDo */ = {
+			isa = PBXGroup;
+			children = (
+				E9EF07191FB664230096CBCD /* Controllers */,
+				E9EF07181FB6641C0096CBCD /* Views */,
+				E9EF07171FB6640A0096CBCD /* Models */,
+				C7AB09501FB501F90040195E /* AppDelegate.swift */,
+				C7AB09541FB501F90040195E /* Main.storyboard */,
+				C7AB09571FB501F90040195E /* Assets.xcassets */,
+				C7AB09591FB501F90040195E /* LaunchScreen.storyboard */,
+				C7EE57931FBF692A00840821 /* GoogleService-Info.plist */,
+				C7AB095C1FB501F90040195E /* Info.plist */,
+			);
+			path = SocialToDo;
+			sourceTree = "<group>";
+		};
+		C85D750D1C19B628EAC6E394 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DFAC99766192C08585D4E5A4 /* Pods-SocialToDo.debug.xcconfig */,
+				2097AD559D73D5438FDA6227 /* Pods-SocialToDo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E9EF07171FB6640A0096CBCD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E9EF071C1FB674660096CBCD /* TodoList.swift */,
+				C79D23AB1FB7B0BC00DB6B90 /* TodoListItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E9EF07181FB6641C0096CBCD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C7AB09521FB501F90040195E /* NewListViewController.swift */,
+				E953CED81FC107D000FDDF91 /* FacebookLoginViewController.swift */,
+				C7AB09641FB50D0D0040195E /* MyListsViewController.swift */,
+				C7AB09661FB50D540040195E /* FriendsViewController.swift */,
+				C777E17C1FB79BED00EAD4C5 /* Checkbox.swift */,
+				C74E9D671FC230C600DC4D45 /* Trash.swift */,
+				C777E1801FB7A3A600EAD4C5 /* todoItem.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E9EF07191FB664230096CBCD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E9EF071A1FB6644B0096CBCD /* TodoController.swift */,
+				E99A1F6F1FC0A1E800E0E8AA /* FBController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-        C7AB094C1FB501F90040195E /* SocialToDo */ = {
-            isa = PBXNativeTarget;
-            buildConfigurationList = C7AB095F1FB501FA0040195E /* Build configuration list for PBXNativeTarget "SocialToDo" */;
-            buildPhases = (
-                AF520B90B147A9584BBC996C /* [CP] Check Pods Manifest.lock */,
-                C7AB09491FB501F90040195E /* Sources */,
-                C7AB094A1FB501F90040195E /* Frameworks */,
-                C7AB094B1FB501F90040195E /* Resources */,
-                01EE714AD2726E801220381A /* [CP] Embed Pods Frameworks */,
-                42FEF4532E09BDABAD352B0C /* [CP] Copy Pods Resources */,
-            );
-            buildRules = (
-            );
-            dependencies = (
-            );
-            name = SocialToDo;
-            productName = SocialToDo;
-            productReference = C7AB094D1FB501F90040195E /* SocialToDo.app */;
-            productType = "com.apple.product-type.application";
-        };
+		C7AB094C1FB501F90040195E /* SocialToDo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7AB095F1FB501FA0040195E /* Build configuration list for PBXNativeTarget "SocialToDo" */;
+			buildPhases = (
+				AF520B90B147A9584BBC996C /* [CP] Check Pods Manifest.lock */,
+				C7AB09491FB501F90040195E /* Sources */,
+				C7AB094A1FB501F90040195E /* Frameworks */,
+				C7AB094B1FB501F90040195E /* Resources */,
+				01EE714AD2726E801220381A /* [CP] Embed Pods Frameworks */,
+				42FEF4532E09BDABAD352B0C /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SocialToDo;
+			productName = SocialToDo;
+			productReference = C7AB094D1FB501F90040195E /* SocialToDo.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-        C7AB09451FB501F90040195E /* Project object */ = {
-            isa = PBXProject;
-            attributes = {
-                LastSwiftUpdateCheck = 0900;
-                LastUpgradeCheck = 0900;
-                ORGANIZATIONNAME = "Saatvik Arya";
-                TargetAttributes = {
-                    C7AB094C1FB501F90040195E = {
-                        CreatedOnToolsVersion = 9.0;
-                        ProvisioningStyle = Automatic;
-                    };
-                };
-            };
-            buildConfigurationList = C7AB09481FB501F90040195E /* Build configuration list for PBXProject "SocialToDo" */;
-            compatibilityVersion = "Xcode 8.0";
-            developmentRegion = en;
-            hasScannedForEncodings = 0;
-            knownRegions = (
-                en,
-                Base,
-            );
-            mainGroup = C7AB09441FB501F90040195E;
-            productRefGroup = C7AB094E1FB501F90040195E /* Products */;
-            projectDirPath = "";
-            projectRoot = "";
-            targets = (
-                C7AB094C1FB501F90040195E /* SocialToDo */,
-            );
-        };
+		C7AB09451FB501F90040195E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Saatvik Arya";
+				TargetAttributes = {
+					C7AB094C1FB501F90040195E = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = C7AB09481FB501F90040195E /* Build configuration list for PBXProject "SocialToDo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C7AB09441FB501F90040195E;
+			productRefGroup = C7AB094E1FB501F90040195E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C7AB094C1FB501F90040195E /* SocialToDo */,
+			);
+		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-        C7AB094B1FB501F90040195E /* Resources */ = {
-            isa = PBXResourcesBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-                C7AB095B1FB501F90040195E /* LaunchScreen.storyboard in Resources */,
-                C7EE57941FBF692A00840821 /* GoogleService-Info.plist in Resources */,
-                C7AB09581FB501F90040195E /* Assets.xcassets in Resources */,
-                C7AB09561FB501F90040195E /* Main.storyboard in Resources */,
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
+		C7AB094B1FB501F90040195E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7AB095B1FB501F90040195E /* LaunchScreen.storyboard in Resources */,
+				C7EE57941FBF692A00840821 /* GoogleService-Info.plist in Resources */,
+				C7AB09581FB501F90040195E /* Assets.xcassets in Resources */,
+				C7AB09561FB501F90040195E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-        01EE714AD2726E801220381A /* [CP] Embed Pods Frameworks */ = {
-            isa = PBXShellScriptBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-            );
-            inputPaths = (
-                "${SRCROOT}/Pods/Target Support Files/Pods-SocialToDo/Pods-SocialToDo-frameworks.sh",
-                "${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
-                "${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-                "${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
-                "${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
-                "${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
-                "${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-                "${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-                "${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-                "${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-            );
-            name = "[CP] Embed Pods Frameworks";
-            outputPaths = (
-                "${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-                "${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-                "${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
-                "${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
-                "${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
-                "${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-                "${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-                "${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-                "${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-            shellPath = /bin/sh;
-            shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialToDo/Pods-SocialToDo-frameworks.sh\"\n";
-            showEnvVarsInLog = 0;
-        };
-        42FEF4532E09BDABAD352B0C /* [CP] Copy Pods Resources */ = {
-            isa = PBXShellScriptBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-            );
-            inputPaths = (
-            );
-            name = "[CP] Copy Pods Resources";
-            outputPaths = (
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-            shellPath = /bin/sh;
-            shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialToDo/Pods-SocialToDo-resources.sh\"\n";
-            showEnvVarsInLog = 0;
-        };
-        AF520B90B147A9584BBC996C /* [CP] Check Pods Manifest.lock */ = {
-            isa = PBXShellScriptBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-            );
-            inputPaths = (
-                "${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-                "${PODS_ROOT}/Manifest.lock",
-            );
-            name = "[CP] Check Pods Manifest.lock";
-            outputPaths = (
-                "$(DERIVED_FILE_DIR)/Pods-SocialToDo-checkManifestLockResult.txt",
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-            shellPath = /bin/sh;
-            shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-            showEnvVarsInLog = 0;
-        };
+		01EE714AD2726E801220381A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SocialToDo/Pods-SocialToDo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialToDo/Pods-SocialToDo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		42FEF4532E09BDABAD352B0C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialToDo/Pods-SocialToDo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF520B90B147A9584BBC996C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SocialToDo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-        C7AB09491FB501F90040195E /* Sources */ = {
-            isa = PBXSourcesBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-                C7AB09531FB501F90040195E /* NewListViewController.swift in Sources */,
-                C7AB09671FB50D540040195E /* FriendsViewController.swift in Sources */,
-                C7AB09651FB50D0D0040195E /* MyListsViewController.swift in Sources */,
-                C79D23AC1FB7B0BC00DB6B90 /* TodoListItem.swift in Sources */,
-                E9EF071D1FB674660096CBCD /* TodoList.swift in Sources */,
-                E953CED91FC107D000FDDF91 /* FacebookLoginViewController.swift in Sources */,
-                C777E17D1FB79BED00EAD4C5 /* Checkbox.swift in Sources */,
-                C74E9D681FC230C600DC4D45 /* Trash.swift in Sources */,
-                C7AB09511FB501F90040195E /* AppDelegate.swift in Sources */,
-                C777E1811FB7A3A600EAD4C5 /* todoItem.swift in Sources */,
-                E9EF071B1FB6644B0096CBCD /* TodoController.swift in Sources */,
-                E99A1F701FC0A1E800E0E8AA /* FBController.swift in Sources */,
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
+		C7AB09491FB501F90040195E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7AB09531FB501F90040195E /* NewListViewController.swift in Sources */,
+				C7AB09671FB50D540040195E /* FriendsViewController.swift in Sources */,
+				C7AB09651FB50D0D0040195E /* MyListsViewController.swift in Sources */,
+				C79D23AC1FB7B0BC00DB6B90 /* TodoListItem.swift in Sources */,
+				E9EF071D1FB674660096CBCD /* TodoList.swift in Sources */,
+				E953CED91FC107D000FDDF91 /* FacebookLoginViewController.swift in Sources */,
+				C777E17D1FB79BED00EAD4C5 /* Checkbox.swift in Sources */,
+				C74E9D681FC230C600DC4D45 /* Trash.swift in Sources */,
+				C7AB09511FB501F90040195E /* AppDelegate.swift in Sources */,
+				C777E1811FB7A3A600EAD4C5 /* todoItem.swift in Sources */,
+				E9EF071B1FB6644B0096CBCD /* TodoController.swift in Sources */,
+				E99A1F701FC0A1E800E0E8AA /* FBController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-        C7AB09541FB501F90040195E /* Main.storyboard */ = {
-            isa = PBXVariantGroup;
-            children = (
-                C7AB09551FB501F90040195E /* Base */,
-            );
-            name = Main.storyboard;
-            sourceTree = "<group>";
-        };
-        C7AB09591FB501F90040195E /* LaunchScreen.storyboard */ = {
-            isa = PBXVariantGroup;
-            children = (
-                C7AB095A1FB501F90040195E /* Base */,
-            );
-            name = LaunchScreen.storyboard;
-            sourceTree = "<group>";
-        };
+		C7AB09541FB501F90040195E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7AB09551FB501F90040195E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C7AB09591FB501F90040195E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7AB095A1FB501F90040195E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-        C7AB095D1FB501F90040195E /* Debug */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                ALWAYS_SEARCH_USER_PATHS = NO;
-                CLANG_ANALYZER_NONNULL = YES;
-                CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-                CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-                CLANG_CXX_LIBRARY = "libc++";
-                CLANG_ENABLE_MODULES = YES;
-                CLANG_ENABLE_OBJC_ARC = YES;
-                CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-                CLANG_WARN_BOOL_CONVERSION = YES;
-                CLANG_WARN_COMMA = YES;
-                CLANG_WARN_CONSTANT_CONVERSION = YES;
-                CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-                CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-                CLANG_WARN_EMPTY_BODY = YES;
-                CLANG_WARN_ENUM_CONVERSION = YES;
-                CLANG_WARN_INFINITE_RECURSION = YES;
-                CLANG_WARN_INT_CONVERSION = YES;
-                CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-                CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-                CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-                CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-                CLANG_WARN_STRICT_PROTOTYPES = YES;
-                CLANG_WARN_SUSPICIOUS_MOVE = YES;
-                CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-                CLANG_WARN_UNREACHABLE_CODE = YES;
-                CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-                CODE_SIGN_IDENTITY = "iPhone Developer";
-                COPY_PHASE_STRIP = NO;
-                DEBUG_INFORMATION_FORMAT = dwarf;
-                ENABLE_STRICT_OBJC_MSGSEND = YES;
-                ENABLE_TESTABILITY = YES;
-                GCC_C_LANGUAGE_STANDARD = gnu11;
-                GCC_DYNAMIC_NO_PIC = NO;
-                GCC_NO_COMMON_BLOCKS = YES;
-                GCC_OPTIMIZATION_LEVEL = 0;
-                GCC_PREPROCESSOR_DEFINITIONS = (
-                    "DEBUG=1",
-                    "$(inherited)",
-                );
-                GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-                GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-                GCC_WARN_UNDECLARED_SELECTOR = YES;
-                GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-                GCC_WARN_UNUSED_FUNCTION = YES;
-                GCC_WARN_UNUSED_VARIABLE = YES;
-                IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-                MTL_ENABLE_DEBUG_INFO = YES;
-                ONLY_ACTIVE_ARCH = YES;
-                SDKROOT = iphoneos;
-                SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-                SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-            };
-            name = Debug;
-        };
-        C7AB095E1FB501F90040195E /* Release */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                ALWAYS_SEARCH_USER_PATHS = NO;
-                CLANG_ANALYZER_NONNULL = YES;
-                CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-                CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-                CLANG_CXX_LIBRARY = "libc++";
-                CLANG_ENABLE_MODULES = YES;
-                CLANG_ENABLE_OBJC_ARC = YES;
-                CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-                CLANG_WARN_BOOL_CONVERSION = YES;
-                CLANG_WARN_COMMA = YES;
-                CLANG_WARN_CONSTANT_CONVERSION = YES;
-                CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-                CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-                CLANG_WARN_EMPTY_BODY = YES;
-                CLANG_WARN_ENUM_CONVERSION = YES;
-                CLANG_WARN_INFINITE_RECURSION = YES;
-                CLANG_WARN_INT_CONVERSION = YES;
-                CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-                CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-                CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-                CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-                CLANG_WARN_STRICT_PROTOTYPES = YES;
-                CLANG_WARN_SUSPICIOUS_MOVE = YES;
-                CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-                CLANG_WARN_UNREACHABLE_CODE = YES;
-                CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-                CODE_SIGN_IDENTITY = "iPhone Developer";
-                COPY_PHASE_STRIP = NO;
-                DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-                ENABLE_NS_ASSERTIONS = NO;
-                ENABLE_STRICT_OBJC_MSGSEND = YES;
-                GCC_C_LANGUAGE_STANDARD = gnu11;
-                GCC_NO_COMMON_BLOCKS = YES;
-                GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-                GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-                GCC_WARN_UNDECLARED_SELECTOR = YES;
-                GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-                GCC_WARN_UNUSED_FUNCTION = YES;
-                GCC_WARN_UNUSED_VARIABLE = YES;
-                IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-                MTL_ENABLE_DEBUG_INFO = NO;
-                SDKROOT = iphoneos;
-                SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-                VALIDATE_PRODUCT = YES;
-            };
-            name = Release;
-        };
-        C7AB09601FB501FA0040195E /* Debug */ = {
-            isa = XCBuildConfiguration;
-            baseConfigurationReference = DFAC99766192C08585D4E5A4 /* Pods-SocialToDo.debug.xcconfig */;
-            buildSettings = {
-                ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-                CODE_SIGN_STYLE = Automatic;
-                DEVELOPMENT_TEAM = CH64A7AV3T;
-                INFOPLIST_FILE = SocialToDo/Info.plist;
-                LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-                PRODUCT_BUNDLE_IDENTIFIER = me.saatvikarya.SocialToDo;
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                SWIFT_VERSION = 4.0;
-                TARGETED_DEVICE_FAMILY = "1,2";
-            };
-            name = Debug;
-        };
-        C7AB09611FB501FA0040195E /* Release */ = {
-            isa = XCBuildConfiguration;
-            baseConfigurationReference = 782AD3FF9E2CE024C47DA74B /* Pods-SocialToDo.release.xcconfig */;
-            buildSettings = {
-                ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-                CODE_SIGN_STYLE = Automatic;
-                DEVELOPMENT_TEAM = CH64A7AV3T;
-                INFOPLIST_FILE = SocialToDo/Info.plist;
-                LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-                PRODUCT_BUNDLE_IDENTIFIER = me.saatvikarya.SocialToDo;
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                SWIFT_VERSION = 4.0;
-                TARGETED_DEVICE_FAMILY = "1,2";
-            };
-            name = Release;
-        };
+		C7AB095D1FB501F90040195E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C7AB095E1FB501F90040195E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C7AB09601FB501FA0040195E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DFAC99766192C08585D4E5A4 /* Pods-SocialToDo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LZKU673F93;
+				INFOPLIST_FILE = SocialToDo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.saatvikarya.SocialToDo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C7AB09611FB501FA0040195E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2097AD559D73D5438FDA6227 /* Pods-SocialToDo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LZKU673F93;
+				INFOPLIST_FILE = SocialToDo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.saatvikarya.SocialToDo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-        C7AB09481FB501F90040195E /* Build configuration list for PBXProject "SocialToDo" */ = {
-            isa = XCConfigurationList;
-            buildConfigurations = (
-                C7AB095D1FB501F90040195E /* Debug */,
-                C7AB095E1FB501F90040195E /* Release */,
-            );
-            defaultConfigurationIsVisible = 0;
-            defaultConfigurationName = Release;
-        };
-        C7AB095F1FB501FA0040195E /* Build configuration list for PBXNativeTarget "SocialToDo" */ = {
-            isa = XCConfigurationList;
-            buildConfigurations = (
-                C7AB09601FB501FA0040195E /* Debug */,
-                C7AB09611FB501FA0040195E /* Release */,
-            );
-            defaultConfigurationIsVisible = 0;
-            defaultConfigurationName = Release;
-        };
+		C7AB09481FB501F90040195E /* Build configuration list for PBXProject "SocialToDo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7AB095D1FB501F90040195E /* Debug */,
+				C7AB095E1FB501F90040195E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7AB095F1FB501FA0040195E /* Build configuration list for PBXNativeTarget "SocialToDo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7AB09601FB501FA0040195E /* Debug */,
+				C7AB09611FB501FA0040195E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
-    };
-    rootObject = C7AB09451FB501F90040195E /* Project object */;
+	};
+	rootObject = C7AB09451FB501F90040195E /* Project object */;
 }

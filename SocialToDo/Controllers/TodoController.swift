@@ -8,30 +8,35 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class TodoController:NSObject,UITableViewDataSource {
 	var delegate: TodoControllerDelegate?
     var currentTodo: TodoList = TodoList()
 	// TODO: Firebase Authentication
-	let userID = "F3OWhPHczIUehu7BV7C0mDVCO8Q2"
+	// let userID = "F3OWhPHczIUehu7BV7C0mDVCO8Q2"
+	var userID: String
+	var ref:DatabaseReference!
+	var tasksRef:DatabaseReference!
 	
     override init(){
+		userID = (Auth.auth().currentUser?.uid)!
+		ref = Database.database().reference()
+		tasksRef = ref.child("users/\(userID)/privateLists/0/tasks/")
         super.init()
         //TODO: Load todoLists from storage
 		fetchMyList()
     }
 	
     func fetchMyList(){
-		var ref:DatabaseReference!
-		ref = Database.database().reference()
-		let tasksRef = ref.child("users/\(userID)/privateLists/0/tasks/")
 		tasksRef.observeSingleEvent(of: .value, with: { (snapshot) in
-			let tasks = snapshot.value as! [[String: String]]
-			for task in tasks {
-				let title = task["title"]!
-				let checked = task["checked"]! == "true"
-				let todo = TodoListItem(title, checked)
-				self.currentTodo.add(listItems: [todo])
+			if let tasks = snapshot.value as? [[String: String]]{
+				for task in tasks {
+					let title = task["title"]!
+					let checked = task["checked"]! == "true"
+					let todo = TodoListItem(title, checked)
+					self.currentTodo.add(listItems: [todo])
+				}
 			}
 		}) { (error) in
 			print(error.localizedDescription)
@@ -40,9 +45,6 @@ class TodoController:NSObject,UITableViewDataSource {
 	}
 	
     func addElement(item:TodoListItem){
-		var ref:DatabaseReference!
-		ref = Database.database().reference()
-		let tasksRef = ref.child("users/\(userID)/privateLists/0/tasks/")
 		let childUpdate = ["\(currentTodo.getElements().count)/title": item.title,
 		                   "\(currentTodo.getElements().count)/checked": "false"]
 		tasksRef.updateChildValues(childUpdate)
@@ -50,19 +52,12 @@ class TodoController:NSObject,UITableViewDataSource {
     }
     
 	@objc func removeElement(trash: Trash){
-		var ref:DatabaseReference!
-		ref = Database.database().reference()
-		let tasksRef = ref.child("users/\(userID)/privateLists/0/tasks/")
 		tasksRef.child("\(trash.index)").removeValue()
 		currentTodo.remove(atIndex: trash.index)
 		self.delegate?.reloadTableView()
 	}
 	
 	@objc func changeValues(checkbox: Checkbox) {
-		var ref:DatabaseReference!
-		ref = Database.database().reference()
-		let tasksRef = ref.child("users/\(userID)/privateLists/0/tasks/")
-		
 		if(checkbox.isSelected == true){
 			checkbox.isSelected = false
 			let todo = currentTodo.getElementAt(atIndex: checkbox.index)

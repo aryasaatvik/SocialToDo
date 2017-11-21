@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseAuth
+import FirebaseDatabase
 import FacebookCore
 import FacebookLogin
 
@@ -40,10 +41,69 @@ class FBController{
 				print(error)
 			case .cancelled:
 				print("User cancelled login.")
-			case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-				self.accessToken = accessToken
-				self.loggedIn = true
-				print("Logged in!")
+			case .success(let grantedPermissions, let declinedPermissions, let fbAccessToken):
+				self.accessToken = fbAccessToken
+				let credential = FacebookAuthProvider.credential(withAccessToken: fbAccessToken.authenticationToken)
+				// login to firebase
+				Auth.auth().signIn(with: credential, completion: { (user, error) in
+					if let error = error {
+						print("Firebase Auth Error \(error)")
+					}
+					self.loggedIn = true
+					print("Logged in!")
+					
+					// get user info and upload to Firebase
+					// create facebook graph request
+					struct UserInfoRequest: GraphRequestProtocol {
+						struct Response: GraphResponseProtocol {
+							var name: String?
+							var email: String?
+							init(rawResponse: Any?) {
+								// Decode JSON from rawResponse into other properties here.
+								guard let response = rawResponse as? Dictionary<String, Any> else {
+									return
+								}
+								if let name = response["name"] as? String {
+									self.name = name
+								}
+	
+								if let email = response["email"] as? String {
+									self.email = email
+								}
+							}
+						}
+						
+						var graphPath = "/me"
+						var parameters: [String : Any]? = ["fields": "name, email"]
+						var accessToken = AccessToken.current
+						var httpMethod: GraphRequestHTTPMethod = .GET
+						var apiVersion: GraphAPIVersion = .defaultVersion
+					}
+					
+					// initiate facebook graph request
+					let connection = GraphRequestConnection()
+					connection.add(UserInfoRequest()) { response, result in
+						switch result {
+						case .success(let response):
+							// add user info to firebase database
+							var ref: DatabaseReference!
+							ref = Database.database().reference()
+							let userRef = ref.child("users/\((user?.uid)!)/")
+							let userInfo = ["name": response.name!,
+											"email": response.email!]
+							userRef.updateChildValues(userInfo)
+						case .failed(let error):
+							print("User Info Graph Request Failed: \(error)")
+						}
+					}
+					connection.start()
+					
+					// segue to tabbarcontroller
+					let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+					if let tabBarVC = storyboard.instantiateViewController(withIdentifier: "tabBarVC") as? UITabBarController {
+						vc.present(tabBarVC, animated: true, completion: nil)
+					}
+				})
 			}
 		}
 	}
@@ -51,11 +111,5 @@ class FBController{
     func logout() {
         accessToken = nil
         loggedIn = false
-    }
-    
-    func getUID() -> String{
-        //TODO: Figure out why userId could possibly be nil and handle that
-        //Also handle the not logged-in case
-        return (accessToken?.userId)!
     }
 }

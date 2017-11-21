@@ -29,13 +29,9 @@ class FacebookLoginViewController: UIViewController {
     @IBAction func backPress(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
+	
 	@IBAction func handleLoginButton(_ sender: Any) {
 		fbControl?.login(vc: self)
-		if (fbControl?.loggedIn)! {
-			if let tabBarVC = storyboard?.instantiateViewController(withIdentifier: "tabBarVC") as? UITabBarController {
-				present(tabBarVC, animated: true, completion: nil)
-			}
-		}
 	}
 	/*
     // MARK: - Navigation

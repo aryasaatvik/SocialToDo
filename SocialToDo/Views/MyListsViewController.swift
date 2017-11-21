@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyListsViewController: UIViewController, UITextFieldDelegate,  FBControllerDelegate {
+class MyListsViewController: UIViewController, UITextFieldDelegate, FBControllerDelegate {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var todoControl:TodoController?
     var fbControl:FBController?
@@ -24,8 +24,8 @@ class MyListsViewController: UIViewController, UITextFieldDelegate,  FBControlle
         fbControl = appDelegate.fbControl
         fbControl?.delegate = self
         fbControl?.checkLogin()
-        tableView.dataSource = todoControl
 		
+        tableView.dataSource = todoControl
 		addTodoField.delegate = self
 		NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
@@ -73,7 +73,7 @@ class MyListsViewController: UIViewController, UITextFieldDelegate,  FBControlle
     }
     
     func promptFacebookLogin() {
-        let facebookLoginViewController = storyboard?.instantiateViewController(withIdentifier: "Facebook Login")
+        let facebookLoginViewController = storyboard?.instantiateViewController(withIdentifier: "FacebookLogin")
         present(facebookLoginViewController!, animated: true, completion: nil)
     }}
 
