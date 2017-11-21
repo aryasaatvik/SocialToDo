@@ -9,6 +9,12 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Bold</string>
+            <string>AvenirNext-DemiBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--My Lists-->
         <scene sceneID="wxp-uD-oFR">
@@ -154,6 +160,83 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fdt-QQ-0cD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="605.60000000000002" y="485.30734632683664"/>
+        </scene>
+        <!--Facebook Login View Controller-->
+        <scene sceneID="HG5-Le-PV5">
+            <objects>
+                <viewController storyboardIdentifier="FacebookLogin" id="6Oh-mx-9Cy" customClass="FacebookLoginViewController" customModule="SocialToDo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DxY-MH-X26">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login-bg" translatesAutoresizingMaskIntoConstraints="NO" id="mkF-AW-JG8">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Social Todo." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rxl-ED-GYd">
+                                <rect key="frame" x="8" y="32" width="359" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="xmO-uc-f1w"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="37"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JbA-CT-56g">
+                                <rect key="frame" x="8" y="592" width="359" height="50"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fb-login" translatesAutoresizingMaskIntoConstraints="NO" id="tpj-dQ-IXw">
+                                        <rect key="frame" x="8" y="5" width="343" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="QLK-mo-9gp"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EA7-vg-xw4">
+                                        <rect key="frame" x="10" y="7" width="339" height="36"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                        <state key="normal" title="SIGN IN WITH FACEBOOK">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="handleLoginButton:" destination="6Oh-mx-9Cy" eventType="touchUpInside" id="RUS-IK-9FT"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="EA7-vg-xw4" secondAttribute="trailing" constant="10" id="18n-th-0Hx"/>
+                                    <constraint firstItem="EA7-vg-xw4" firstAttribute="centerY" secondItem="JbA-CT-56g" secondAttribute="centerY" id="L2l-Fc-Crg"/>
+                                    <constraint firstItem="EA7-vg-xw4" firstAttribute="leading" secondItem="JbA-CT-56g" secondAttribute="leading" constant="10" id="PdI-iN-gAs"/>
+                                    <constraint firstAttribute="trailing" secondItem="tpj-dQ-IXw" secondAttribute="trailing" constant="8" id="RYQ-dk-MUL"/>
+                                    <constraint firstAttribute="height" constant="50" id="UUv-uQ-uHu"/>
+                                    <constraint firstItem="EA7-vg-xw4" firstAttribute="centerX" secondItem="JbA-CT-56g" secondAttribute="centerX" id="ghV-uy-ZX3"/>
+                                    <constraint firstItem="tpj-dQ-IXw" firstAttribute="leading" secondItem="JbA-CT-56g" secondAttribute="leading" constant="8" id="mmc-Hh-bsC"/>
+                                    <constraint firstItem="tpj-dQ-IXw" firstAttribute="centerY" secondItem="JbA-CT-56g" secondAttribute="centerY" id="yZh-dj-lSN"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Rxl-ED-GYd" firstAttribute="leading" secondItem="fLk-d3-jbS" secondAttribute="leading" constant="8" id="0H7-5h-q5c"/>
+                            <constraint firstItem="fLk-d3-jbS" firstAttribute="trailing" secondItem="mkF-AW-JG8" secondAttribute="trailing" id="2V7-49-Pku"/>
+                            <constraint firstItem="Rxl-ED-GYd" firstAttribute="top" secondItem="fLk-d3-jbS" secondAttribute="top" constant="12" id="61H-tv-GOI"/>
+                            <constraint firstItem="JbA-CT-56g" firstAttribute="centerX" secondItem="DxY-MH-X26" secondAttribute="centerX" id="CV3-YZ-42S"/>
+                            <constraint firstItem="mkF-AW-JG8" firstAttribute="top" secondItem="fLk-d3-jbS" secondAttribute="top" id="Efk-gi-GtY"/>
+                            <constraint firstItem="fLk-d3-jbS" firstAttribute="bottom" secondItem="mkF-AW-JG8" secondAttribute="bottom" id="IUv-ul-Q0D"/>
+                            <constraint firstItem="fLk-d3-jbS" firstAttribute="trailing" secondItem="JbA-CT-56g" secondAttribute="trailing" constant="8" id="cHd-40-yxW"/>
+                            <constraint firstItem="fLk-d3-jbS" firstAttribute="bottom" secondItem="JbA-CT-56g" secondAttribute="bottom" constant="25" id="fT2-NI-cre"/>
+                            <constraint firstItem="mkF-AW-JG8" firstAttribute="leading" secondItem="fLk-d3-jbS" secondAttribute="leading" id="lQ8-wu-O0g"/>
+                            <constraint firstAttribute="trailing" secondItem="Rxl-ED-GYd" secondAttribute="trailing" constant="8" id="o1S-50-Icn"/>
+                            <constraint firstItem="JbA-CT-56g" firstAttribute="leading" secondItem="fLk-d3-jbS" secondAttribute="leading" constant="8" id="rlz-TS-euy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fLk-d3-jbS"/>
+                    </view>
+                    <connections>
+                        <outlet property="loginButton" destination="EA7-vg-xw4" id="2Le-bo-FzF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mMH-rW-Mbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1209" y="122"/>
         </scene>
         <!--Friends-->
         <scene sceneID="Owk-Gc-nbl">
@@ -308,7 +391,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="QKc-CQ-Zny">
             <objects>
-                <tabBarController id="bUd-Yq-v6D" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarVC" id="bUd-Yq-v6D" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cTq-hT-wXc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -327,5 +410,7 @@
     </scenes>
     <resources>
         <image name="add" width="26" height="26"/>
+        <image name="fb-login" width="250" height="32"/>
+        <image name="login-bg" width="4256" height="2832"/>
     </resources>
 </document>

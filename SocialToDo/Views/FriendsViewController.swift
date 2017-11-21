@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FriendsViewController: UIViewController {
+class FriendsViewController: UIViewController, FBControllerDelegate {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -20,7 +20,10 @@ class FriendsViewController: UIViewController {
 		// Dispose of any resources that can be recreated.
 	}
 	
-	
+    func promptFacebookLogin() {
+        let facebookLoginViewController = storyboard?.instantiateViewController(withIdentifier: "Facebook Login")
+        present(facebookLoginViewController!, animated: true, completion: nil)
+    }
 }
 
 

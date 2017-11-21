@@ -21,7 +21,7 @@ class TodoController:NSObject,UITableViewDataSource {
 		fetchMyList()
     }
 	
-	func fetchMyList(){
+    func fetchMyList(){
 		var ref:DatabaseReference!
 		ref = Database.database().reference()
 		let tasksRef = ref.child("users/\(userID)/privateLists/0/tasks/")

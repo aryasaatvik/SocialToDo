@@ -11,6 +11,7 @@ import UIKit
 class MyListsViewController: UIViewController, UITextFieldDelegate {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var todoControl:TodoController?
+    var fbControl:FBController?
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var addTodoField: UITextField!
 	@IBOutlet weak var addTodoButton: UIButton!
@@ -67,7 +68,11 @@ class MyListsViewController: UIViewController, UITextFieldDelegate {
 		addTodoField.text = nil
 		tableView.reloadData()
 	}
-}
+    
+    func promptFacebookLogin() {
+        let facebookLoginViewController = storyboard?.instantiateViewController(withIdentifier: "Facebook Login")
+        present(facebookLoginViewController!, animated: true, completion: nil)
+    }}
 
 extension MyListsViewController: TodoControllerDelegate {
 	func reloadTableView() {
