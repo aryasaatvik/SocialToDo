@@ -15,7 +15,7 @@ protocol FBControllerDelegate {
     func promptFacebookLogin()
 }
 
-class FBController:LoginButtonDelegate{
+class FBController{
     var loggedIn = false
     var delegate:FBControllerDelegate?
     var accessToken:AccessToken?
@@ -27,26 +27,28 @@ class FBController:LoginButtonDelegate{
     }
     
     func checkLogin(){
-        if (loggedIn == false){
+        if (!loggedIn){
             delegate!.promptFacebookLogin()
         }
     }
+	
+	func login(vc: UIViewController) {
+		let loginManager = LoginManager()
+		loginManager.logIn(readPermissions: [.publicProfile, .email, .userFriends], viewController: vc) { (loginResult) in
+			switch loginResult {
+			case .failed(let error):
+				print(error)
+			case .cancelled:
+				print("User cancelled login.")
+			case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+				self.accessToken = accessToken
+				self.loggedIn = true
+				print("Logged in!")
+			}
+		}
+	}
     
-    func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
-        switch result {
-        case .success(grantedPermissions: _, declinedPermissions: _, token: let fbAccessToken):
-            self.accessToken = fbAccessToken
-            loggedIn = true
-        case .cancelled:
-            //TODO: Handle a cancelation.
-            break
-        case .failed(let err):
-            //TODO: Handle this better
-            print(err)
-        }
-    }
-    
-    func loginButtonDidLogOut(_ loginButton: LoginButton) {
+    func logout() {
         accessToken = nil
         loggedIn = false
     }

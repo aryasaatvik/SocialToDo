@@ -10,19 +10,16 @@ import UIKit
 import FacebookLogin
 
 class FacebookLoginViewController: UIViewController {
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+	let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var fbControl:FBController?
+	
+	@IBOutlet weak var loginButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         fbControl = appDelegate.fbControl
-        let loginButton = LoginButton(readPermissions: [.userFriends,.publicProfile,.email])
-        loginButton.center = view.center
-        loginButton.delegate = fbControl
-        
-        view.addSubview(loginButton)
-        // Do any additional setup after loading the view.
-    }
+	
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -32,7 +29,15 @@ class FacebookLoginViewController: UIViewController {
     @IBAction func backPress(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-    /*
+	@IBAction func handleLoginButton(_ sender: Any) {
+		fbControl?.login(vc: self)
+		if (fbControl?.loggedIn)! {
+			if let tabBarVC = storyboard?.instantiateViewController(withIdentifier: "tabBarVC") as? UITabBarController {
+				present(tabBarVC, animated: true, completion: nil)
+			}
+		}
+	}
+	/*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
