@@ -40,7 +40,7 @@ class MyListsViewController: UIViewController, UITextFieldDelegate {
 			if (endFrame?.origin.y)! >= UIScreen.main.bounds.size.height {
 				self.keyboardHeightLayoutConstraint?.constant = 0.0
 			} else {
-				self.keyboardHeightLayoutConstraint?.constant = endFrame?.size.height ?? 0.0
+				self.keyboardHeightLayoutConstraint?.constant = -50.0 + (endFrame?.size.height)! 
 			}
 			UIView.animate(withDuration: duration,
 						   delay: TimeInterval(0),
