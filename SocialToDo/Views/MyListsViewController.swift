@@ -66,7 +66,7 @@ class MyListsViewController: UIViewController, UITextFieldDelegate, FBController
         
     @IBAction func handleAddTodoButton(_ sender: Any) {
         let todoText = addTodoField.text!
-        todoControl?.addElement(item: TodoListItem(todoText))
+        todoControl?.addElement(item: Todo(todoText))
         addTodoField.resignFirstResponder()
         addTodoField.text = nil
         tableView.reloadData()

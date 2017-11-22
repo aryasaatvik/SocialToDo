@@ -8,7 +8,7 @@
 
 import UIKit
 
-class todoItem: UITableViewCell {
+class TodoCell: UITableViewCell {
     @IBOutlet weak var checkbox: Checkbox!
     @IBOutlet weak var label: UILabel!
 	@IBOutlet weak var trash: Trash!

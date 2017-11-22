@@ -11,22 +11,22 @@ class TodoList {
     /*A TodoList wrapper so the actual implementation of the TodoList
     could be changed in the future without breaking everything*/
     //Using swift arrays to store the items for now
-    private var todoList:[TodoListItem]
+    private var todoList:[Todo]
 	
     init(){
         //Returns an empty todolist
-		todoList = [TodoListItem]()
+		todoList = [Todo]()
     }
     
-    init(listItems:TodoListItem...){
+    init(listItems:Todo...){
         todoList = listItems
     }
     
-    init(listItems:[TodoListItem]){
+    init(listItems:[Todo]){
         todoList = listItems
     }
     
-    public func add(listItems:[TodoListItem]){
+    public func add(listItems:[Todo]){
         for listItem in listItems {
             todoList.append(listItem)
         }
@@ -42,7 +42,7 @@ class TodoList {
     }
     
     
-    public func getElementAt(atIndex:Int) -> TodoListItem{
+    public func getElementAt(atIndex:Int) -> Todo{
         return todoList[atIndex]
     }
 
@@ -51,7 +51,7 @@ class TodoList {
     in which an element needs to be removed and the index
     is forgotten. */
     
-    public func remove(listItems:[TodoListItem]){
+    public func remove(listItems:[Todo]){
         for item in listItems {
             var i = 0
             while (item.equals(todoList[i])){
@@ -64,7 +64,7 @@ class TodoList {
     }
     
     // This should always return an array of strings
-    public func getElements() -> [TodoListItem] {
+    public func getElements() -> [Todo] {
         return todoList
     }
 }
