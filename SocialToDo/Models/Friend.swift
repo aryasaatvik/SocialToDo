@@ -8,6 +8,7 @@
 
 class Friend {
 	private var _name: String
+	private var _fbid: String
 //	private var _email: String
 	private var _isFriended: Bool
 	
@@ -17,6 +18,15 @@ class Friend {
 		}
 		set {
 			_name = newValue
+		}
+	}
+	
+	var fbid: String {
+		get {
+			return _fbid
+		}
+		set {
+			_fbid = newValue
 		}
 	}
 	
@@ -38,18 +48,21 @@ class Friend {
 		}
 	}
 	
-	init(_ name: String) {
+	init(_ name: String, _ fbid: String) {
 		_name = name
+		_fbid = fbid
 		_isFriended = false
 	}
 	
-	init(_ name: String, _ isFriended: Bool) {
+	init(_ name: String, _ fbid: String, _ isFriended: Bool) {
 		_name = name
+		_fbid = fbid
 		_isFriended = isFriended
 	}
 	
-	init(name: String, isFriended: Bool) {
+	init(name: String, fbid: String, isFriended: Bool) {
 		_name = name
+		_fbid = fbid
 		_isFriended = isFriended
 	}
 	

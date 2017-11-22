@@ -19,8 +19,14 @@ protocol FriendsControllerDelegate {
 class FriendsController: NSObject, UITableViewDataSource {
 	var delegate: FriendsControllerDelegate?
 	var friendsList: FriendsList = FriendsList()
+	var ref: DatabaseReference!
+	var friendsRef: DatabaseReference!
+	var userID: String
 	
 	override init() {
+		ref = Database.database().reference()
+		userID = (Auth.auth().currentUser?.uid)!
+		friendsRef = ref.child("users/\(userID)/friends/")
 		super.init()
 		fetchFriends()
 	}
@@ -47,7 +53,7 @@ class FriendsController: NSObject, UITableViewDataSource {
 			}
 			
 			var graphPath = "/me/friends"
-			var parameters: [String : Any]? = ["fields": "first_name, last_name, email"]
+			var parameters: [String : Any]? = ["fields": "first_name, last_name, id"]
 			var accessToken = AccessToken.current
 			var httpMethod: GraphRequestHTTPMethod = .GET
 			var apiVersion: GraphAPIVersion = .defaultVersion
@@ -62,9 +68,19 @@ class FriendsController: NSObject, UITableViewDataSource {
 				for friend in friends {
 					let firstName = friend["first_name"]!
 					let lastName = friend["last_name"]!
+					let fbid = "\(friend["id"]!)"
 					let name = "\(firstName) \(lastName)"
-					self.friendsList.add(friends: [Friend(name)])
+					let friendRef = self.friendsRef.child("\(fbid)")
 					
+					friendRef.observeSingleEvent(of: .value, with: { (snapshot) in
+						let value = snapshot.value as? NSDictionary
+						let isFriended = "\(value?["isFriended"] ?? "false")" == "true"
+						let childUpdate = ["name": "\(name)", "isFriended": "\(isFriended)"]
+						friendRef.updateChildValues(childUpdate)
+						self.friendsList.add(friends: [Friend(name, fbid, isFriended)])
+					}) { (error) in
+						print(error.localizedDescription)
+					}
 				}
 			case .failed(let error):
 				print("User Info Graph Request Failed: \(error)")
@@ -77,6 +93,21 @@ class FriendsController: NSObject, UITableViewDataSource {
 		
 	}
 	
+	@objc func addFriend(addFriend: AddFriend) {
+		if(!addFriend.isSelected){
+			addFriend.isSelected = true
+			
+			let friend = friendsList.getElementAt(atIndex: addFriend.index)
+			let friendRef = self.friendsRef.child("\(friend.fbid)")
+			let childUpdate = ["isFriended": "true"]
+			friendRef.updateChildValues(childUpdate)
+			friend.isFriended = true
+
+			
+		}
+	}
+	
+	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return friendsList.getElements().count
 	}
@@ -87,6 +118,9 @@ class FriendsController: NSObject, UITableViewDataSource {
 		cell.selectionStyle = .none
 		let friend = friendsList.getElementAt(atIndex: indexPath.row)
 		cell.name.text = friend.name
+		cell.addFriend.isSelected = friend.isFriended
+		cell.addFriend.index = indexPath.row
+		cell.addFriend.addTarget(self, action: #selector(addFriend(addFriend:)), for: .touchUpInside)
 		return cell
 	}
 	

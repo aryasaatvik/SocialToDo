@@ -27,7 +27,7 @@ class AddFriend: UIButton {
 	
 	private func setupAddFriend() {
 		setImage(UIImage(named: "addFriend"), for: .normal)
-		setImage(UIImage(named: "addFriend"), for: .selected)
+		setImage(UIImage(named: "added"), for: .selected)
 	}
 	
 	// MARK: Button Action
