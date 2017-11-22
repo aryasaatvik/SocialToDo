@@ -10,6 +10,10 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
+protocol TodoControllerDelegate {
+	func reloadTableView()
+}
+
 class TodoController: NSObject, UITableViewDataSource {
 	var delegate: TodoControllerDelegate?
     var currentTodo: TodoList = TodoList()
@@ -93,6 +97,4 @@ class TodoController: NSObject, UITableViewDataSource {
     }
 }
 
-protocol TodoControllerDelegate {
-	func reloadTableView()
-}
+

@@ -13,8 +13,9 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
-    var todoControl:TodoController?
-    var fbControl:FBController?
+    var todoControl: TodoController?
+    var fbControl: FBController?
+	var friendsControl: FriendsController?
     
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

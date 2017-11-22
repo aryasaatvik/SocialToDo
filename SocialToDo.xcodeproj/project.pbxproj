@@ -18,6 +18,11 @@
 		C7AB095B1FB501F90040195E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7AB09591FB501F90040195E /* LaunchScreen.storyboard */; };
 		C7AB09651FB50D0D0040195E /* MyListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB09641FB50D0D0040195E /* MyListsViewController.swift */; };
 		C7AB09671FB50D540040195E /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AB09661FB50D540040195E /* FriendsViewController.swift */; };
+		C7B070921FC4E94A00AD648D /* FriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B070911FC4E94A00AD648D /* FriendsController.swift */; };
+		C7B070941FC4EA2100AD648D /* FriendsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B070931FC4EA2100AD648D /* FriendsList.swift */; };
+		C7B070961FC4EA3500AD648D /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B070951FC4EA3500AD648D /* Friend.swift */; };
+		C7B070981FC5190000AD648D /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B070971FC5190000AD648D /* FriendCell.swift */; };
+		C7B0709A1FC5391C00AD648D /* AddFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B070991FC5391C00AD648D /* AddFriend.swift */; };
 		C7EE57941FBF692A00840821 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C7EE57931FBF692A00840821 /* GoogleService-Info.plist */; };
 		E953CED91FC107D000FDDF91 /* FacebookLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E953CED81FC107D000FDDF91 /* FacebookLoginViewController.swift */; };
 		E99A1F701FC0A1E800E0E8AA /* FBController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99A1F6F1FC0A1E800E0E8AA /* FBController.swift */; };
@@ -42,6 +47,11 @@
 		C7AB095C1FB501F90040195E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7AB09641FB50D0D0040195E /* MyListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListsViewController.swift; sourceTree = "<group>"; };
 		C7AB09661FB50D540040195E /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		C7B070911FC4E94A00AD648D /* FriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsController.swift; sourceTree = "<group>"; };
+		C7B070931FC4EA2100AD648D /* FriendsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsList.swift; sourceTree = "<group>"; };
+		C7B070951FC4EA3500AD648D /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		C7B070971FC5190000AD648D /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
+		C7B070991FC5391C00AD648D /* AddFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriend.swift; sourceTree = "<group>"; };
 		C7EE57931FBF692A00840821 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DFAC99766192C08585D4E5A4 /* Pods-SocialToDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialToDo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialToDo/Pods-SocialToDo.debug.xcconfig"; sourceTree = "<group>"; };
 		E953CED81FC107D000FDDF91 /* FacebookLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookLoginViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +119,7 @@
 			children = (
 				C777E17C1FB79BED00EAD4C5 /* Checkbox.swift */,
 				C74E9D671FC230C600DC4D45 /* Trash.swift */,
+				C7B070991FC5391C00AD648D /* AddFriend.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -127,6 +138,8 @@
 			children = (
 				E9EF071C1FB674660096CBCD /* TodoList.swift */,
 				C79D23AB1FB7B0BC00DB6B90 /* TodoListItem.swift */,
+				C7B070931FC4EA2100AD648D /* FriendsList.swift */,
+				C7B070951FC4EA3500AD648D /* Friend.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -140,6 +153,7 @@
 				C7AB09641FB50D0D0040195E /* MyListsViewController.swift */,
 				C7AB09661FB50D540040195E /* FriendsViewController.swift */,
 				C777E1801FB7A3A600EAD4C5 /* todoItem.swift */,
+				C7B070971FC5190000AD648D /* FriendCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -149,6 +163,7 @@
 			children = (
 				E9EF071A1FB6644B0096CBCD /* TodoController.swift */,
 				E99A1F6F1FC0A1E800E0E8AA /* FBController.swift */,
+				C7B070911FC4E94A00AD648D /* FriendsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -301,16 +316,21 @@
 			files = (
 				C7AB09531FB501F90040195E /* NewListViewController.swift in Sources */,
 				C7AB09671FB50D540040195E /* FriendsViewController.swift in Sources */,
+				C7B070921FC4E94A00AD648D /* FriendsController.swift in Sources */,
+				C7B070981FC5190000AD648D /* FriendCell.swift in Sources */,
 				C7AB09651FB50D0D0040195E /* MyListsViewController.swift in Sources */,
 				C79D23AC1FB7B0BC00DB6B90 /* TodoListItem.swift in Sources */,
 				E9EF071D1FB674660096CBCD /* TodoList.swift in Sources */,
 				E953CED91FC107D000FDDF91 /* FacebookLoginViewController.swift in Sources */,
+				C7B070941FC4EA2100AD648D /* FriendsList.swift in Sources */,
 				C777E17D1FB79BED00EAD4C5 /* Checkbox.swift in Sources */,
 				C74E9D681FC230C600DC4D45 /* Trash.swift in Sources */,
 				C7AB09511FB501F90040195E /* AppDelegate.swift in Sources */,
 				C777E1811FB7A3A600EAD4C5 /* todoItem.swift in Sources */,
+				C7B070961FC4EA3500AD648D /* Friend.swift in Sources */,
 				E9EF071B1FB6644B0096CBCD /* TodoController.swift in Sources */,
 				E99A1F701FC0A1E800E0E8AA /* FBController.swift in Sources */,
+				C7B0709A1FC5391C00AD648D /* AddFriend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

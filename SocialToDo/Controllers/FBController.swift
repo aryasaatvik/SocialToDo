@@ -93,6 +93,7 @@ class FBController{
 					connection.start()
 					
 					// initialize MyLists TodoController
+					self.appDelegate.friendsControl = FriendsController()
 					self.appDelegate.todoControl = TodoController()
 					
 					// segue to tabbarcontroller
