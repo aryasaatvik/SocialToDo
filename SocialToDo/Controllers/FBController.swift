@@ -24,13 +24,13 @@ class FBController {
     init(){
         Auth.auth().addStateDidChangeListener{ (auth,user) in
             if (user != nil){
+                /*If the user is already logged in, this code runs on application launch.
+                Otherwise, it runs as soon as the user is logged into firebase*/
                 self.loggedIn = true
+                //Fetch the user's social graph
                 self.fetchGraph(user: user!)
                 self.appDelegate.friendsControl = FriendsController()
                 self.appDelegate.todoControl = TodoController()
-                
-                //Refresh facebook token
-                //self.refreshToken(user: user!)
                 
                 // segue to tabbarcontroller
                 if (self.delegate is FacebookLoginViewController){
@@ -43,6 +43,7 @@ class FBController {
     }
     
     func checkLogin(){
+        //TODO: Undo this delegate structure, and have only FacebookLoginViewControllers be possible delegates.
          if (!loggedIn){
             delegate!.promptFacebookLogin!()
         }
@@ -50,7 +51,7 @@ class FBController {
 	
 	func login() {
         //assert(loggedIn == false)
-        //TODO: Have Facebook's oauth token refresh itself, it should autorefresh
+        //TODO: Have Facebook's oauth token refresh itself, it should autorefresh.
 		let loginManager = LoginManager()
 		loginManager.logIn(readPermissions: [.publicProfile, .email, .userFriends]) { (loginResult) in
 			switch loginResult {
@@ -83,7 +84,7 @@ class FBController {
     func fetchGraph(user:User){
         // create facebook graph request
         // If this assertion fails, try commenting it out, logging out, then uncommenting it and logging back in.
-        // If it still fails, yell at Brannen in slack
+        // If it still fails, yell at BrannenGHH
         assert(AccessToken.current != nil)
         struct UserInfoRequest: GraphRequestProtocol {
             struct Response: GraphResponseProtocol {
