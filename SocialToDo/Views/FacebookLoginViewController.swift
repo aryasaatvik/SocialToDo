@@ -10,14 +10,14 @@ import UIKit
 import FacebookLogin
 
 class FacebookLoginViewController: UIViewController, FBControllerDelegate {
-	let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var fbControl:FBController?
-	
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fbControl = appDelegate.fbControl
         fbControl?.delegate = self
-	}
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -27,13 +27,13 @@ class FacebookLoginViewController: UIViewController, FBControllerDelegate {
     @IBAction func backPress(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-	
-	@IBAction func handleLoginButton(_ sender: Any) {
+    
+    @IBAction func handleLoginButton(_ sender: Any) {
         //If the application is already logged-in and the button happens to be pressed, segues instead
         if (checkState()){
             fbControl?.login()
         }
-	}
+    }
     
     func checkState() -> Bool{
         if (fbControl!.loggedIn){
@@ -42,7 +42,7 @@ class FacebookLoginViewController: UIViewController, FBControllerDelegate {
         }
         return true
     }
-	/*
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
