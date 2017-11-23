@@ -36,6 +36,15 @@ class TLList {
 		list.remove(at:atIndex)
 	}
 	
+	public func remove(id: String) -> Int? {
+		for (index, todoList) in list.enumerated() {
+			if(todoList.id == id) {
+				list.remove(at: index)
+				return index
+			}
+		}
+		return nil
+	}
 	
 	public func getElementAt(atIndex:Int) -> TodoList{
 		return list[atIndex]

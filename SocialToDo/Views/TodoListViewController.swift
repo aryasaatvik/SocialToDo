@@ -24,9 +24,10 @@ class TodoListViewController: UIViewController, UITextFieldDelegate, FBControlle
         fbControl?.delegate = self
         fbControl?.checkLogin()
 		
-		todoListTitle.text = todoControl?.todoList.getTitle()
+		todoListTitle.text = todoControl?.todoList.title
 		tableView.dataSource = todoControl
 		todoControl?.fetchMyList()
+		todoControl?.listenForTodos()
 
 		addTodoField.delegate = self
 		NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
@@ -46,8 +47,9 @@ class TodoListViewController: UIViewController, UITextFieldDelegate, FBControlle
             if (endFrame?.origin.y)! >= UIScreen.main.bounds.size.height {
                 self.keyboardHeightLayoutConstraint?.constant = 0.0
             } else {
-                self.keyboardHeightLayoutConstraint?.constant = endFrame?.size.height ?? 0.0
+                self.keyboardHeightLayoutConstraint?.constant = -endFrame!.size.height
             }
+			print(keyboardHeightLayoutConstraint.constant)
             UIView.animate(withDuration: duration,
                            delay: TimeInterval(0),
                            options: animationCurve,
@@ -62,7 +64,11 @@ class TodoListViewController: UIViewController, UITextFieldDelegate, FBControlle
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+	
+	func textFieldDidBeginEditing(_ textField: UITextField) {
+		
+	}
+	
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         handleAddTodoButton(textField)
         return true
@@ -70,10 +76,9 @@ class TodoListViewController: UIViewController, UITextFieldDelegate, FBControlle
         
     @IBAction func handleAddTodoButton(_ sender: Any) {
         let todoText = addTodoField.text!
-        todoControl?.addElement(item: Todo(todoText))
+        todoControl?.addElement(title: todoText)
         addTodoField.resignFirstResponder()
         addTodoField.text = nil
-        tableView.reloadData()
     }
 	
 	@IBAction func handleBackButton(_ sender: Any) {
@@ -89,5 +94,21 @@ extension TodoListViewController: TodoListControllerDelegate {
     func reloadTableView() {
         self.tableView.reloadData()
     }
+	func beginUpdates() {
+		self.tableView.beginUpdates()
+	}
+	func endUpdates() {
+		self.tableView.endUpdates()
+	}
+	func insertRow(indexPath: IndexPath) {
+		self.tableView.beginUpdates()
+		self.tableView.insertRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+		self.tableView.endUpdates()
+	}
+	func deleteRow(indexPath: IndexPath) {
+		self.tableView.beginUpdates()
+		self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+		self.tableView.endUpdates()
+	}
 }
 

@@ -12,12 +12,16 @@ import FirebaseAuth
 
 protocol TLListControllerDelegate {
 	func reloadTableView()
+	func beginUpdates()
+	func endUpdates()
+	func insertRow(indexPath: IndexPath)
+	func deleteRow(indexPath: IndexPath)
+
 }
 
 class TLListController: NSObject, UITableViewDataSource {
 	var delegate: TLListControllerDelegate?
 	var list: TLList = TLList()
-	var todoLists: Int
 	var userID: String
 	var ref: DatabaseReference!
 	var todoListsRef: DatabaseReference!
@@ -26,40 +30,66 @@ class TLListController: NSObject, UITableViewDataSource {
 		userID = (Auth.auth().currentUser?.uid)!
 		ref = Database.database().reference()
 		todoListsRef = ref.child("users/\(userID)/privateLists/")
-		todoLists = 0
 		super.init()
 		fetchTodoLists()
+		listenForLists()
 	}
 	
 	func fetchTodoLists() {
+		let dispatchGroup = DispatchGroup()
+		dispatchGroup.enter()
 		todoListsRef.observeSingleEvent(of: .value, with: { (snapshot) in
 			if let lists = snapshot.value as? [NSDictionary] {
 				print(lists)
-				for list in lists {
-					let title = "\(list["name"]!)"
-					self.list.add(list: TodoList(title, id: self.todoLists))
-					self.todoLists += 1
+				for todoList in lists {
+					let title = "\(todoList["name"]!)"
+					let id = "\(todoList.allKeys[0])"
+					self.list.add(list: TodoList(title, id: id))
 				}
 			}
+			dispatchGroup.leave()
 		}) { (error) in
 			print(error.localizedDescription)
 		}
-		self.delegate?.reloadTableView()
+		dispatchGroup.notify(queue: .main) {
+			self.delegate?.reloadTableView()
+		}
+	}
+	
+	func listenForLists() {
+		todoListsRef.observe(.childAdded) { (snapshot) -> Void in
+			print("SNAPSHOT: \(snapshot)")
+			
+			if let todoList = snapshot.value as? NSDictionary {
+				let listID = snapshot.key
+				let title = "\(todoList["name"]!)"
+				let newList = TodoList(title, id: listID)
+				self.delegate?.beginUpdates()
+				self.list.add(list: newList)
+				self.delegate?.insertRow(indexPath: IndexPath(row: self.list.getElements().count - 1, section: 0))
+				self.delegate?.endUpdates()
+				
+			}
+		}
+		
+		todoListsRef.observe(.childRemoved) { (snapshot) -> Void in
+			print("SNAPSHOT: \(snapshot)")
+			let listID = snapshot.key
+			self.delegate?.beginUpdates()
+			let index = self.list.remove(id: listID)!
+			self.delegate?.deleteRow(indexPath: IndexPath(row: index, section: 0))
+			self.delegate?.endUpdates()
+		}
 	}
 	
 	func addTodoList(title: String) {
-		let id = list.getElements().count
-		let listRef = todoListsRef.child("\(id)")
+		let listRef = todoListsRef.childByAutoId()
 		let childUpdate = ["name": "\(title)"]
 		listRef.updateChildValues(childUpdate)
-		let todoList = TodoList(title, id: id)
-		list.add(list: todoList)
 	}
 	
 	@objc func removeTodoList(trash: Trash) {
 		todoListsRef.child("\(trash.index)").removeValue()
-		list.remove(atIndex: trash.index)
-		self.delegate?.reloadTableView()
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -70,8 +100,8 @@ class TLListController: NSObject, UITableViewDataSource {
 		tableView.rowHeight = 75
 		let cell = tableView.dequeueReusableCell(withIdentifier: "list") as! ListCell
 		let todoList = list.getElementAt(atIndex: indexPath.row)
-		cell.title!.text = todoList.getTitle()
-		cell.trash.index = indexPath.row
+		cell.title.text = todoList.title
+		cell.trash.index = todoList.id
 		cell.trash.addTarget(self, action: #selector(removeTodoList(trash:)), for: .touchUpInside)
 		return cell
 	}

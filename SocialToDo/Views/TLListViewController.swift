@@ -73,7 +73,6 @@ class TLListViewController: UIViewController, UITextFieldDelegate, FBControllerD
 		listControl?.addTodoList(title: todoTitle)
 		addTodoListField.resignFirstResponder()
 		addTodoListField.text = nil
-		tableView.reloadData()
 	}
 	
 	func promptFacebookLogin() {
@@ -83,8 +82,8 @@ class TLListViewController: UIViewController, UITextFieldDelegate, FBControllerD
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		todoList = listControl!.list.getElementAt(atIndex: indexPath.row)
-		let title = todoList!.getTitle()
-		let id = todoList!.getId()
+		let title = todoList!.title
+		let id = todoList!.id
 		print("TABLE VIEW ROW SELECTED")
 		print("TODOLIST REQUESTED: \(title), \(id)")
 		if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "todoListVC") as? TodoListViewController {
@@ -107,5 +106,17 @@ class TLListViewController: UIViewController, UITextFieldDelegate, FBControllerD
 extension TLListViewController: TLListControllerDelegate {
 	func reloadTableView() {
 		self.tableView.reloadData()
+	}
+	func beginUpdates() {
+		self.tableView.beginUpdates()
+	}
+	func endUpdates() {
+		self.tableView.endUpdates()
+	}
+	func insertRow(indexPath: IndexPath) {
+		self.tableView.insertRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+	}
+	func deleteRow(indexPath: IndexPath) {
+		self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
 	}
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class Trash: UIButton {
 	
-	var index: Int = 0
+	var index: String = ""
 	// MARK: Initialization
 	
 	override init(frame: CGRect) {

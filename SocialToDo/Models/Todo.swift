@@ -8,6 +8,7 @@
 
 class Todo {
     private var _title: String
+	private var _id: String
     private var _isChecked: Bool
     
     var title: String {
@@ -15,6 +16,15 @@ class Todo {
             return _title
         }
     }
+	
+	var id: String {
+		get {
+			return _id
+		}
+		set {
+			_id = newValue
+		}
+	}
     
     var isChecked: Bool {
         get {
@@ -27,18 +37,15 @@ class Todo {
     }
     
     
-    init(_ title: String) {
+	init(_ title: String, id: String) {
         _title = title
+		_id = id
         _isChecked = false
     }
     
-    init(_ title: String, _ isChecked: Bool) {
+    init(title: String, id: String, isChecked: Bool) {
         _title = title
-        _isChecked = isChecked
-    }
-    
-    init(title: String, isChecked: Bool) {
-        _title = title
+		_id = id
         _isChecked = isChecked
     }
     
