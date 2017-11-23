@@ -9,13 +9,14 @@
 import UIKit
 import FacebookLogin
 
-class FacebookLoginViewController: UIViewController {
+class FacebookLoginViewController: UIViewController, FBControllerDelegate {
 	let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var fbControl:FBController?
 	
     override func viewDidLoad() {
         super.viewDidLoad()
         fbControl = appDelegate.fbControl
+        fbControl?.delegate = self
 	}
 
     override func didReceiveMemoryWarning() {
@@ -28,8 +29,19 @@ class FacebookLoginViewController: UIViewController {
     }
 	
 	@IBAction func handleLoginButton(_ sender: Any) {
-		fbControl?.login(vc: self)
+        //If the application is already logged-in and the button happens to be pressed, segues instead
+        if (checkState()){
+            fbControl?.login()
+        }
 	}
+    
+    func checkState() -> Bool{
+        if (fbControl!.loggedIn){
+            fbControl!.mainSegue(vc:self)
+            return false
+        }
+        return true
+    }
 	/*
     // MARK: - Navigation
 

@@ -25,12 +25,12 @@
 			</array>
 		</dict>
 	</array>
+	<key>CFBundleVersion</key>
+	<string>1</string>
 	<key>FacebookAppID</key>
 	<string>293904984347643</string>
 	<key>FacebookDisplayName</key>
 	<string>Social Todo List</string>
-	<key>CFBundleVersion</key>
-	<string>1</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbauth2</string>
