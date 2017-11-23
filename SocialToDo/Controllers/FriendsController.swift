@@ -18,7 +18,7 @@ protocol FriendsControllerDelegate {
 
 class FriendsController: NSObject, UITableViewDataSource {
 	var delegate: FriendsControllerDelegate?
-	var friendsList: FriendsList = FriendsList()
+	var friendList: FriendList = FriendList()
 	var ref: DatabaseReference!
 	var friendsRef: DatabaseReference!
 	var userID: String
@@ -77,7 +77,7 @@ class FriendsController: NSObject, UITableViewDataSource {
 						let isFriended = "\(value?["isFriended"] ?? "false")" == "true"
 						let childUpdate = ["name": "\(name)", "isFriended": "\(isFriended)"]
 						friendRef.updateChildValues(childUpdate)
-						self.friendsList.add(friends: [Friend(name, fbid, isFriended)])
+						self.friendList.add(friends: [Friend(name, fbid, isFriended)])
 					}) { (error) in
 						print(error.localizedDescription)
 					}
@@ -97,7 +97,7 @@ class FriendsController: NSObject, UITableViewDataSource {
 		if(!addFriend.isSelected){
 			addFriend.isSelected = true
 			
-			let friend = friendsList.getElementAt(atIndex: addFriend.index)
+			let friend = friendList.getElementAt(atIndex: addFriend.index)
 			let friendRef = self.friendsRef.child("\(friend.fbid)")
 			let childUpdate = ["isFriended": "true"]
 			friendRef.updateChildValues(childUpdate)
@@ -109,14 +109,14 @@ class FriendsController: NSObject, UITableViewDataSource {
 	
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return friendsList.getElements().count
+		return friendList.getElements().count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		tableView.rowHeight = 75
 		let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell") as! FriendCell
 		cell.selectionStyle = .none
-		let friend = friendsList.getElementAt(atIndex: indexPath.row)
+		let friend = friendList.getElementAt(atIndex: indexPath.row)
 		cell.name.text = friend.name
 		cell.addFriend.isSelected = friend.isFriended
 		cell.addFriend.index = indexPath.row

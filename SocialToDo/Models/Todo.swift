@@ -6,7 +6,7 @@
 //  Copyright © 2017 Saatvik Arya. All rights reserved.
 //
 
-class TodoListItem {
+class Todo {
     private var _title: String
     private var _isChecked: Bool
     
@@ -42,7 +42,7 @@ class TodoListItem {
         _isChecked = isChecked
     }
     
-    public func equals(_ item: TodoListItem) -> Bool {
+    public func equals(_ item: Todo) -> Bool {
         if(item._isChecked == self._isChecked && item._title == self.title){
             return true
         }

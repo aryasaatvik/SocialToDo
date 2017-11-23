@@ -6,33 +6,33 @@
 //  Copyright © 2017 Saatvik Arya. All rights reserved.
 //
 
-class FriendsList {
-	private var friendsList:[Friend]
+class FriendList {
+	private var friendList:[Friend]
 	
 	init() {
-		friendsList = [Friend]()
+		friendList = [Friend]()
 	}
 	
 	init(friends: Friend...) {
-		friendsList = friends
+		friendList = friends
 	}
 	
 	init(friends: [Friend]) {
-		friendsList = friends
+		friendList = friends
 	}
 	
 	public func add(friends: [Friend]) {
 		for friend in friends {
-			friendsList.append(friend)
+			friendList.append(friend)
 		}
 	}
 	
 	public func getElements() -> [Friend] {
-		return friendsList
+		return friendList
 	}
 	
 	public func getElementAt(atIndex:Int) -> Friend{
-		return friendsList[atIndex]
+		return friendList[atIndex]
 	}
 	
 }
