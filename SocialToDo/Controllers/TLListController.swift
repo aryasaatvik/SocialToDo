@@ -47,12 +47,19 @@ class TLListController: NSObject, UITableViewDataSource {
 		self.delegate?.reloadTableView()
 	}
 	
-	func addTodoList(list: TodoList) {
-
+	func addTodoList(title: String) {
+		let id = list.getElements().count
+		let listRef = todoListsRef.child("\(id)")
+		let childUpdate = ["name": "\(title)"]
+		listRef.updateChildValues(childUpdate)
+		let todoList = TodoList(title, id: id)
+		list.add(list: todoList)
 	}
 	
-	func removeTodoList() {
-	
+	@objc func removeTodoList(trash: Trash) {
+		todoListsRef.child("\(trash.index)").removeValue()
+		list.remove(atIndex: trash.index)
+		self.delegate?.reloadTableView()
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -64,6 +71,8 @@ class TLListController: NSObject, UITableViewDataSource {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "list") as! ListCell
 		let todoList = list.getElementAt(atIndex: indexPath.row)
 		cell.title!.text = todoList.getTitle()
+		cell.trash.index = indexPath.row
+		cell.trash.addTarget(self, action: #selector(removeTodoList(trash:)), for: .touchUpInside)
 		return cell
 	}
 	

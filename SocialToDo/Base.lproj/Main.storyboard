@@ -26,7 +26,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mKc-90-D6w">
-                                <rect key="frame" x="0.0" y="80" width="375" height="538"/>
+                                <rect key="frame" x="0.0" y="80" width="375" height="483"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="list" rowHeight="75" id="6bN-vw-Mn2" customClass="ListCell" customModule="SocialToDo" customModuleProvider="target">
@@ -37,21 +37,35 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Todo List 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SF5-pr-A7t">
-                                                    <rect key="frame" x="23" y="23.5" width="329" height="27.5"/>
+                                                    <rect key="frame" x="23" y="13" width="285" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="WiX-YU-Wnh"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LUa-MX-w6J" customClass="Trash" customModule="SocialToDo" customModuleProvider="target">
+                                                    <rect key="frame" x="316" y="12" width="36" height="50"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="36" id="FVB-v4-LLU"/>
+                                                        <constraint firstAttribute="height" constant="50" id="Mjk-kg-roj"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="SF5-pr-A7t" firstAttribute="leading" secondItem="QL5-tQ-aJq" secondAttribute="leadingMargin" constant="8" id="9L3-pA-MAe"/>
                                                 <constraint firstItem="SF5-pr-A7t" firstAttribute="centerY" secondItem="QL5-tQ-aJq" secondAttribute="centerY" id="K9D-y2-5if"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="SF5-pr-A7t" secondAttribute="trailing" constant="8" id="iVw-7J-MFR"/>
+                                                <constraint firstItem="LUa-MX-w6J" firstAttribute="leading" secondItem="SF5-pr-A7t" secondAttribute="trailing" constant="8" id="Ork-lY-gAi"/>
+                                                <constraint firstItem="LUa-MX-w6J" firstAttribute="centerY" secondItem="QL5-tQ-aJq" secondAttribute="centerY" id="e3O-fj-yU5"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="LUa-MX-w6J" secondAttribute="trailing" constant="8" id="fMx-xo-Hgn"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="title" destination="SF5-pr-A7t" id="dt2-ht-hUa"/>
+                                            <outlet property="trash" destination="LUa-MX-w6J" id="u0p-yQ-Hb1"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -72,7 +86,7 @@
                                         <rect key="frame" x="312" y="25" width="55" height="30"/>
                                         <state key="normal" title="Log Out"/>
                                         <connections>
-                                            <action selector="handleLogoutButton:" destination="8ia-gI-IJi" eventType="touchUpInside" id="z9b-Xd-6Dm"/>
+                                            <action selector="handleLogoutButton:" destination="8ia-gI-IJi" eventType="touchUpInside" id="xkY-w1-wlt"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -87,13 +101,52 @@
                                     <constraint firstAttribute="trailing" secondItem="qJH-UE-hB5" secondAttribute="trailing" constant="8" id="qGe-QY-KI6"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iHC-On-d1P">
+                                <rect key="frame" x="0.0" y="563" width="375" height="55"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Todo List" textAlignment="natural" minimumFontSize="18" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="d3K-Gp-HdU">
+                                        <rect key="frame" x="8" y="2.5" width="301" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="bbV-56-buC"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20q-fV-StW">
+                                        <rect key="frame" x="317" y="2.5" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="EAa-0n-0gT"/>
+                                            <constraint firstAttribute="width" constant="50" id="b3x-AW-HOx"/>
+                                        </constraints>
+                                        <state key="normal" image="add"/>
+                                        <connections>
+                                            <action selector="handleAddTodoList:" destination="8ia-gI-IJi" eventType="touchUpInside" id="isf-HF-1DU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="d3K-Gp-HdU" firstAttribute="centerY" secondItem="iHC-On-d1P" secondAttribute="centerY" id="7Rp-gR-aFX"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="55" id="J5o-90-Bn6"/>
+                                    <constraint firstItem="20q-fV-StW" firstAttribute="centerY" secondItem="iHC-On-d1P" secondAttribute="centerY" id="JFs-YQ-phJ"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="55" id="K0B-4u-3zy"/>
+                                    <constraint firstItem="20q-fV-StW" firstAttribute="leading" secondItem="d3K-Gp-HdU" secondAttribute="trailing" constant="8" id="L5m-bb-YwE"/>
+                                    <constraint firstItem="d3K-Gp-HdU" firstAttribute="leading" secondItem="iHC-On-d1P" secondAttribute="leading" constant="8" id="OPg-FD-KX2"/>
+                                    <constraint firstAttribute="height" constant="55" id="dqj-pe-Psa"/>
+                                    <constraint firstAttribute="trailing" secondItem="20q-fV-StW" secondAttribute="trailing" constant="8" id="iJW-nq-mpy"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="nQ7-IF-xSa" firstAttribute="leading" secondItem="8iw-Gc-WkC" secondAttribute="leading" id="1og-AG-2XR"/>
                             <constraint firstItem="mKc-90-D6w" firstAttribute="leading" secondItem="8iw-Gc-WkC" secondAttribute="leading" id="7Z4-mb-RSL"/>
-                            <constraint firstItem="8iw-Gc-WkC" firstAttribute="bottom" secondItem="mKc-90-D6w" secondAttribute="bottom" id="Cgx-fJ-QjW"/>
+                            <constraint firstItem="iHC-On-d1P" firstAttribute="leading" secondItem="8iw-Gc-WkC" secondAttribute="leading" id="Dqy-5n-2Qc"/>
                             <constraint firstItem="nQ7-IF-xSa" firstAttribute="top" secondItem="MO5-pz-47m" secondAttribute="top" id="JIH-wE-i5B"/>
+                            <constraint firstItem="iHC-On-d1P" firstAttribute="trailing" secondItem="8iw-Gc-WkC" secondAttribute="trailing" id="R0C-id-mWB"/>
+                            <constraint firstItem="iHC-On-d1P" firstAttribute="top" secondItem="mKc-90-D6w" secondAttribute="bottom" id="fcV-r9-6F0"/>
+                            <constraint firstItem="8iw-Gc-WkC" firstAttribute="bottom" secondItem="iHC-On-d1P" secondAttribute="bottom" id="jws-ss-LpH"/>
                             <constraint firstItem="nQ7-IF-xSa" firstAttribute="trailing" secondItem="8iw-Gc-WkC" secondAttribute="trailing" id="s3D-3f-9Sq"/>
                             <constraint firstItem="mKc-90-D6w" firstAttribute="trailing" secondItem="8iw-Gc-WkC" secondAttribute="trailing" id="uTr-yu-g3y"/>
                             <constraint firstItem="mKc-90-D6w" firstAttribute="top" secondItem="nQ7-IF-xSa" secondAttribute="bottom" id="vSO-2B-XCC"/>
@@ -104,13 +157,15 @@
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addTodoListField" destination="d3K-Gp-HdU" id="nXX-b9-BYG"/>
+                        <outlet property="keyboardHeightLayoutConstraint" destination="jws-ss-LpH" id="XhD-ja-vrL"/>
                         <outlet property="tableView" destination="mKc-90-D6w" id="qFf-Wv-B34"/>
                         <segue destination="tdV-MK-InB" kind="showDetail" identifier="showTodoList" id="cEP-15-FmF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fdt-QQ-0cD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="606" y="487"/>
+            <point key="canvasLocation" x="605.60000000000002" y="486.20689655172418"/>
         </scene>
         <!--Todo List View Controller-->
         <scene sceneID="gmi-69-1VL">
@@ -208,6 +263,9 @@
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJG-xW-VkT">
                                                     <rect key="frame" x="81" y="13" width="243" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="nOt-G7-u8U"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -377,20 +435,20 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FriendCell" rowHeight="75" id="eMD-vq-kEg" customClass="FriendCell" customModule="SocialToDo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="75"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eMD-vq-kEg" id="shy-wN-y3y">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="74.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8W-NF-T2w">
-                                                    <rect key="frame" x="23" y="23.5" width="482" height="27.5"/>
+                                                    <rect key="frame" x="23" y="23.5" width="257" height="27.5"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ixX-C9-eXh" customClass="AddFriend" customModule="SocialToDo" customModuleProvider="target">
-                                                    <rect key="frame" x="513" y="22" width="80" height="30"/>
+                                                    <rect key="frame" x="288" y="22" width="80" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="Mud-tc-6IB"/>
@@ -472,10 +530,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="todoItem" id="ITQ-Sc-cVD">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ITQ-Sc-cVD" id="bxO-QR-sst">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kMb-fj-F1A" customClass="Checkbox" customModule="SocialToDo" customModuleProvider="target">
@@ -487,7 +545,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMB-Ep-NE5">
-                                                    <rect key="frame" x="56" y="11" width="536" height="21"/>
+                                                    <rect key="frame" x="56" y="11" width="311" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
