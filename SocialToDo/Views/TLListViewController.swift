@@ -48,12 +48,11 @@ class TLListViewController: UIViewController, FBControllerDelegate, UITableViewD
 		print("TODOLIST REQUESTED: \(title), \(id)")
 		if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "todoListVC") as? TodoListViewController {
 			appDelegate.todoControl = TodoListController()
-			todoControl = appDelegate.todoControl
-			destinationVC.todoControl = todoControl
+			destinationVC.todoControl = appDelegate.todoControl
 			destinationVC.todoControl?.delegate = destinationVC
 			destinationVC.todoControl?.todoList = todoList!
-			destinationVC.todoControl?.fetchMyList()
 			self.present(destinationVC, animated: true, completion: nil)
+			
 		}
 	}
 	

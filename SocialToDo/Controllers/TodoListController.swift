@@ -30,7 +30,9 @@ class TodoListController: NSObject, UITableViewDataSource {
 	
 	func fetchMyList(){
 		todoList.empty()
+		let dispatchGroup = DispatchGroup()
 		let tasksRef = ref.child("users/\(userID)/privateLists/\(todoList.getId())/tasks/")
+		dispatchGroup.enter()
 		tasksRef.observeSingleEvent(of: .value, with: { (snapshot) in
 			if let tasks = snapshot.value as? [[String: String]]{
 				for task in tasks {
@@ -40,10 +42,14 @@ class TodoListController: NSObject, UITableViewDataSource {
 					self.todoList.add(listItems: [todo])
 				}
 			}
+			dispatchGroup.leave()
 		}) { (error) in
 			print(error.localizedDescription)
 		}
-//		self.delegate?.reloadTableView()
+		
+		dispatchGroup.notify(queue: .main) {
+			self.delegate?.reloadTableView()
+		}
 	}
 	
     func addElement(item:Todo){

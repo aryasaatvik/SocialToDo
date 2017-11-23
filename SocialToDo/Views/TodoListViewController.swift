@@ -25,17 +25,12 @@ class TodoListViewController: UIViewController, UITextFieldDelegate, FBControlle
         fbControl?.checkLogin()
 		
 		todoListTitle.text = todoControl?.todoList.getTitle()
-		
-        tableView.dataSource = todoControl
+		tableView.dataSource = todoControl
+		todoControl?.fetchMyList()
+
 		addTodoField.delegate = self
 		NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
-		
-		tableView.reloadData()
     }
-	
-	override func viewWillAppear(_ animated: Bool) {
-		tableView.reloadData()
-	}
     
     deinit {
         NotificationCenter.default.removeObserver(self)
