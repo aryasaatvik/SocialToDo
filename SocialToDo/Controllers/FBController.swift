@@ -93,8 +93,8 @@ class FBController{
 					connection.start()
 					
 					// initialize MyLists TodoController
+					self.appDelegate.listControl = TLListController()
 					self.appDelegate.friendsControl = FriendsController()
-					self.appDelegate.todoControl = TodoController()
 					
 					// segue to tabbarcontroller
 					let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)

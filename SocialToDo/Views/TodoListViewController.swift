@@ -8,27 +8,34 @@
 
 import UIKit
 
-class MyListsViewController: UIViewController, UITextFieldDelegate, FBControllerDelegate {
+class TodoListViewController: UIViewController, UITextFieldDelegate, FBControllerDelegate {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    var todoControl:TodoController?
+    var todoControl:TodoListController?
     var fbControl:FBController?
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addTodoField: UITextField!
     @IBOutlet weak var addTodoButton: UIButton!
     @IBOutlet weak var keyboardHeightLayoutConstraint: NSLayoutConstraint!
-    
+	@IBOutlet weak var todoListTitle: UILabel!
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-        todoControl = appDelegate.todoControl
-		todoControl?.delegate = self
         fbControl = appDelegate.fbControl
         fbControl?.delegate = self
         fbControl?.checkLogin()
 		
+		todoListTitle.text = todoControl?.todoList.getTitle()
+		
         tableView.dataSource = todoControl
 		addTodoField.delegate = self
 		NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+		
+		tableView.reloadData()
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		tableView.reloadData()
+	}
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -44,7 +51,7 @@ class MyListsViewController: UIViewController, UITextFieldDelegate, FBController
             if (endFrame?.origin.y)! >= UIScreen.main.bounds.size.height {
                 self.keyboardHeightLayoutConstraint?.constant = 0.0
             } else {
-                self.keyboardHeightLayoutConstraint?.constant = -50.0 + (endFrame?.size.height)! 
+                self.keyboardHeightLayoutConstraint?.constant = endFrame?.size.height ?? 0.0
             }
             UIView.animate(withDuration: duration,
                            delay: TimeInterval(0),
@@ -53,7 +60,9 @@ class MyListsViewController: UIViewController, UITextFieldDelegate, FBController
                            completion: nil)
         }
     }
-    
+	
+
+	
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -71,17 +80,17 @@ class MyListsViewController: UIViewController, UITextFieldDelegate, FBController
         addTodoField.text = nil
         tableView.reloadData()
     }
-    
-	@IBAction func handleLogoutButton(_ sender: Any) {
-		fbControl?.logout(vc: self)
-	}
 	
+	@IBAction func handleBackButton(_ sender: Any) {
+		dismiss(animated: true, completion: nil)
+	}
+
 	func promptFacebookLogin() {
         let facebookLoginViewController = storyboard?.instantiateViewController(withIdentifier: "FacebookLogin")
         present(facebookLoginViewController!, animated: true, completion: nil)
     }}
 
-extension MyListsViewController: TodoControllerDelegate {
+extension TodoListViewController: TodoListControllerDelegate {
     func reloadTableView() {
         self.tableView.reloadData()
     }

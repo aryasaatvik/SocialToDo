@@ -10,27 +10,27 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-protocol TodoControllerDelegate {
+protocol TodoListControllerDelegate {
 	func reloadTableView()
 }
 
 class TodoListController: NSObject, UITableViewDataSource {
-	var delegate: TodoControllerDelegate?
-    var todoList: TodoList = TodoList()
+	var delegate: TodoListControllerDelegate?
+    var todoList: TodoList
 	var userID: String
 	var ref: DatabaseReference!
-	var tasksRef: DatabaseReference!
 	
-    override init(){
+	
+	override init(){
 		userID = (Auth.auth().currentUser?.uid)!
 		ref = Database.database().reference()
-		tasksRef = ref.child("users/\(userID)/privateLists/0/tasks/")
+		todoList = TodoList("Todo List", id: 0)
         super.init()
-        //TODO: Load todoLists from storage
-		fetchMyList()
     }
 	
-    func fetchMyList(){
+	func fetchMyList(){
+		todoList.empty()
+		let tasksRef = ref.child("users/\(userID)/privateLists/\(todoList.getId())/tasks/")
 		tasksRef.observeSingleEvent(of: .value, with: { (snapshot) in
 			if let tasks = snapshot.value as? [[String: String]]{
 				for task in tasks {
@@ -43,10 +43,11 @@ class TodoListController: NSObject, UITableViewDataSource {
 		}) { (error) in
 			print(error.localizedDescription)
 		}
-		self.delegate?.reloadTableView()
+//		self.delegate?.reloadTableView()
 	}
 	
     func addElement(item:Todo){
+		let tasksRef = ref.child("users/\(userID)/privateLists/\(todoList.getId())/tasks/")
 		let childUpdate = ["\(todoList.getElements().count)/title": item.title,
 		                   "\(todoList.getElements().count)/checked": "false"]
 		tasksRef.updateChildValues(childUpdate)
@@ -54,12 +55,15 @@ class TodoListController: NSObject, UITableViewDataSource {
     }
     
 	@objc func removeElement(trash: Trash){
+		let tasksRef = ref.child("users/\(userID)/privateLists/\(todoList.getId())/tasks/")
 		tasksRef.child("\(trash.index)").removeValue()
 		todoList.remove(atIndex: trash.index)
 		self.delegate?.reloadTableView()
 	}
 	
 	@objc func changeValues(checkbox: Checkbox) {
+		let tasksRef = ref.child("users/\(userID)/privateLists/\(todoList.getId())/tasks/")
+
 		if(checkbox.isSelected == true){
 			checkbox.isSelected = false
 			let todo = todoList.getElementAt(atIndex: checkbox.index)
@@ -78,7 +82,7 @@ class TodoListController: NSObject, UITableViewDataSource {
 	}
 	
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (todoList.getElements().count)
+        return todoList.getElements().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -13,7 +13,8 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
-    var todoControl: TodoController?
+	var listControl: TLListController?
+    var todoControl: TodoListController?
     var fbControl: FBController?
 	var friendsControl: FriendsController?
     

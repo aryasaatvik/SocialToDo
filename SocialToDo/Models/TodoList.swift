@@ -12,17 +12,25 @@ class TodoList {
     could be changed in the future without breaking everything*/
     //Using swift arrays to store the items for now
     private var todoList:[Todo]
+	private var title: String
+	private var id: Int
 	
-    init(){
+	init(_ title: String, id: Int){
         //Returns an empty todolist
+		self.title = title
+		self.id = id
 		todoList = [Todo]()
     }
     
-    init(listItems:Todo...){
+	init(title: String, id: Int, listItems:Todo...){
+		self.title = title
+		self.id = id
         todoList = listItems
     }
     
-    init(listItems:[Todo]){
+	init(title: String, id: Int, listItems:[Todo]){
+		self.title = title
+		self.id = id
         todoList = listItems
     }
     
@@ -40,7 +48,11 @@ class TodoList {
     public func remove(atIndex:Int){
         todoList.remove(at:atIndex)
     }
-    
+	
+	public func empty() {
+		todoList = []
+	}
+	
     
     public func getElementAt(atIndex:Int) -> Todo{
         return todoList[atIndex]
@@ -67,4 +79,12 @@ class TodoList {
     public func getElements() -> [Todo] {
         return todoList
     }
+	
+	public func getTitle() -> String {
+		return self.title
+	}
+	
+	public func getId() -> Int {
+		return self.id
+	}
 }
