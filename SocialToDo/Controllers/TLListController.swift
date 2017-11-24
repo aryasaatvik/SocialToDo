@@ -31,29 +31,7 @@ class TLListController: NSObject, UITableViewDataSource {
 		ref = Database.database().reference()
 		todoListsRef = ref.child("users/\(userID)/privateLists/")
 		super.init()
-		fetchTodoLists()
 		listenForLists()
-	}
-	
-	func fetchTodoLists() {
-		let dispatchGroup = DispatchGroup()
-		dispatchGroup.enter()
-		todoListsRef.observeSingleEvent(of: .value, with: { (snapshot) in
-			if let lists = snapshot.value as? [NSDictionary] {
-				print(lists)
-				for todoList in lists {
-					let title = "\(todoList["name"]!)"
-					let id = "\(todoList.allKeys[0])"
-					self.list.add(list: TodoList(title, id: id))
-				}
-			}
-			dispatchGroup.leave()
-		}) { (error) in
-			print(error.localizedDescription)
-		}
-		dispatchGroup.notify(queue: .main) {
-			self.delegate?.reloadTableView()
-		}
 	}
 	
 	func listenForLists() {
@@ -89,7 +67,7 @@ class TLListController: NSObject, UITableViewDataSource {
 	}
 	
 	@objc func removeTodoList(trash: Trash) {
-		todoListsRef.child("\(trash.index)").removeValue()
+		todoListsRef.child("\(trash.id)").removeValue()
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -101,7 +79,7 @@ class TLListController: NSObject, UITableViewDataSource {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "list") as! ListCell
 		let todoList = list.getElementAt(atIndex: indexPath.row)
 		cell.title.text = todoList.title
-		cell.trash.index = todoList.id
+		cell.trash.id = todoList.id
 		cell.trash.addTarget(self, action: #selector(removeTodoList(trash:)), for: .touchUpInside)
 		return cell
 	}

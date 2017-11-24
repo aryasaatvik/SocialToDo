@@ -24,6 +24,8 @@ class TodoListController: NSObject, UITableViewDataSource {
     var todoList: TodoList
 	var userID: String
 	var ref: DatabaseReference!
+	var taskAddedObserver: DatabaseHandle!
+	var taskRemovedObserver: DatabaseHandle!
 	
 	
 	override init(){
@@ -33,40 +35,16 @@ class TodoListController: NSObject, UITableViewDataSource {
         super.init()
     }
 	
-	func fetchMyList(){
-		todoList.empty()
-		let dispatchGroup = DispatchGroup()
-		let tasksRef = ref.child("users/\(userID)/privateLists/\(todoList.id)/tasks/")
-		dispatchGroup.enter()
-		tasksRef.observeSingleEvent(of: .value, with: { (snapshot) in
-			if let tasks = snapshot.value as? [NSDictionary]{
-				for task in tasks {
-					let title = "\(task["title"]!)"
-					let id = "\(task.allKeys[0])"
-					let checked = "\(task["checked"]!)" == "true"
-					let todo = Todo(title: title, id: id, isChecked: checked)
-					self.todoList.add(todo: todo)
-				}
-			}
-			dispatchGroup.leave()
-		}) { (error) in
-			print(error.localizedDescription)
-		}
-		
-		dispatchGroup.notify(queue: .main) {
-			self.delegate?.reloadTableView()
-		}
-	}
-	
 	func listenForTodos() {
 		let tasksRef = ref.child("users/\(userID)/privateLists/\(todoList.id)/tasks/")
-		tasksRef.observe(.childAdded) { (snapshot) -> Void in
+		taskAddedObserver = tasksRef.observe(.childAdded) { (snapshot) -> Void in
 			print("SNAPSHOT: \(snapshot)")
 			
 			if let todo = snapshot.value as? NSDictionary {
 				let todoID = snapshot.key
 				let title = "\(todo["title"]!)"
-				let todo = Todo(title, id: todoID)
+				let checked = "\(todo["checked"] ?? "false")" == "true"
+				let todo = Todo(title: title, id: todoID, isChecked: checked)
 				self.delegate?.beginUpdates()
 				self.todoList.add(todo: todo)
 				self.delegate?.insertRow(indexPath: IndexPath(row: self.todoList.getElements().count - 1, section: 0))
@@ -74,7 +52,7 @@ class TodoListController: NSObject, UITableViewDataSource {
 			}
 		}
 		
-		tasksRef.observe(.childRemoved) { (snapshot) -> Void in
+		taskRemovedObserver = tasksRef.observe(.childRemoved) { (snapshot) -> Void in
 			print(snapshot)
 			let todoID = snapshot.key
 			self.delegate?.beginUpdates()
@@ -82,6 +60,8 @@ class TodoListController: NSObject, UITableViewDataSource {
 			self.delegate?.deleteRow(indexPath: IndexPath(row: index, section: 0))
 			self.delegate?.endUpdates()
 		}
+		
+		
 	}
 	
     func addElement(title:String){
@@ -93,25 +73,24 @@ class TodoListController: NSObject, UITableViewDataSource {
     
 	@objc func removeElement(trash: Trash){
 		let tasksRef = ref.child("users/\(userID)/privateLists/\(todoList.id)/tasks/")
-		tasksRef.child("\(trash.index)").removeValue()
+		tasksRef.child("\(trash.id)").removeValue()
 	}
 	
 	@objc func changeValues(checkbox: Checkbox) {
-		let tasksRef = ref.child("users/\(userID)/privateLists/\(todoList.id)/tasks/")
+		let todo = todoList.getElement(withID: checkbox.id)!
+		let todoRef = ref.child("users/\(userID)/privateLists/\(todoList.id)/tasks/\(todo.id)/")
 
 		if(checkbox.isSelected == true){
 			checkbox.isSelected = false
-			let todo = todoList.getElement(withID: checkbox.index)!
-			let childUpdate = ["\(todo.id)/checked": "false"]
-			tasksRef.updateChildValues(childUpdate)
+			let childUpdate = ["checked": "false"]
+			todoRef.updateChildValues(childUpdate)
 			todo.isChecked = false
 			
 		}
 		else {
 			checkbox.isSelected = true
-			let todo = todoList.getElement(withID: checkbox.index)!
-			let childUpdate = ["\(todo.id)/checked": "true"]
-			tasksRef.updateChildValues(childUpdate)
+			let childUpdate = ["checked": "true"]
+			todoRef.updateChildValues(childUpdate)
 			todo.isChecked = true
 		}
 	}
@@ -128,9 +107,9 @@ class TodoListController: NSObject, UITableViewDataSource {
 		cell.label!.text = todo.title
 		// initialize checkbox
 		cell.checkbox.isSelected = todo.isChecked
-		cell.checkbox.index = todo.id
+		cell.checkbox.id = todo.id
 		cell.checkbox.addTarget(self, action: #selector(changeValues(checkbox:)), for: .touchUpInside)
-		cell.trash.index = todo.id
+		cell.trash.id = todo.id
 		cell.trash.addTarget(self, action: #selector(removeElement(trash:)), for: .touchUpInside)
 		return cell
     }

@@ -82,7 +82,7 @@ class TodoList {
 	
 	public func getElement(withID: String) -> Todo?{
 		for todo in todoList {
-			if(todo.id == _id) {
+			if(todo.id == withID) {
 				return todo
 			}
 		}

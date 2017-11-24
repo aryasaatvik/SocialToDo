@@ -270,30 +270,30 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="stM-s0-0WU" customClass="Trash" customModule="SocialToDo" customModuleProvider="target">
-                                                    <rect key="frame" x="332" y="13" width="36" height="50"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e73-9K-8la" customClass="Trash" customModule="SocialToDo" customModuleProvider="target">
+                                                    <rect key="frame" x="332" y="12.5" width="36" height="50"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="Ltp-gX-dxy"/>
-                                                        <constraint firstAttribute="width" constant="36" id="ktE-su-GVS"/>
+                                                        <constraint firstAttribute="height" constant="50" id="KYc-Ed-Y39"/>
+                                                        <constraint firstAttribute="width" constant="36" id="YOq-qv-gWf"/>
                                                     </constraints>
-                                                </button>
+                                                </view>
                                             </subviews>
                                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="mJG-xW-VkT" firstAttribute="top" secondItem="cm5-Hw-9ub" secondAttribute="top" id="1Ft-ol-vA3"/>
-                                                <constraint firstItem="stM-s0-0WU" firstAttribute="centerY" secondItem="98v-7d-Qzs" secondAttribute="centerY" id="1zc-at-yrg"/>
                                                 <constraint firstItem="cm5-Hw-9ub" firstAttribute="leading" secondItem="98v-7d-Qzs" secondAttribute="leadingMargin" constant="8" id="5gk-WY-Wxf"/>
+                                                <constraint firstItem="e73-9K-8la" firstAttribute="trailing" secondItem="98v-7d-Qzs" secondAttribute="trailingMargin" constant="8" id="DmX-PQ-96W"/>
+                                                <constraint firstItem="e73-9K-8la" firstAttribute="leading" secondItem="mJG-xW-VkT" secondAttribute="trailing" constant="8" id="GOK-WL-zTd"/>
                                                 <constraint firstItem="mJG-xW-VkT" firstAttribute="leading" secondItem="cm5-Hw-9ub" secondAttribute="trailing" constant="8" id="HEj-gw-Qul"/>
-                                                <constraint firstItem="stM-s0-0WU" firstAttribute="leading" secondItem="mJG-xW-VkT" secondAttribute="trailing" constant="8" id="dSc-Yg-IJ6"/>
+                                                <constraint firstItem="e73-9K-8la" firstAttribute="centerY" secondItem="98v-7d-Qzs" secondAttribute="centerY" id="elW-So-aOL"/>
                                                 <constraint firstItem="cm5-Hw-9ub" firstAttribute="centerY" secondItem="98v-7d-Qzs" secondAttribute="centerY" id="eq2-4Z-TCM"/>
-                                                <constraint firstItem="stM-s0-0WU" firstAttribute="trailing" secondItem="98v-7d-Qzs" secondAttribute="trailingMargin" constant="8" id="n3p-BT-r78"/>
                                                 <constraint firstItem="mJG-xW-VkT" firstAttribute="centerY" secondItem="98v-7d-Qzs" secondAttribute="centerY" id="wlE-Py-3vr"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="checkbox" destination="cm5-Hw-9ub" id="x2Q-JO-eNA"/>
                                             <outlet property="label" destination="mJG-xW-VkT" id="Jo1-N6-yZ7"/>
-                                            <outlet property="trash" destination="stM-s0-0WU" id="Qkw-8i-u0c"/>
+                                            <outlet property="trash" destination="e73-9K-8la" id="fUH-bc-ViL"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

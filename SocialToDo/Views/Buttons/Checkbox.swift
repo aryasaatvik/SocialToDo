@@ -10,7 +10,7 @@ import UIKit
 
 class Checkbox: UIButton {
 	
-	var index: String = ""
+	var id: String = ""
 	// MARK: Initialization
 	
 	override init(frame: CGRect) {

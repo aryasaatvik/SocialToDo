@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class TodoListViewController: UIViewController, UITextFieldDelegate, FBControllerDelegate {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -23,19 +24,24 @@ class TodoListViewController: UIViewController, UITextFieldDelegate, FBControlle
         fbControl = appDelegate.fbControl
         fbControl?.delegate = self
         fbControl?.checkLogin()
-		
-		todoListTitle.text = todoControl?.todoList.title
 		tableView.dataSource = todoControl
-		todoControl?.fetchMyList()
+		todoListTitle.text = todoControl?.todoList.title
+		addTodoField.delegate = self
+		
 		todoControl?.listenForTodos()
 
-		addTodoField.delegate = self
 		NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		Database.database().reference().removeObserver(withHandle: (todoControl?.taskAddedObserver)!)
+		Database.database().reference().removeObserver(withHandle: (todoControl?.taskRemovedObserver)!)
+		todoControl?.todoList.empty()
+	}
     
     @objc func keyboardNotification(notification: NSNotification) {
         if let userInfo = notification.userInfo {
