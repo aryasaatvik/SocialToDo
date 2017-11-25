@@ -6,9 +6,11 @@
 //  Copyright © 2017 Saatvik Arya. All rights reserved.
 //
 
-class Todo {
+class Todo:Equatable {
+    
+    
     private var _title: String
-	private var _id: String
+    private var _id: String
     private var _isChecked: Bool
     
     var title: String {
@@ -16,45 +18,41 @@ class Todo {
             return _title
         }
     }
-	
-	var id: String {
-		get {
-			return _id
-		}
-		set {
-			_id = newValue
-		}
-	}
+    
+    var id: String {
+        get {
+            return _id
+        }
+        set {
+            _id = newValue
+        }
+    }
     
     var isChecked: Bool {
         get {
             return _isChecked
         }
         
-		set {
+        set {
             _isChecked = newValue
         }
     }
     
     
-	init(_ title: String, id: String) {
+    init(_ title: String, id: String) {
         _title = title
-		_id = id
+        _id = id
         _isChecked = false
     }
     
     init(title: String, id: String, isChecked: Bool) {
         _title = title
-		_id = id
+        _id = id
         _isChecked = isChecked
     }
     
-    public func equals(_ item: Todo) -> Bool {
-        if(item._isChecked == self._isChecked && item._title == self.title){
-            return true
-        }
-        else {
-            return false
-        }
+    static func ==(lhs: Todo, rhs: Todo) -> Bool {
+        return (lhs.id == rhs.id)
     }
+    
 }

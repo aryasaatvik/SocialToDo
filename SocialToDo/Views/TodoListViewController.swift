@@ -25,10 +25,8 @@ class TodoListViewController: UIViewController, UITextFieldDelegate, FBControlle
         fbControl?.delegate = self
         fbControl?.checkLogin()
 		tableView.dataSource = todoControl
-		todoListTitle.text = todoControl?.todoList.title
+		todoListTitle.text = todoControl?.list.title
 		addTodoField.delegate = self
-		
-		todoControl?.listenForTodos()
 
 		NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
@@ -38,9 +36,9 @@ class TodoListViewController: UIViewController, UITextFieldDelegate, FBControlle
     }
 	
 	override func viewWillDisappear(_ animated: Bool) {
-		Database.database().reference().removeObserver(withHandle: (todoControl?.taskAddedObserver)!)
-		Database.database().reference().removeObserver(withHandle: (todoControl?.taskRemovedObserver)!)
-		todoControl?.todoList.empty()
+		/*Database.database().reference().removeObserver(withHandle: (todoControl?.taskAddedObserver)!)
+		Database.database().reference().removeObserver(withHandle: (todoControl?.taskRemovedObserver)!)*/
+		todoControl?.list.empty()
 	}
     
     @objc func keyboardNotification(notification: NSNotification) {
@@ -87,7 +85,7 @@ class TodoListViewController: UIViewController, UITextFieldDelegate, FBControlle
     func addTodoToDelegate(){
         let todoText = addTodoField.text!
         if (todoText != ""){
-            todoControl?.addElement(title: todoText)
+            todoControl?.addElement(childUpdate: ["title": todoText, "checked": "false"])
             addTodoField.resignFirstResponder()
             addTodoField.text = nil
         }
