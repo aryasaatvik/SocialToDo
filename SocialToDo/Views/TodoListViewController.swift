@@ -76,15 +76,21 @@ class TodoListViewController: UIViewController, UITextFieldDelegate, FBControlle
 	}
 	
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        handleAddTodoButton(textField)
-        textField.resignFirstResponder()
+        addTodoToDelegate()
         return true
     }
         
     @IBAction func handleAddTodoButton(_ sender: Any) {
+        addTodoToDelegate()
+    }
+    
+    func addTodoToDelegate(){
         let todoText = addTodoField.text!
-        todoControl?.addElement(title: todoText)
-        addTodoField.text = nil
+        if (todoText != ""){
+            todoControl?.addElement(title: todoText)
+            addTodoField.resignFirstResponder()
+            addTodoField.text = nil
+        }
     }
 	
 	@IBAction func handleBackButton(_ sender: Any) {
