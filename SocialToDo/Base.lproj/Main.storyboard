@@ -73,7 +73,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nQ7-IF-xSa">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Todo Lists" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJH-UE-hB5">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Todo Lists" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJH-UE-hB5">
                                         <rect key="frame" x="8" y="24" width="359" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="dLo-Fd-JOQ"/>
@@ -400,7 +400,7 @@
             </objects>
             <point key="canvasLocation" x="-1209" y="122"/>
         </scene>
-        <!--Friends-->
+        <!--Add Friend-->
         <scene sceneID="Owk-Gc-nbl">
             <objects>
                 <viewController id="ST8-RR-9yM" customClass="FriendsViewController" customModule="SocialToDo" customModuleProvider="target" sceneMemberID="viewController">
@@ -411,7 +411,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l0i-tq-gsn">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Friends" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ri3-zs-NmE">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Friend" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ri3-zs-NmE">
                                         <rect key="frame" x="8" y="24" width="359" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="JKB-Jq-qO3"/>
@@ -442,16 +442,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8W-NF-T2w">
-                                                    <rect key="frame" x="23" y="23.5" width="257" height="27.5"/>
+                                                    <rect key="frame" x="23" y="23.5" width="227" height="27.5"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ixX-C9-eXh" customClass="AddFriend" customModule="SocialToDo" customModuleProvider="target">
-                                                    <rect key="frame" x="288" y="22" width="80" height="30"/>
+                                                    <rect key="frame" x="258" y="22" width="110" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="80" id="Mud-tc-6IB"/>
+                                                        <constraint firstAttribute="width" constant="110" id="Mud-tc-6IB"/>
                                                         <constraint firstAttribute="height" constant="30" id="pHg-ns-wW1"/>
                                                     </constraints>
                                                 </view>
@@ -484,7 +484,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mB2-p9-P63"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Friends" id="afS-p0-uud"/>
+                    <tabBarItem key="tabBarItem" title="Add Friend" id="afS-p0-uud"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="IFh-23-T31" id="ggu-dz-g56"/>
@@ -494,10 +494,10 @@
             </objects>
             <point key="canvasLocation" x="605.60000000000002" y="1161.7691154422789"/>
         </scene>
-        <!--New List-->
+        <!--Friends-->
         <scene sceneID="5XG-WB-ikw">
             <objects>
-                <viewController id="SFO-wg-e2A" customClass="NewListViewController" customModule="SocialToDo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SFO-wg-e2A" customClass="FriendsListViewController" customModule="SocialToDo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SEl-51-LHO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -505,7 +505,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eA5-Br-m2Q">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finish Today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E79-DE-Dfy">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friends" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E79-DE-Dfy">
                                         <rect key="frame" x="8" y="24" width="359" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="tjb-Fr-tNU"/>
@@ -529,36 +529,32 @@
                                 <rect key="frame" x="0.0" y="80" width="375" height="538"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="todoItem" id="ITQ-Sc-cVD">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friend" rowHeight="75" id="ITQ-Sc-cVD" customClass="FriendListCell" customModule="SocialToDo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ITQ-Sc-cVD" id="bxO-QR-sst">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kMb-fj-F1A" customClass="Checkbox" customModule="SocialToDo" customModuleProvider="target">
-                                                    <rect key="frame" x="23" y="10" width="25" height="25"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMB-Ep-NE5">
+                                                    <rect key="frame" x="8" y="12.5" width="359" height="50"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="25" id="Cu7-RK-ory"/>
-                                                        <constraint firstAttribute="height" constant="25" id="b0b-BP-nQE"/>
+                                                        <constraint firstAttribute="height" constant="50" id="tqn-bb-0U9"/>
                                                     </constraints>
-                                                </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMB-Ep-NE5">
-                                                    <rect key="frame" x="56" y="11" width="311" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="XMB-Ep-NE5" firstAttribute="leading" secondItem="bxO-QR-sst" secondAttribute="leading" constant="8" id="6wN-Mf-39n"/>
                                                 <constraint firstAttribute="trailing" secondItem="XMB-Ep-NE5" secondAttribute="trailing" constant="8" id="7HH-1d-0J7"/>
-                                                <constraint firstItem="kMb-fj-F1A" firstAttribute="leading" secondItem="bxO-QR-sst" secondAttribute="leadingMargin" constant="8" id="IN9-4C-8yt"/>
-                                                <constraint firstItem="XMB-Ep-NE5" firstAttribute="leading" secondItem="kMb-fj-F1A" secondAttribute="trailing" constant="8" id="Vsb-9j-Pmp"/>
-                                                <constraint firstItem="kMb-fj-F1A" firstAttribute="centerY" secondItem="bxO-QR-sst" secondAttribute="centerY" id="tmj-5M-WbQ"/>
                                                 <constraint firstItem="XMB-Ep-NE5" firstAttribute="centerY" secondItem="bxO-QR-sst" secondAttribute="centerY" id="w3P-A1-OlP"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="name" destination="XMB-Ep-NE5" id="Azi-gh-DVK"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -575,7 +571,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="12X-2n-OBK"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="New List" id="D69-yv-3ci"/>
+                    <tabBarItem key="tabBarItem" title="Friends" id="D69-yv-3ci"/>
+                    <connections>
+                        <outlet property="tableView" destination="CMf-zd-MbM" id="cJI-n6-HPZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iwl-c3-Lwm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -593,8 +592,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="SFO-wg-e2A" kind="relationship" relationship="viewControllers" id="e02-tQ-Fhj"/>
                         <segue destination="8ia-gI-IJi" kind="relationship" relationship="viewControllers" id="pCH-65-P0R"/>
+                        <segue destination="SFO-wg-e2A" kind="relationship" relationship="viewControllers" id="e02-tQ-Fhj"/>
                         <segue destination="ST8-RR-9yM" kind="relationship" relationship="viewControllers" id="ffB-QM-JbR"/>
                     </connections>
                 </tabBarController>

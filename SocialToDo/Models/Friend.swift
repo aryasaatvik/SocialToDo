@@ -10,7 +10,7 @@ class Friend {
 	private var _name: String
 	private var _id: String
 //	private var _email: String
-	private var _isFriended: Bool
+	private var _isFriended: String
 	
 	var name: String {
 		get {
@@ -39,7 +39,7 @@ class Friend {
 //		}
 //	}
 	
-	var isFriended: Bool {
+	var isFriended: String {
 		get {
 			return _isFriended
 		}
@@ -51,16 +51,16 @@ class Friend {
 	init(_ name: String, _ id: String) {
 		_name = name
 		_id = id
-		_isFriended = false
+		_isFriended = "false"
 	}
 	
-	init(_ name: String, _ id: String, _ isFriended: Bool) {
+	init(_ name: String, _ id: String, _ isFriended: String) {
 		_name = name
 		_id = id
 		_isFriended = isFriended
 	}
 	
-	init(name: String, id: String, isFriended: Bool) {
+	init(name: String, id: String, isFriended: String) {
 		_name = name
 		_id = id
 		_isFriended = isFriended
