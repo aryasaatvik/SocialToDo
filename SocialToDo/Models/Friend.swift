@@ -8,7 +8,7 @@
 
 class Friend {
 	private var _name: String
-	private var _fbid: String
+	private var _id: String
 //	private var _email: String
 	private var _isFriended: Bool
 	
@@ -21,12 +21,12 @@ class Friend {
 		}
 	}
 	
-	var fbid: String {
+	var id: String {
 		get {
-			return _fbid
+			return _id
 		}
 		set {
-			_fbid = newValue
+			_id = newValue
 		}
 	}
 	
@@ -48,21 +48,21 @@ class Friend {
 		}
 	}
 	
-	init(_ name: String, _ fbid: String) {
+	init(_ name: String, _ id: String) {
 		_name = name
-		_fbid = fbid
+		_id = id
 		_isFriended = false
 	}
 	
-	init(_ name: String, _ fbid: String, _ isFriended: Bool) {
+	init(_ name: String, _ id: String, _ isFriended: Bool) {
 		_name = name
-		_fbid = fbid
+		_id = id
 		_isFriended = isFriended
 	}
 	
-	init(name: String, fbid: String, isFriended: Bool) {
+	init(name: String, id: String, isFriended: Bool) {
 		_name = name
-		_fbid = fbid
+		_id = id
 		_isFriended = isFriended
 	}
 	

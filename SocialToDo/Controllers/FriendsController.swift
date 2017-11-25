@@ -66,18 +66,19 @@ class FriendsController: NSObject, UITableViewDataSource {
 			case .success(let response):
 				let friends = response.friends!
 				for friend in friends {
-					let firstName = friend["first_name"]!
-					let lastName = friend["last_name"]!
 					let fbid = "\(friend["id"]!)"
-					let name = "\(firstName) \(lastName)"
-					let friendRef = self.friendsRef.child("\(fbid)")
-					
-					friendRef.observeSingleEvent(of: .value, with: { (snapshot) in
+					let name = "\(friend["first_name"]!) \(friend["last_name"]!)"
+					let fbIDRef = self.ref.child("fbID")
+					fbIDRef.observeSingleEvent(of: .value, with: { (snapshot) in
 						let value = snapshot.value as? NSDictionary
-						let isFriended = "\(value?["isFriended"] ?? "false")" == "true"
-						let childUpdate = ["name": "\(name)", "isFriended": "\(isFriended)"]
-						friendRef.updateChildValues(childUpdate)
-						self.friendList.add(friends: [Friend(name, fbid, isFriended)])
+						let friendID = "\((value?[fbid])!)"
+						self.friendsRef.observeSingleEvent(of: .value, with: { (snapshot) in
+							let value = snapshot.value as? NSDictionary
+							let isFriended = "\(value?["isFriended"] ?? "false")" == "true"
+							self.friendList.add(friends: [Friend(name, friendID, isFriended)])
+						}) { (error) in
+							print(error.localizedDescription)
+						}
 					}) { (error) in
 						print(error.localizedDescription)
 					}
@@ -96,13 +97,13 @@ class FriendsController: NSObject, UITableViewDataSource {
 	@objc func addFriend(addFriend: AddFriend) {
 		if(!addFriend.isSelected){
 			addFriend.isSelected = true
-			
 			let friend = friendList.getElementAt(atIndex: addFriend.index)
-			let friendRef = self.friendsRef.child("\(friend.fbid)")
-			let childUpdate = ["isFriended": "true"]
-			friendRef.updateChildValues(childUpdate)
+			let childUpdate = [friend.id: "true"]
+			self.friendsRef.updateChildValues(childUpdate)
+			let friendRef = ref.child("users/\(friend.id)/friends")
+			let friendUpdate = [userID: "true"]
+			friendRef.updateChildValues(friendUpdate)
 			friend.isFriended = true
-
 			
 		}
 	}
