@@ -87,12 +87,9 @@ class TLListViewController: UIViewController, UITextFieldDelegate, FBControllerD
 		print("TABLE VIEW ROW SELECTED")
 		print("TODOLIST REQUESTED: \(title), \(id)")
 		if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "todoListVC") as? TodoListViewController {
-			appDelegate.todoControl = TodoListController()
-			destinationVC.todoControl = appDelegate.todoControl
+			destinationVC.todoControl = TodoListController(todoList!)
 			destinationVC.todoControl?.delegate = destinationVC
-			destinationVC.todoControl?.todoList = todoList!
 			self.present(destinationVC, animated: true, completion: nil)
-			
 		}
 	}
 	

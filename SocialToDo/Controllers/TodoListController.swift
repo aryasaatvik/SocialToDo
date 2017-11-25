@@ -20,18 +20,18 @@ protocol TodoListControllerDelegate {
 }
 
 class TodoListController: NSObject, UITableViewDataSource {
-	var delegate: TodoListControllerDelegate?
-    var todoList: TodoList
+    var delegate: TodoListControllerDelegate?
+    let todoList: TodoList
 	var userID: String
 	var ref: DatabaseReference!
 	var taskAddedObserver: DatabaseHandle!
 	var taskRemovedObserver: DatabaseHandle!
 	
 	
-	override init(){
+    init(_ todoList:TodoList){
+        self.todoList = todoList
 		userID = (Auth.auth().currentUser?.uid)!
 		ref = Database.database().reference()
-		todoList = TodoList("Todo List", id: "0")
         super.init()
     }
 	
@@ -80,7 +80,7 @@ class TodoListController: NSObject, UITableViewDataSource {
 		let todo = todoList.getElement(withID: checkbox.id)!
 		let todoRef = ref.child("users/\(userID)/privateLists/\(todoList.id)/tasks/\(todo.id)/")
 
-		if(checkbox.isSelected == true){
+		if(checkbox.isSelected){
 			checkbox.isSelected = false
 			let childUpdate = ["checked": "false"]
 			todoRef.updateChildValues(childUpdate)

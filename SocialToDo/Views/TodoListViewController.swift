@@ -77,13 +77,13 @@ class TodoListViewController: UIViewController, UITextFieldDelegate, FBControlle
 	
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         handleAddTodoButton(textField)
+        textField.resignFirstResponder()
         return true
     }
         
     @IBAction func handleAddTodoButton(_ sender: Any) {
         let todoText = addTodoField.text!
         todoControl?.addElement(title: todoText)
-        addTodoField.resignFirstResponder()
         addTodoField.text = nil
     }
 	
@@ -94,7 +94,8 @@ class TodoListViewController: UIViewController, UITextFieldDelegate, FBControlle
 	func promptFacebookLogin() {
         let facebookLoginViewController = storyboard?.instantiateViewController(withIdentifier: "FacebookLogin")
         present(facebookLoginViewController!, animated: true, completion: nil)
-    }}
+    }
+}
 
 extension TodoListViewController: TodoListControllerDelegate {
     func reloadTableView() {

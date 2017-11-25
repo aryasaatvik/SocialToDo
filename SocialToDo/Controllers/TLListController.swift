@@ -84,5 +84,4 @@ class TLListController: NSObject, UITableViewDataSource {
 		return cell
 	}
 	
-	
 }
