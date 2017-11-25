@@ -90,6 +90,7 @@ class FBController {
             struct Response: GraphResponseProtocol {
                 var name: String?
                 var email: String?
+				var id: String?
                 init(rawResponse: Any?) {
                     // Decode JSON from rawResponse into other properties here.
                     guard let response = rawResponse as? Dictionary<String, Any> else {
@@ -98,6 +99,10 @@ class FBController {
                     if let name = response["name"] as? String {
                         self.name = name
                     }
+					
+					if let id = response["id"] as? String {
+						self.id = id
+					}
                     
                     if let email = response["email"] as? String {
                         self.email = email
@@ -106,7 +111,7 @@ class FBController {
             }
             
             var graphPath = "/me"
-            var parameters: [String : Any]? = ["fields": "name, email"]
+            var parameters: [String : Any]? = ["fields": "name, email, id"]
             var accessToken = AccessToken.current
             var httpMethod: GraphRequestHTTPMethod = .GET
             var apiVersion: GraphAPIVersion = .defaultVersion
@@ -120,6 +125,9 @@ class FBController {
                 // add user info to firebase database
                 var ref: DatabaseReference!
                 ref = Database.database().reference()
+				let fbID = ref.child("fbID")
+				let fbIDUpdate = ["\(response.id!)": "\(user.uid)"]
+				fbID.updateChildValues(fbIDUpdate)
                 let userRef = ref.child("users/\((user.uid))/")
                 let userInfo = ["name": response.name!,
                                 "email": response.email!]

@@ -29,7 +29,7 @@ class TLListController: NSObject, UITableViewDataSource {
 	override init() {
 		userID = (Auth.auth().currentUser?.uid)!
 		ref = Database.database().reference()
-		todoListsRef = ref.child("users/\(userID)/privateLists/")
+		todoListsRef = ref.child("privateLists/\(userID)/")
 		super.init()
 		listenForLists()
 	}

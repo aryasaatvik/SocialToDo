@@ -36,7 +36,7 @@ class TodoListController: NSObject, UITableViewDataSource {
     }
 	
 	func listenForTodos() {
-		let tasksRef = ref.child("users/\(userID)/privateLists/\(todoList.id)/tasks/")
+		let tasksRef = ref.child("privateLists/\(userID)/\(todoList.id)/tasks/")
 		taskAddedObserver = tasksRef.observe(.childAdded) { (snapshot) -> Void in
 			print("SNAPSHOT: \(snapshot)")
 			
@@ -65,20 +65,20 @@ class TodoListController: NSObject, UITableViewDataSource {
 	}
 	
     func addElement(title:String){
-		let todoRef = ref.child("users/\(userID)/privateLists/\(todoList.id)/tasks/").childByAutoId()
+		let todoRef = ref.child("privateLists/\(userID)/\(todoList.id)/tasks/").childByAutoId()
 		let childUpdate = ["title": title,
 		                   "checked": "false"]
 		todoRef.updateChildValues(childUpdate)
     }
     
 	@objc func removeElement(trash: Trash){
-		let tasksRef = ref.child("users/\(userID)/privateLists/\(todoList.id)/tasks/")
+		let tasksRef = ref.child("privateLists/\(userID)/\(todoList.id)/tasks/")
 		tasksRef.child("\(trash.id)").removeValue()
 	}
 	
 	@objc func changeValues(checkbox: Checkbox) {
 		let todo = todoList.getElement(withID: checkbox.id)!
-		let todoRef = ref.child("users/\(userID)/privateLists/\(todoList.id)/tasks/\(todo.id)/")
+		let todoRef = ref.child("privateLists/\(userID)/\(todoList.id)/tasks/\(todo.id)/")
 
 		if(checkbox.isSelected){
 			checkbox.isSelected = false
