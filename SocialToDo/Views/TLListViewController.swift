@@ -70,7 +70,7 @@ class TLListViewController: UIViewController, UITextFieldDelegate, FBControllerD
 	
 	@IBAction func handleAddTodoList(_ sender: Any) {
 		let todoTitle = addTodoListField.text!
-		listControl?.addTodoList(title: todoTitle)
+        listControl?.addElement(childUpdate: ["name": todoTitle])
 		addTodoListField.resignFirstResponder()
 		addTodoListField.text = nil
 	}
@@ -81,7 +81,7 @@ class TLListViewController: UIViewController, UITextFieldDelegate, FBControllerD
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		todoList = listControl!.list.getElementAt(atIndex: indexPath.row)
+		todoList = listControl!.list.getElement(at: indexPath.row)
 		let title = todoList!.title
 		let id = todoList!.id
 		print("TABLE VIEW ROW SELECTED")

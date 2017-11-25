@@ -7,52 +7,20 @@
 //  Copyright © 2017 Saatvik Arya. All rights reserved.
 //
 
-class TLList {
-	private var list: [TodoList]
-	
-	init(){
-		//Returns an empty todolist
-		list = [TodoList]()
-	}
-	
+class TLList:List<TodoList> {
+    
 	init(listItems:TodoList...){
-		list = listItems
+		super.init(listItems)
 	}
 	
 	init(listItems:[TodoList]){
-		list = listItems
+		super.init(listItems)
 	}
-	
-	public func add(list: TodoList){
-		self.list.append(list)
-	}
-	
-	/*Warning and TODO: If one element is removed, Swift will automatically
-	reindex the others, so further removes should not be permitted
-	until MyListsViewController.tableView recieves new, properly
-	indexed elements*/
-	
-	public func remove(atIndex:Int){
-		list.remove(at:atIndex)
-	}
-	
-	public func remove(id: String) -> Int? {
-		for (index, todoList) in list.enumerated() {
-			if(todoList.id == id) {
-				list.remove(at: index)
-				return index
-			}
-		}
-		return nil
-	}
-	
-	public func getElementAt(atIndex:Int) -> TodoList{
-		return list[atIndex]
-	}
-		
-	// This should always return an array of strings
-	public func getElements() -> [TodoList] {
-		return list
-	}
+    
+    /*TODO: Write protocol for an item that has an ID and a title,
+    and that is equitable*/
+    func remove(id:String) -> Int? {
+        return remove(element:TodoList("",id:id))
+    }
 }
 
