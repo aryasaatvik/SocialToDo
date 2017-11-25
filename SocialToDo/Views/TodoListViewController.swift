@@ -13,6 +13,7 @@ class TodoListViewController: UIViewController, UITextFieldDelegate, FBControlle
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var todoControl:TodoListController?
     var fbControl:FBController?
+    var notInProgress = true;
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addTodoField: UITextField!
     @IBOutlet weak var addTodoButton: UIButton!
@@ -85,15 +86,20 @@ class TodoListViewController: UIViewController, UITextFieldDelegate, FBControlle
     }
     
     func addTodoToDelegate(){
-        let todoText = addTodoField.text!
-        if (todoText != ""){
-            todoControl?.addElement(title: todoText)
-            addTodoField.resignFirstResponder()
-            addTodoField.text = nil
+        if (notInProgress){
+            notInProgress = false
+            let todoText = addTodoField.text!
+            if (todoText != ""){
+                todoControl?.addElement(title: todoText)
+                addTodoField.resignFirstResponder()
+                addTodoField.text = nil
+            }
         }
+        notInProgress = true
     }
 	
 	@IBAction func handleBackButton(_ sender: Any) {
+        todoControl!.removeObservers()
 		dismiss(animated: true, completion: nil)
 	}
 

@@ -36,7 +36,7 @@ class TodoListController: NSObject, UITableViewDataSource {
     }
 	
 	func listenForTodos() {
-		let tasksRef = ref.child("privateLists/\(userID)/\(todoList.id)/tasks/")
+        let tasksRef = ref.child("privateLists/\(userID)/\(todoList.id)/tasks/")
 		taskAddedObserver = tasksRef.observe(.childAdded) { (snapshot) -> Void in
 			print("SNAPSHOT: \(snapshot)")
 			
@@ -60,9 +60,13 @@ class TodoListController: NSObject, UITableViewDataSource {
 			self.delegate?.deleteRow(indexPath: IndexPath(row: index, section: 0))
 			self.delegate?.endUpdates()
 		}
-		
-		
 	}
+    
+    func removeObservers(){
+        let tasksRef = ref.child("privateLists/\(userID)/\(todoList.id)/tasks/")
+        //Remove listeners when deinitalized
+        tasksRef.removeAllObservers()
+    }
 	
     func addElement(title:String){
 		let todoRef = ref.child("privateLists/\(userID)/\(todoList.id)/tasks/").childByAutoId()
