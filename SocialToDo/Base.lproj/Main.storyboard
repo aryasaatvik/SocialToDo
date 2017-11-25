@@ -179,7 +179,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Todo List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="je4-JJ-Upy">
-                                        <rect key="frame" x="8" y="24" width="359" height="32"/>
+                                        <rect key="frame" x="50" y="24" width="275" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="6Z8-2u-fNL"/>
                                         </constraints>
@@ -197,13 +197,13 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.76862745099999996" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="je4-JJ-Upy" firstAttribute="leading" secondItem="xLR-Ok-OhF" secondAttribute="leading" constant="50" id="0nn-qs-bV1"/>
                                     <constraint firstAttribute="height" constant="80" id="8O7-M0-jZ4"/>
+                                    <constraint firstAttribute="trailing" secondItem="je4-JJ-Upy" secondAttribute="trailing" constant="50" id="Gl7-8x-Ua7"/>
                                     <constraint firstItem="jLg-6V-lSV" firstAttribute="centerY" secondItem="xLR-Ok-OhF" secondAttribute="centerY" id="HHH-hR-6bC"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="MbI-0j-n0R"/>
                                     <constraint firstItem="jLg-6V-lSV" firstAttribute="leading" secondItem="xLR-Ok-OhF" secondAttribute="leading" constant="8" id="T6o-bG-rfx"/>
-                                    <constraint firstItem="je4-JJ-Upy" firstAttribute="leading" secondItem="xLR-Ok-OhF" secondAttribute="leading" constant="8" id="d9A-J9-9wt"/>
                                     <constraint firstItem="je4-JJ-Upy" firstAttribute="centerX" secondItem="xLR-Ok-OhF" secondAttribute="centerX" id="lVs-Ur-DaI"/>
-                                    <constraint firstAttribute="trailing" secondItem="je4-JJ-Upy" secondAttribute="trailing" constant="8" id="qXj-6l-FVV"/>
                                     <constraint firstItem="je4-JJ-Upy" firstAttribute="centerY" secondItem="xLR-Ok-OhF" secondAttribute="centerY" id="vA6-OV-CKV"/>
                                 </constraints>
                             </view>
@@ -324,7 +324,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qx5-Vc-c3m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1418" y="486"/>
+            <point key="canvasLocation" x="1416.8" y="485.30734632683664"/>
         </scene>
         <!--Facebook Login View Controller-->
         <scene sceneID="HG5-Le-PV5">

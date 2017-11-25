@@ -27,6 +27,7 @@ class TodoListViewController: UIViewController, UITextFieldDelegate, FBControlle
 		tableView.dataSource = todoControl
 		todoListTitle.text = todoControl?.list.title
 		addTodoField.delegate = self
+        todoListTitle.adjustsFontSizeToFitWidth = true
 
 		NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
