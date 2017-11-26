@@ -74,25 +74,29 @@ class TLListViewController: UIViewController, UITextFieldDelegate, FBControllerD
 		addTodoListField.resignFirstResponder()
 		addTodoListField.text = nil
 	}
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        todoList = listControl!.list.getElement(at: indexPath.row)
+        let title = todoList!.title
+        let id = todoList!.id
+        print("TABLE VIEW ROW SELECTED")
+        print("TODOLIST REQUESTED: \(title), \(id)")
+        if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "todoListVC") as? TodoListViewController {
+            destinationVC.todoControl = TodoListController(todoList!)
+            destinationVC.todoControl?.delegate = destinationVC
+            self.present(destinationVC, animated: true, completion: nil)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75
+    }
 	
 	func promptFacebookLogin() {
 		let facebookLoginViewController = storyboard?.instantiateViewController(withIdentifier: "FacebookLogin")
 		present(facebookLoginViewController!, animated: true, completion: nil)
 	}
-	
-	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		todoList = listControl!.list.getElement(at: indexPath.row)
-		let title = todoList!.title
-		let id = todoList!.id
-		print("TABLE VIEW ROW SELECTED")
-		print("TODOLIST REQUESTED: \(title), \(id)")
-		if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "todoListVC") as? TodoListViewController {
-			destinationVC.todoControl = TodoListController(todoList!)
-			destinationVC.todoControl?.delegate = destinationVC
-			self.present(destinationVC, animated: true, completion: nil)
-		}
-	}
-	
+
 	@IBAction func handleLogoutButton(_ sender: Any) {
 		fbControl?.logout(vc: self)
 	}
@@ -116,4 +120,13 @@ extension TLListViewController: TLListControllerDelegate {
 	func deleteRow(indexPath: IndexPath) {
 		self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
 	}
+    
+    func segue(_ todoList:TodoList){
+        print("Does this get called?")
+        if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "todoListVC") as? TodoListViewController {
+            destinationVC.todoControl = TodoListController(todoList)
+            destinationVC.todoControl?.delegate = destinationVC
+            self.present(destinationVC, animated: true, completion: nil)
+        }
+    }
 }

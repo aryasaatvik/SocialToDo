@@ -6,49 +6,31 @@
 //  Copyright © 2017 Saatvik Arya. All rights reserved.
 //
 
+import Foundation
+
 class Todo:Equatable {
-    
-    
-    private var _title: String
-    private var _id: String
-    private var _isChecked: Bool
-    
-    var title: String {
-        get {
-            return _title
-        }
-    }
-    
-    var id: String {
-        get {
-            return _id
-        }
-        set {
-            _id = newValue
-        }
-    }
-    
-    var isChecked: Bool {
-        get {
-            return _isChecked
-        }
-        
-        set {
-            _isChecked = newValue
-        }
-    }
-    
-    
+    let title: String
+    var id: String
+    var isChecked: Bool
+    var dueDate: Date?
+
     init(_ title: String, id: String) {
-        _title = title
-        _id = id
-        _isChecked = false
+        self.title = title
+        self.id = id
+        self.isChecked = false
     }
     
     init(title: String, id: String, isChecked: Bool) {
-        _title = title
-        _id = id
-        _isChecked = isChecked
+        self.title = title
+        self.id = id
+        self.isChecked = isChecked
+    }
+    
+    init(title: String, id: String, time:Date, isChecked: Bool = false) {
+        self.title = title
+        self.id = id
+        self.isChecked = isChecked
+        self.dueDate = time
     }
     
     static func ==(lhs: Todo, rhs: Todo) -> Bool {

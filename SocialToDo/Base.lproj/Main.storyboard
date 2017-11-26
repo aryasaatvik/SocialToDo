@@ -37,7 +37,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Todo List 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SF5-pr-A7t">
-                                                    <rect key="frame" x="23" y="13" width="285" height="50"/>
+                                                    <rect key="frame" x="23" y="12.5" width="285" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="WiX-YU-Wnh"/>
                                                     </constraints>
@@ -46,7 +46,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LUa-MX-w6J" customClass="Trash" customModule="SocialToDo" customModuleProvider="target">
-                                                    <rect key="frame" x="316" y="12" width="36" height="50"/>
+                                                    <rect key="frame" x="316" y="12.5" width="36" height="50"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="36" id="FVB-v4-LLU"/>
@@ -57,10 +57,10 @@
                                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="SF5-pr-A7t" firstAttribute="leading" secondItem="QL5-tQ-aJq" secondAttribute="leadingMargin" constant="8" id="9L3-pA-MAe"/>
-                                                <constraint firstItem="SF5-pr-A7t" firstAttribute="centerY" secondItem="QL5-tQ-aJq" secondAttribute="centerY" id="K9D-y2-5if"/>
                                                 <constraint firstItem="LUa-MX-w6J" firstAttribute="leading" secondItem="SF5-pr-A7t" secondAttribute="trailing" constant="8" id="Ork-lY-gAi"/>
                                                 <constraint firstItem="LUa-MX-w6J" firstAttribute="centerY" secondItem="QL5-tQ-aJq" secondAttribute="centerY" id="e3O-fj-yU5"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="LUa-MX-w6J" secondAttribute="trailing" constant="8" id="fMx-xo-Hgn"/>
+                                                <constraint firstItem="SF5-pr-A7t" firstAttribute="centerY" secondItem="QL5-tQ-aJq" secondAttribute="centerY" id="j0V-aO-C8p"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -179,7 +179,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Todo List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="je4-JJ-Upy">
-                                        <rect key="frame" x="8" y="24" width="359" height="32"/>
+                                        <rect key="frame" x="50" y="24" width="275" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="6Z8-2u-fNL"/>
                                         </constraints>
@@ -197,13 +197,13 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.85882352939999995" green="0.76862745099999996" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="je4-JJ-Upy" firstAttribute="leading" secondItem="xLR-Ok-OhF" secondAttribute="leading" constant="50" id="0nn-qs-bV1"/>
                                     <constraint firstAttribute="height" constant="80" id="8O7-M0-jZ4"/>
+                                    <constraint firstAttribute="trailing" secondItem="je4-JJ-Upy" secondAttribute="trailing" constant="50" id="Gl7-8x-Ua7"/>
                                     <constraint firstItem="jLg-6V-lSV" firstAttribute="centerY" secondItem="xLR-Ok-OhF" secondAttribute="centerY" id="HHH-hR-6bC"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="MbI-0j-n0R"/>
                                     <constraint firstItem="jLg-6V-lSV" firstAttribute="leading" secondItem="xLR-Ok-OhF" secondAttribute="leading" constant="8" id="T6o-bG-rfx"/>
-                                    <constraint firstItem="je4-JJ-Upy" firstAttribute="leading" secondItem="xLR-Ok-OhF" secondAttribute="leading" constant="8" id="d9A-J9-9wt"/>
                                     <constraint firstItem="je4-JJ-Upy" firstAttribute="centerX" secondItem="xLR-Ok-OhF" secondAttribute="centerX" id="lVs-Ur-DaI"/>
-                                    <constraint firstAttribute="trailing" secondItem="je4-JJ-Upy" secondAttribute="trailing" constant="8" id="qXj-6l-FVV"/>
                                     <constraint firstItem="je4-JJ-Upy" firstAttribute="centerY" secondItem="xLR-Ok-OhF" secondAttribute="centerY" id="vA6-OV-CKV"/>
                                 </constraints>
                             </view>
@@ -262,9 +262,9 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJG-xW-VkT">
-                                                    <rect key="frame" x="81" y="13" width="243" height="50"/>
+                                                    <rect key="frame" x="81" y="11.5" width="243" height="35.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="nOt-G7-u8U"/>
+                                                        <constraint firstAttribute="height" constant="35" id="nOt-G7-u8U"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
                                                     <nil key="textColor"/>
@@ -278,20 +278,43 @@
                                                         <constraint firstAttribute="width" constant="36" id="YOq-qv-gWf"/>
                                                     </constraints>
                                                 </view>
+                                                <datePicker hidden="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="k7c-pC-jTI">
+                                                    <rect key="frame" x="0.0" y="76" width="375" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="DbN-zc-kVL"/>
+                                                    </constraints>
+                                                    <date key="date" timeIntervalSinceReferenceDate="533338109.045542">
+                                                        <!--2017-11-25 9:28:29 ptm +0000-->
+                                                    </date>
+                                                </datePicker>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Time one" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fb4-za-tFe" userLabel="Time">
+                                                    <rect key="frame" x="81" y="47" width="251" height="16.5"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="cm5-Hw-9ub" firstAttribute="leading" secondItem="98v-7d-Qzs" secondAttribute="leadingMargin" constant="8" id="5gk-WY-Wxf"/>
+                                                <constraint firstItem="e73-9K-8la" firstAttribute="leading" secondItem="Fb4-za-tFe" secondAttribute="trailing" id="Bvq-bc-JsS"/>
                                                 <constraint firstItem="e73-9K-8la" firstAttribute="trailing" secondItem="98v-7d-Qzs" secondAttribute="trailingMargin" constant="8" id="DmX-PQ-96W"/>
                                                 <constraint firstItem="e73-9K-8la" firstAttribute="leading" secondItem="mJG-xW-VkT" secondAttribute="trailing" constant="8" id="GOK-WL-zTd"/>
                                                 <constraint firstItem="mJG-xW-VkT" firstAttribute="leading" secondItem="cm5-Hw-9ub" secondAttribute="trailing" constant="8" id="HEj-gw-Qul"/>
-                                                <constraint firstItem="e73-9K-8la" firstAttribute="centerY" secondItem="98v-7d-Qzs" secondAttribute="centerY" id="elW-So-aOL"/>
-                                                <constraint firstItem="cm5-Hw-9ub" firstAttribute="centerY" secondItem="98v-7d-Qzs" secondAttribute="centerY" id="eq2-4Z-TCM"/>
-                                                <constraint firstItem="mJG-xW-VkT" firstAttribute="centerY" secondItem="98v-7d-Qzs" secondAttribute="centerY" id="wlE-Py-3vr"/>
+                                                <constraint firstItem="Fb4-za-tFe" firstAttribute="top" secondItem="mJG-xW-VkT" secondAttribute="bottom" id="KGh-Ma-NZL"/>
+                                                <constraint firstAttribute="trailing" secondItem="k7c-pC-jTI" secondAttribute="trailing" id="M4p-aW-oOX"/>
+                                                <constraint firstItem="cm5-Hw-9ub" firstAttribute="top" secondItem="98v-7d-Qzs" secondAttribute="top" constant="12.5" id="NEf-Au-8Wt"/>
+                                                <constraint firstItem="Fb4-za-tFe" firstAttribute="leading" secondItem="cm5-Hw-9ub" secondAttribute="trailing" constant="8" id="NwQ-G6-z1q"/>
+                                                <constraint firstItem="e73-9K-8la" firstAttribute="top" secondItem="98v-7d-Qzs" secondAttribute="top" constant="12.5" id="Wgu-Ln-99w"/>
+                                                <constraint firstItem="k7c-pC-jTI" firstAttribute="top" secondItem="cm5-Hw-9ub" secondAttribute="bottom" constant="12.5" id="WtR-gk-KRI"/>
+                                                <constraint firstItem="k7c-pC-jTI" firstAttribute="leading" secondItem="98v-7d-Qzs" secondAttribute="leading" id="i6P-YU-90n"/>
+                                                <constraint firstItem="mJG-xW-VkT" firstAttribute="top" secondItem="98v-7d-Qzs" secondAttribute="topMargin" id="x0L-7W-5t1"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="checkbox" destination="cm5-Hw-9ub" id="x2Q-JO-eNA"/>
+                                            <outlet property="datePicker" destination="k7c-pC-jTI" id="D3W-Ga-hPb"/>
+                                            <outlet property="dueDate" destination="Fb4-za-tFe" id="zzK-7l-NTi"/>
                                             <outlet property="label" destination="mJG-xW-VkT" id="Jo1-N6-yZ7"/>
                                             <outlet property="trash" destination="e73-9K-8la" id="fUH-bc-ViL"/>
                                         </connections>

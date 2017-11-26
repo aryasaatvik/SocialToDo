@@ -9,10 +9,11 @@
 import UIKit
 import FirebaseDatabase
 
-class TodoListViewController: UIViewController, UITextFieldDelegate, FBControllerDelegate {
+class TodoListViewController: UIViewController, UITextFieldDelegate, FBControllerDelegate, UITableViewDelegate {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var todoControl:TodoListController?
     var fbControl:FBController?
+    var timeEdit: IndexPath?
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addTodoField: UITextField!
     @IBOutlet weak var addTodoButton: UIButton!
@@ -25,8 +26,10 @@ class TodoListViewController: UIViewController, UITextFieldDelegate, FBControlle
         fbControl?.delegate = self
         fbControl?.checkLogin()
 		tableView.dataSource = todoControl
+        tableView.delegate = self
 		todoListTitle.text = todoControl?.list.title
 		addTodoField.delegate = self
+        todoListTitle.adjustsFontSizeToFitWidth = true
 
 		NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
@@ -95,6 +98,29 @@ class TodoListViewController: UIViewController, UITextFieldDelegate, FBControlle
 	func promptFacebookLogin() {
         let facebookLoginViewController = storyboard?.instantiateViewController(withIdentifier: "FacebookLogin")
         present(facebookLoginViewController!, animated: true, completion: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        timeEdit = indexPath
+        let todoCell = (tableView.cellForRow(at: indexPath) as! TodoCell)
+        todoCell.datePicker.isEnabled = true
+        todoCell.datePicker.isHidden = false
+        self.tableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        timeEdit = nil
+        let todoCell = (tableView.cellForRow(at: indexPath) as! TodoCell)
+        todoCell.datePicker.isEnabled = false
+        todoCell.datePicker.isHidden = true
+        self.tableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (timeEdit != nil && indexPath == timeEdit){
+            return 140
+        }
+        return 75
     }
 }
 

@@ -13,6 +13,8 @@ import FirebaseAuth
 typealias TodoListControllerDelegate = ListControllerDelegate
 
 class TodoListController: ListController<Todo,TodoList> {
+    //If the user selects a UITableView box to edit the due date for an object, it is stored here
+    
     init(_ todoList:TodoList){
 		super.init(list:todoList, listID:todoList.id, userID: (Auth.auth().currentUser?.uid)!, root: getDatabase ,newListInserted: newListInserted, newListRemoved: newListRemoved)
     }
@@ -64,8 +66,18 @@ class TodoListController: ListController<Todo,TodoList> {
 		}
 	}
     
+    
+    
+    func allowDateEditing(_ cell:UITableViewCell){
+        if let todoCell = cell as? TodoCell {
+            //todoCell.
+        }
+    }
+
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		tableView.rowHeight = 75
+        tableView.estimatedRowHeight = 75
+        tableView.rowHeight = UITableViewAutomaticDimension
 		let cell = tableView.dequeueReusableCell(withIdentifier: "todo") as! TodoCell
 		cell.selectionStyle = .none
 		let todo = list.getElement(at: indexPath.row)
