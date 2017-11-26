@@ -34,7 +34,6 @@
 		E953CED91FC107D000FDDF91 /* FacebookLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E953CED81FC107D000FDDF91 /* FacebookLoginViewController.swift */; };
 		E99A1F701FC0A1E800E0E8AA /* FBController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99A1F6F1FC0A1E800E0E8AA /* FBController.swift */; };
 		E9AE07BE1FCA0A2500198E21 /* FinishTodayListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AE07BD1FCA0A2500198E21 /* FinishTodayListController.swift */; };
-		E9D8AEB41FC938BB00F97E87 /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8AEB31FC938BB00F97E87 /* ListController.swift */; };
 		E9D8D1C81FC940AD007F490E /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8D1C71FC940AD007F490E /* List.swift */; };
 		E9EF071B1FB6644B0096CBCD /* TodoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EF071A1FB6644B0096CBCD /* TodoListController.swift */; };
 		E9EF071D1FB674660096CBCD /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EF071C1FB674660096CBCD /* TodoList.swift */; };
@@ -75,7 +74,6 @@
 		E953CED81FC107D000FDDF91 /* FacebookLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookLoginViewController.swift; sourceTree = "<group>"; };
 		E99A1F6F1FC0A1E800E0E8AA /* FBController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBController.swift; sourceTree = "<group>"; };
 		E9AE07BD1FCA0A2500198E21 /* FinishTodayListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishTodayListController.swift; sourceTree = "<group>"; };
-		E9D8AEB31FC938BB00F97E87 /* ListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
 		E9D8D1C71FC940AD007F490E /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		E9EF071A1FB6644B0096CBCD /* TodoListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListController.swift; sourceTree = "<group>"; };
 		E9EF071C1FB674660096CBCD /* TodoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
@@ -514,10 +512,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = CH64A7AV3T;
 				INFOPLIST_FILE = SocialToDo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.saatvikarya.SocialToDo;
+				PRODUCT_BUNDLE_IDENTIFIER = me.saatvikarya.SocialToDoTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -530,10 +528,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = CH64A7AV3T;
 				INFOPLIST_FILE = SocialToDo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.saatvikarya.SocialToDo;
+				PRODUCT_BUNDLE_IDENTIFIER = me.saatvikarya.SocialToDoTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
