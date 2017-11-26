@@ -55,7 +55,7 @@ class SharedTLListViewController: UIViewController, UITextFieldDelegate, FBContr
 			if (endFrame?.origin.y)! >= UIScreen.main.bounds.size.height {
 				self.keyboardHeightLayoutConstraint?.constant = 0.0
 			} else {
-				self.keyboardHeightLayoutConstraint?.constant =  endFrame!.size.height
+				self.keyboardHeightLayoutConstraint?.constant =  -endFrame!.size.height + 50
 			}
 			UIView.animate(withDuration: duration,
 						   delay: TimeInterval(0),

@@ -115,6 +115,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C788D49D1FCB533D00C7C955 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				C71F64551FCA4BB5002658AC /* FriendTodoListsCell.swift */,
+				C71F64571FCA4BD3002658AC /* FriendTodoListCell.swift */,
+				C71F645D1FCA71A2002658AC /* SharedListCell.swift */,
+				C71F645F1FCA76F5002658AC /* SharedTodoCell.swift */,
+				C777E1801FB7A3A600EAD4C5 /* TodoCell.swift */,
+				C7B070971FC5190000AD648D /* FriendCell.swift */,
+				C7B070A11FC6498A00AD648D /* ListCell.swift */,
+				C7AB39601FC9576C00A77474 /* FriendListCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
 		C7AB09441FB501F90040195E = {
 			isa = PBXGroup;
 			children = (
@@ -186,10 +201,9 @@
 		E9EF07181FB6641C0096CBCD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C788D49D1FCB533D00C7C955 /* TableViewCells */,
 				C7B070901FC4D83300AD648D /* Buttons */,
 				C7AB09521FB501F90040195E /* FriendsListViewController.swift */,
-				C71F64551FCA4BB5002658AC /* FriendTodoListsCell.swift */,
-				C71F64571FCA4BD3002658AC /* FriendTodoListCell.swift */,
 				C7AB09661FB50D540040195E /* FriendsViewController.swift */,
 				C71F64451FCA2285002658AC /* FriendTodoListsViewController.swift */,
 				E943744A1FCB398300105B4D /* FriendTodoListViewController.swift */,
@@ -198,12 +212,6 @@
 				C7B0709D1FC63ED000AD648D /* TLListViewController.swift */,
 				C71F645B1FCA7169002658AC /* SharedTLListViewController.swift */,
 				C71F64611FCA773C002658AC /* SharedTodoListViewController.swift */,
-				C71F645D1FCA71A2002658AC /* SharedListCell.swift */,
-				C71F645F1FCA76F5002658AC /* SharedTodoCell.swift */,
-				C777E1801FB7A3A600EAD4C5 /* TodoCell.swift */,
-				C7B070971FC5190000AD648D /* FriendCell.swift */,
-				C7B070A11FC6498A00AD648D /* ListCell.swift */,
-				C7AB39601FC9576C00A77474 /* FriendListCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -544,7 +552,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = LZKU673F93;
 				INFOPLIST_FILE = SocialToDo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.saatvikarya.SocialToDo;
@@ -560,7 +568,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = LZKU673F93;
 				INFOPLIST_FILE = SocialToDo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.saatvikarya.SocialToDo;
