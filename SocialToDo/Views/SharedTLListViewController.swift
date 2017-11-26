@@ -1,49 +1,50 @@
 //
-//  TLListViewController.swift
+//  SharedTLListViewController.swift
 //  SocialToDo
 //
-//  Created by Saatvik Arya on 11/22/17.
+//  Created by Saatvik Arya on 11/25/17.
 //  Copyright © 2017 Saatvik Arya. All rights reserved.
 //
 
 import UIKit
 import FirebaseAuth
 
+class SharedTLListViewController: UIViewController, UITextFieldDelegate, FBControllerDelegate, UITableViewDelegate {
 
-class TLListViewController: UIViewController, UITextFieldDelegate, FBControllerDelegate, UITableViewDelegate {
 	let appDelegate = UIApplication.shared.delegate as! AppDelegate
-	var listControl:TLListController?
+	var sharedListControl: TLListController?
 	var fbControl:FBController?
 	var todoControl: TodoListController?
 	var todoList: TodoList?
+
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var addTodoListField: UITextField!
 	@IBOutlet weak var keyboardHeightLayoutConstraint: NSLayoutConstraint!
-	
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		listControl = appDelegate.listControl
-		listControl?.delegate = self
+		sharedListControl = appDelegate.sharedListControl
+		sharedListControl?.delegate = self
 		fbControl = appDelegate.fbControl
 		fbControl?.delegate = self
 		fbControl?.checkLogin()
-		
-		tableView.dataSource = listControl
+
+		tableView.dataSource = sharedListControl
 		tableView.delegate = self
-		
+
 		addTodoListField.delegate = self
 		NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
-		
+
 	}
-	
+
 	deinit {
 		NotificationCenter.default.removeObserver(self)
 	}
-	
+
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 	}
-	
+
 	@objc func keyboardNotification(notification: NSNotification) {
 		if let userInfo = notification.userInfo {
 			let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
@@ -54,7 +55,7 @@ class TLListViewController: UIViewController, UITextFieldDelegate, FBControllerD
 			if (endFrame?.origin.y)! >= UIScreen.main.bounds.size.height {
 				self.keyboardHeightLayoutConstraint?.constant = 0.0
 			} else {
-				self.keyboardHeightLayoutConstraint?.constant = -50.0 + endFrame!.size.height
+				self.keyboardHeightLayoutConstraint?.constant =  endFrame!.size.height
 			}
 			UIView.animate(withDuration: duration,
 						   delay: TimeInterval(0),
@@ -63,7 +64,7 @@ class TLListViewController: UIViewController, UITextFieldDelegate, FBControllerD
 						   completion: nil)
 		}
 	}
-	
+
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		handleAddTodoList(textField)
 		return true
@@ -71,41 +72,30 @@ class TLListViewController: UIViewController, UITextFieldDelegate, FBControllerD
 	
 	@IBAction func handleAddTodoList(_ sender: Any) {
 		let todoTitle = addTodoListField.text!
-        listControl?.addElement(childUpdate: ["name": todoTitle])
+		sharedListControl?.addElement(childUpdate: ["name": todoTitle])
 		addTodoListField.resignFirstResponder()
 		addTodoListField.text = nil
 	}
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        todoList = listControl!.list.getElement(at: indexPath.row)
-        let title = todoList!.title
-        let id = todoList!.id
-        print("TABLE VIEW ROW SELECTED")
-        print("TODOLIST REQUESTED: \(title), \(id)")
-        if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "todoListVC") as? TodoListViewController {
-			destinationVC.todoControl = TodoListController(todoList!, path: "privateLists", userID: Auth.auth().currentUser!.uid, vc: "TodoList")
-            destinationVC.todoControl?.delegate = destinationVC
-            self.present(destinationVC, animated: true, completion: nil)
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 75
-    }
-	
-	func promptFacebookLogin() {
-		let facebookLoginViewController = storyboard?.instantiateViewController(withIdentifier: "FacebookLogin")
-		present(facebookLoginViewController!, animated: true, completion: nil)
+
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		todoList = sharedListControl!.list.getElement(at: indexPath.row)
+		let title = todoList!.title
+		let id = todoList!.id
+		print("TABLE VIEW ROW SELECTED")
+		print("TODOLIST REQUESTED: \(title), \(id)")
+		if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "sharedTodoListVC") as? SharedTodoListViewController {
+			destinationVC.sharedTodoControl = TodoListController(todoList!, path: "sharedLists", userID: Auth.auth().currentUser!.uid, vc: "SharedTodoList")
+			destinationVC.sharedTodoControl?.delegate = destinationVC
+			self.present(destinationVC, animated: true, completion: nil)
+		}
 	}
 
-	@IBAction func handleLogoutButton(_ sender: Any) {
-		fbControl?.logout(vc: self)
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return 75
 	}
-	
+
 }
-
-
-extension TLListViewController: TLListControllerDelegate {
+extension SharedTLListViewController: TLListControllerDelegate {
 	func reloadTableView() {
 		self.tableView.reloadData()
 	}
@@ -121,13 +111,14 @@ extension TLListViewController: TLListControllerDelegate {
 	func deleteRow(indexPath: IndexPath) {
 		self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
 	}
-    
-    func segue(_ todoList:TodoList){
-        print("Does this get called?")
-        if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "todoListVC") as? TodoListViewController {
-			destinationVC.todoControl = TodoListController(todoList, path: "privateLists", userID: Auth.auth().currentUser!.uid, vc: "TodoList")
-            destinationVC.todoControl?.delegate = destinationVC
-            self.present(destinationVC, animated: true, completion: nil)
-        }
-    }
+	
+	func segue(_ todoList:TodoList){
+		print("Does this get called?")
+		if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "sharedTodoListVC") as? TodoListViewController {
+			destinationVC.todoControl = TodoListController(todoList, path: "sharedLists", userID: Auth.auth().currentUser!.uid, vc: "SharedTodoList")
+			destinationVC.todoControl?.delegate = destinationVC
+			self.present(destinationVC, animated: true, completion: nil)
+		}
+	}
 }
+

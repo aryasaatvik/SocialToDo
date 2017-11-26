@@ -15,13 +15,14 @@ protocol TLListControllerDelegate:ListControllerDelegate {
 }
 
 class TLListController: ListController<TodoList,TLList> {
-	init() {
-		super.init(list:TLList(),listID:"", userID: (Auth.auth().currentUser?.uid)!, root: getDatabase,newListInserted: newListInserted, newListRemoved: newListRemoved)
+	let vc: String
+	init(path: String, userID: String, vc: String) {
+		self.vc = vc
+		super.init(list:TLList(), path: path, userID: userID, listID: "", root: getDatabase,newListInserted: newListInserted, newListRemoved: newListRemoved)
 	}
     
-    func getDatabase(_ userID:String, _ id:String) -> DatabaseReference{
-        return Database.database().reference().child("privateLists/\(userID)/")
-//		return Database.database().reference().child("sharedLists/\(userID)/")
+	func getDatabase(_ path:String, _ userID: String, _ listID: String) -> DatabaseReference{
+        return Database.database().reference().child("\(path)/\(userID)")
 	}
     
     func newListInserted(snapshot:DataSnapshot){
@@ -48,14 +49,33 @@ class TLListController: ListController<TodoList,TLList> {
     }
 	
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        tableView.estimatedRowHeight = 75
-        tableView.rowHeight = UITableViewAutomaticDimension
-		let cell = tableView.dequeueReusableCell(withIdentifier: "list") as! ListCell
-		let todoList = list.getElement(at: indexPath.row)
-		cell.title.text = todoList.title
-		cell.trash.id = todoList.id
-		cell.trash.addTarget(self, action: #selector(removeElement(trash:)), for: .touchUpInside)
-		return cell
+		if(vc == "TLList") {
+			tableView.estimatedRowHeight = 75
+			tableView.rowHeight = UITableViewAutomaticDimension
+			let cell = tableView.dequeueReusableCell(withIdentifier: "list") as! ListCell
+			let todoList = list.getElement(at: indexPath.row)
+			cell.title.text = todoList.title
+			cell.trash.id = todoList.id
+			cell.trash.addTarget(self, action: #selector(removeElement(trash:)), for: .touchUpInside)
+			return cell
+		}
+		else if(vc == "FriendTodoLists") {
+			tableView.rowHeight = 75
+			let cell = tableView.dequeueReusableCell(withIdentifier: "FriendTodoListsCell") as! FriendTodoListsCell
+			let todoList = list.getElement(at: indexPath.row)
+			cell.name.text = todoList.title
+			return cell
+		}
+		else if(vc == "SharedTLList") {
+			tableView.rowHeight = 75
+			let cell = tableView.dequeueReusableCell(withIdentifier: "SharedListCell") as! SharedListCell
+			let todoList = list.getElement(at: indexPath.row)
+			cell.title.text = todoList.title
+			cell.trash.id = todoList.id
+			cell.trash.addTarget(self, action: #selector(removeElement(trash:)), for: .touchUpInside)
+			return cell
+		}
+		return UITableViewCell()
 	}
 	
 }

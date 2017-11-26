@@ -17,7 +17,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--My Lists-->
+        <!--My Private Lists-->
         <scene sceneID="wxp-uD-oFR">
             <objects>
                 <viewController id="8ia-gI-IJi" customClass="TLListViewController" customModule="SocialToDo" customModuleProvider="target" sceneMemberID="viewController">
@@ -153,19 +153,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8iw-Gc-WkC"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Lists" id="A58-oH-S3B"/>
+                    <tabBarItem key="tabBarItem" title="My Private Lists" id="A58-oH-S3B"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addTodoListField" destination="d3K-Gp-HdU" id="nXX-b9-BYG"/>
                         <outlet property="keyboardHeightLayoutConstraint" destination="jws-ss-LpH" id="XhD-ja-vrL"/>
                         <outlet property="tableView" destination="mKc-90-D6w" id="qFf-Wv-B34"/>
-                        <segue destination="tdV-MK-InB" kind="showDetail" identifier="showTodoList" id="cEP-15-FmF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fdt-QQ-0cD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="605.60000000000002" y="486.20689655172418"/>
+            <point key="canvasLocation" x="606" y="-953"/>
         </scene>
         <!--Todo List View Controller-->
         <scene sceneID="gmi-69-1VL">
@@ -284,7 +283,7 @@
                                                         <constraint firstAttribute="height" constant="50" id="DbN-zc-kVL"/>
                                                     </constraints>
                                                     <date key="date" timeIntervalSinceReferenceDate="533338109.045542">
-                                                        <!--2017-11-25 9:28:29 ptm +0000-->
+                                                        <!--2017-11-25 21:28:29 +0000-->
                                                     </date>
                                                 </datePicker>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Time one" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fb4-za-tFe" userLabel="Time">
@@ -347,7 +346,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qx5-Vc-c3m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1313" y="486"/>
+            <point key="canvasLocation" x="1313" y="-953"/>
         </scene>
         <!--Facebook Login View Controller-->
         <scene sceneID="HG5-Le-PV5">
@@ -515,7 +514,302 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bgQ-8S-P05" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="605.60000000000002" y="1161.7691154422789"/>
+            <point key="canvasLocation" x="606" y="1126"/>
+        </scene>
+        <!--My Shared Lists-->
+        <scene sceneID="Pyp-5z-766">
+            <objects>
+                <viewController id="zVx-wI-yiP" customClass="SharedTLListViewController" customModule="SocialToDo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RGT-zw-kBL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RK0-NO-Gex">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Shared Todo Lists" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xG7-KN-NdA">
+                                        <rect key="frame" x="8" y="24" width="359" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="xfW-fm-CvT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.85882352939999995" green="0.76862745099999996" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="xG7-KN-NdA" secondAttribute="trailing" constant="8" id="03M-4m-uNU"/>
+                                    <constraint firstAttribute="height" constant="80" id="c8H-9e-kvs"/>
+                                    <constraint firstItem="xG7-KN-NdA" firstAttribute="leading" secondItem="RK0-NO-Gex" secondAttribute="leading" constant="8" id="dWY-FE-xq5"/>
+                                    <constraint firstItem="xG7-KN-NdA" firstAttribute="centerX" secondItem="RK0-NO-Gex" secondAttribute="centerX" id="u0D-Rq-OTd"/>
+                                    <constraint firstItem="xG7-KN-NdA" firstAttribute="centerY" secondItem="RK0-NO-Gex" secondAttribute="centerY" id="vlt-aj-CGu"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lQk-SK-peM">
+                                <rect key="frame" x="0.0" y="80" width="375" height="483"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SharedListCell" rowHeight="75" id="9sM-fZ-4Pd" customClass="SharedListCell" customModule="SocialToDo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9sM-fZ-4Pd" id="LN0-YN-SuL">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Todo List 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M22-Hu-cT3">
+                                                    <rect key="frame" x="23" y="12.5" width="285" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="62l-Xv-kcB"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HzH-OR-TcA" customClass="Trash" customModule="SocialToDo" customModuleProvider="target">
+                                                    <rect key="frame" x="316" y="12.5" width="36" height="50"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="36" id="Q5O-uz-sk1"/>
+                                                        <constraint firstAttribute="height" constant="50" id="vwa-yx-F6f"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="HzH-OR-TcA" firstAttribute="leading" secondItem="M22-Hu-cT3" secondAttribute="trailing" constant="8" id="IRd-9Z-g2X"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="HzH-OR-TcA" secondAttribute="trailing" constant="8" id="Ocg-kT-4qu"/>
+                                                <constraint firstItem="M22-Hu-cT3" firstAttribute="centerY" secondItem="LN0-YN-SuL" secondAttribute="centerY" id="XSq-q4-4ok"/>
+                                                <constraint firstItem="M22-Hu-cT3" firstAttribute="leading" secondItem="LN0-YN-SuL" secondAttribute="leadingMargin" constant="8" id="mpA-bW-0Qd"/>
+                                                <constraint firstItem="HzH-OR-TcA" firstAttribute="centerY" secondItem="LN0-YN-SuL" secondAttribute="centerY" id="rXA-H1-6DO"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="title" destination="M22-Hu-cT3" id="Khu-83-Gxo"/>
+                                            <outlet property="trash" destination="HzH-OR-TcA" id="sTc-A5-yPf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zRY-da-BR7">
+                                <rect key="frame" x="0.0" y="563" width="375" height="55"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Todo List" textAlignment="natural" minimumFontSize="18" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Diw-bG-Aft">
+                                        <rect key="frame" x="8" y="2.5" width="301" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="hkR-6K-6YV"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyh-DR-fkj">
+                                        <rect key="frame" x="317" y="2.5" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="DD3-FD-m0o"/>
+                                            <constraint firstAttribute="height" constant="50" id="lNH-zz-3ap"/>
+                                        </constraints>
+                                        <state key="normal" image="add"/>
+                                        <connections>
+                                            <action selector="handleAddTodoList:" destination="8ia-gI-IJi" eventType="touchUpInside" id="5hL-bq-VwS"/>
+                                            <action selector="handleAddTodoList:" destination="zVx-wI-yiP" eventType="touchUpInside" id="CUM-0s-XU5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="gyh-DR-fkj" firstAttribute="centerY" secondItem="zRY-da-BR7" secondAttribute="centerY" id="FWS-ce-WQD"/>
+                                    <constraint firstItem="Diw-bG-Aft" firstAttribute="centerY" secondItem="zRY-da-BR7" secondAttribute="centerY" id="MfU-lL-PH3"/>
+                                    <constraint firstAttribute="trailing" secondItem="gyh-DR-fkj" secondAttribute="trailing" constant="8" id="NxQ-QG-bYe"/>
+                                    <constraint firstItem="Diw-bG-Aft" firstAttribute="leading" secondItem="zRY-da-BR7" secondAttribute="leading" constant="8" id="TrC-R8-MyX"/>
+                                    <constraint firstAttribute="height" constant="55" id="dUZ-jB-Fsl"/>
+                                    <constraint firstItem="gyh-DR-fkj" firstAttribute="leading" secondItem="Diw-bG-Aft" secondAttribute="trailing" constant="8" id="lqN-DN-aHR"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zRY-da-BR7" firstAttribute="top" secondItem="lQk-SK-peM" secondAttribute="bottom" id="6zO-jD-qh6"/>
+                            <constraint firstItem="zRY-da-BR7" firstAttribute="bottom" secondItem="SEE-97-qEJ" secondAttribute="bottom" id="9PS-KR-Fu9"/>
+                            <constraint firstItem="lQk-SK-peM" firstAttribute="leading" secondItem="SEE-97-qEJ" secondAttribute="leading" id="9Ul-w8-x77"/>
+                            <constraint firstItem="RK0-NO-Gex" firstAttribute="trailing" secondItem="SEE-97-qEJ" secondAttribute="trailing" id="C1t-c6-HqI"/>
+                            <constraint firstItem="lQk-SK-peM" firstAttribute="top" secondItem="RK0-NO-Gex" secondAttribute="bottom" id="HCf-gT-3g4"/>
+                            <constraint firstItem="zRY-da-BR7" firstAttribute="trailing" secondItem="SEE-97-qEJ" secondAttribute="trailing" id="UnX-VZ-IzA"/>
+                            <constraint firstItem="RK0-NO-Gex" firstAttribute="top" secondItem="RGT-zw-kBL" secondAttribute="top" id="hJC-YV-EKD"/>
+                            <constraint firstItem="RK0-NO-Gex" firstAttribute="leading" secondItem="SEE-97-qEJ" secondAttribute="leading" id="idu-uC-95g"/>
+                            <constraint firstItem="zRY-da-BR7" firstAttribute="leading" secondItem="SEE-97-qEJ" secondAttribute="leading" id="k0z-Nl-g9S"/>
+                            <constraint firstItem="lQk-SK-peM" firstAttribute="trailing" secondItem="SEE-97-qEJ" secondAttribute="trailing" id="wP8-Yt-04i"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SEE-97-qEJ"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="My Shared Lists" id="aTX-JG-RDy"/>
+                    <connections>
+                        <outlet property="addTodoListField" destination="Diw-bG-Aft" id="UlD-DI-7pQ"/>
+                        <outlet property="keyboardHeightLayoutConstraint" destination="9PS-KR-Fu9" id="UZH-GW-xFt"/>
+                        <outlet property="tableView" destination="lQk-SK-peM" id="TrL-Kd-2ud"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QnO-Sc-BeD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="606" y="-267"/>
+        </scene>
+        <!--Shared Todo List View Controller-->
+        <scene sceneID="gjq-E2-dhn">
+            <objects>
+                <viewController storyboardIdentifier="sharedTodoListVC" id="azP-4g-M77" customClass="SharedTodoListViewController" customModule="SocialToDo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7kW-q1-HDW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vx0-kf-uZQ">
+                                <rect key="frame" x="0.0" y="612" width="375" height="55"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Todo" textAlignment="natural" minimumFontSize="18" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mAF-Ij-qud">
+                                        <rect key="frame" x="8" y="2.5" width="301" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="9PZ-JG-LBc"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNU-Hu-KG5">
+                                        <rect key="frame" x="317" y="2.5" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="cuo-2o-708"/>
+                                            <constraint firstAttribute="width" constant="50" id="iIm-bL-FIg"/>
+                                        </constraints>
+                                        <state key="normal" image="add"/>
+                                        <connections>
+                                            <action selector="handleAddTodoButton:" destination="tdV-MK-InB" eventType="touchUpInside" id="ApU-35-49v"/>
+                                            <action selector="handleAddTodoButton:" destination="azP-4g-M77" eventType="touchUpInside" id="r4t-L7-091"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="bNU-Hu-KG5" secondAttribute="trailing" constant="8" id="3Dg-gb-0mE"/>
+                                    <constraint firstItem="mAF-Ij-qud" firstAttribute="centerY" secondItem="Vx0-kf-uZQ" secondAttribute="centerY" id="BO5-Dg-fxL"/>
+                                    <constraint firstItem="bNU-Hu-KG5" firstAttribute="leading" secondItem="mAF-Ij-qud" secondAttribute="trailing" constant="8" id="Mbh-OT-EL4"/>
+                                    <constraint firstItem="mAF-Ij-qud" firstAttribute="leading" secondItem="Vx0-kf-uZQ" secondAttribute="leading" constant="8" id="Rf4-gT-Con"/>
+                                    <constraint firstItem="bNU-Hu-KG5" firstAttribute="centerY" secondItem="Vx0-kf-uZQ" secondAttribute="centerY" id="jma-ua-kP6"/>
+                                    <constraint firstAttribute="height" constant="55" id="yPR-JT-ROt"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cea-nU-48Z">
+                                <rect key="frame" x="0.0" y="80" width="375" height="532"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SharedTodoCell" rowHeight="75" id="dxv-4g-jlb" customClass="SharedTodoCell" customModule="SocialToDo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dxv-4g-jlb" id="NwG-Wf-bzN">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vcx-Fc-2tQ" customClass="Checkbox" customModule="SocialToDo" customModuleProvider="target">
+                                                    <rect key="frame" x="23" y="13" width="50" height="50"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="62I-3x-FZ8"/>
+                                                        <constraint firstAttribute="height" constant="50" id="M5n-Rg-2Rz"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3Q-Bp-qaR">
+                                                    <rect key="frame" x="81" y="11.5" width="243" height="35.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="AcO-nc-c73"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UC0-DC-OHc" customClass="Trash" customModule="SocialToDo" customModuleProvider="target">
+                                                    <rect key="frame" x="332" y="12.5" width="36" height="50"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="srm-5w-sZB"/>
+                                                        <constraint firstAttribute="width" constant="36" id="uv1-Tu-sEm"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="Q3Q-Bp-qaR" firstAttribute="leading" secondItem="Vcx-Fc-2tQ" secondAttribute="trailing" constant="8" id="D2g-tq-kEZ"/>
+                                                <constraint firstItem="Vcx-Fc-2tQ" firstAttribute="leading" secondItem="NwG-Wf-bzN" secondAttribute="leadingMargin" constant="8" id="Ff6-EU-jAj"/>
+                                                <constraint firstItem="UC0-DC-OHc" firstAttribute="trailing" secondItem="NwG-Wf-bzN" secondAttribute="trailingMargin" constant="8" id="FfP-m2-Cxb"/>
+                                                <constraint firstItem="UC0-DC-OHc" firstAttribute="leading" secondItem="Q3Q-Bp-qaR" secondAttribute="trailing" constant="8" id="IJ3-fx-cKg"/>
+                                                <constraint firstItem="Vcx-Fc-2tQ" firstAttribute="top" secondItem="NwG-Wf-bzN" secondAttribute="top" constant="12.5" id="lQf-OI-Zwy"/>
+                                                <constraint firstItem="UC0-DC-OHc" firstAttribute="top" secondItem="NwG-Wf-bzN" secondAttribute="top" constant="12.5" id="nKg-jm-4wS"/>
+                                                <constraint firstItem="Q3Q-Bp-qaR" firstAttribute="top" secondItem="NwG-Wf-bzN" secondAttribute="topMargin" id="vG6-7Q-w0y"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkbox" destination="Vcx-Fc-2tQ" id="O9A-Ce-2kk"/>
+                                            <outlet property="label" destination="Q3Q-Bp-qaR" id="JMq-zj-RQb"/>
+                                            <outlet property="trash" destination="UC0-DC-OHc" id="5ml-Zh-jZ6"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4SP-5A-iIS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Todo List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBW-YT-eP7">
+                                        <rect key="frame" x="50" y="24" width="275" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="jsy-kw-ufZ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zac-H5-eQu">
+                                        <rect key="frame" x="8" y="25" width="34" height="30"/>
+                                        <state key="normal" title="Back"/>
+                                        <connections>
+                                            <action selector="handleBackButton:" destination="azP-4g-M77" eventType="touchUpInside" id="ftd-Vu-NRq"/>
+                                            <action selector="handleBackButton:" destination="tdV-MK-InB" eventType="touchUpInside" id="vnr-Jh-lR8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.85882352939999995" green="0.76862745099999996" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="PBW-YT-eP7" firstAttribute="centerY" secondItem="4SP-5A-iIS" secondAttribute="centerY" id="5lA-bU-x3r"/>
+                                    <constraint firstItem="PBW-YT-eP7" firstAttribute="centerX" secondItem="4SP-5A-iIS" secondAttribute="centerX" id="DSa-pf-6uQ"/>
+                                    <constraint firstAttribute="height" constant="80" id="DxX-Ne-SMg"/>
+                                    <constraint firstItem="PBW-YT-eP7" firstAttribute="leading" secondItem="4SP-5A-iIS" secondAttribute="leading" constant="50" id="MBx-MB-CDR"/>
+                                    <constraint firstItem="zac-H5-eQu" firstAttribute="leading" secondItem="4SP-5A-iIS" secondAttribute="leading" constant="8" id="bFu-8Q-oWh"/>
+                                    <constraint firstAttribute="trailing" secondItem="PBW-YT-eP7" secondAttribute="trailing" constant="50" id="irq-Pd-PKC"/>
+                                    <constraint firstItem="zac-H5-eQu" firstAttribute="centerY" secondItem="4SP-5A-iIS" secondAttribute="centerY" id="r8t-Je-kGg"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Vx0-kf-uZQ" firstAttribute="trailing" secondItem="Zgf-8W-DxF" secondAttribute="trailing" id="C8B-aN-Qhy"/>
+                            <constraint firstItem="4SP-5A-iIS" firstAttribute="top" secondItem="7kW-q1-HDW" secondAttribute="top" id="HZG-Bs-llT"/>
+                            <constraint firstItem="Vx0-kf-uZQ" firstAttribute="top" secondItem="cea-nU-48Z" secondAttribute="bottom" id="HzY-Yy-h6t"/>
+                            <constraint firstItem="4SP-5A-iIS" firstAttribute="trailing" secondItem="Zgf-8W-DxF" secondAttribute="trailing" id="IUJ-Ic-0vE"/>
+                            <constraint firstItem="cea-nU-48Z" firstAttribute="leading" secondItem="Zgf-8W-DxF" secondAttribute="leading" id="OJL-86-Orf"/>
+                            <constraint firstItem="Vx0-kf-uZQ" firstAttribute="leading" secondItem="Zgf-8W-DxF" secondAttribute="leading" id="WG2-dM-hiD"/>
+                            <constraint firstItem="4SP-5A-iIS" firstAttribute="leading" secondItem="Zgf-8W-DxF" secondAttribute="leading" id="an1-UB-qfb"/>
+                            <constraint firstItem="cea-nU-48Z" firstAttribute="top" secondItem="4SP-5A-iIS" secondAttribute="bottom" id="cNe-OG-Fel"/>
+                            <constraint firstItem="cea-nU-48Z" firstAttribute="trailing" secondItem="Zgf-8W-DxF" secondAttribute="trailing" id="i60-33-A8z"/>
+                            <constraint firstItem="Vx0-kf-uZQ" firstAttribute="bottom" secondItem="Zgf-8W-DxF" secondAttribute="bottom" id="x08-uj-5oz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Zgf-8W-DxF"/>
+                    </view>
+                    <connections>
+                        <outlet property="addTodoField" destination="mAF-Ij-qud" id="y0j-8W-Vaw"/>
+                        <outlet property="keyboardHeightLayoutConstraint" destination="x08-uj-5oz" id="7zK-Xv-kOA"/>
+                        <outlet property="tableView" destination="cea-nU-48Z" id="fgk-kt-TGP"/>
+                        <outlet property="todoListTitle" destination="PBW-YT-eP7" id="8up-cU-LBW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X9S-l2-ZdP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1313" y="-268"/>
         </scene>
         <!--Friends-->
         <scene sceneID="5XG-WB-ikw">
@@ -601,7 +895,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iwl-c3-Lwm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="605.60000000000002" y="-205.54722638680661"/>
+            <point key="canvasLocation" x="606" y="424"/>
         </scene>
         <!--Friend Todo Lists View Controller-->
         <scene sceneID="qat-4L-e6s">
@@ -698,7 +992,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3g-aN-HnJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1313" y="-206"/>
+            <point key="canvasLocation" x="1313" y="423"/>
         </scene>
         <!--Friend Todo List View Controller-->
         <scene sceneID="vJb-qo-AW6">
@@ -857,7 +1151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hha-eP-mjs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2044" y="-206"/>
+            <point key="canvasLocation" x="2052" y="423"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="QKc-CQ-Zny">
@@ -872,6 +1166,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="8ia-gI-IJi" kind="relationship" relationship="viewControllers" id="pCH-65-P0R"/>
+                        <segue destination="zVx-wI-yiP" kind="relationship" relationship="viewControllers" id="BmU-Za-t5v"/>
                         <segue destination="SFO-wg-e2A" kind="relationship" relationship="viewControllers" id="e02-tQ-Fhj"/>
                         <segue destination="ST8-RR-9yM" kind="relationship" relationship="viewControllers" id="ffB-QM-JbR"/>
                     </connections>

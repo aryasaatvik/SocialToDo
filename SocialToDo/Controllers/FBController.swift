@@ -31,8 +31,9 @@ class FBController {
                 self.fetchGraph(user: user!)
                 self.appDelegate.friendsControl = FriendsController()
 				self.appDelegate.friendsListControl = FriendsListController()
-                self.appDelegate.listControl = TLListController()
-                
+				self.appDelegate.listControl = TLListController(path: "privateLists/", userID: user!.uid, vc: "TLList")
+				self.appDelegate.sharedListControl = TLListController(path: "sharedLists", userID: user!.uid, vc: "SharedTLList")
+				
                 // segue to tabbarcontroller
                 if (self.delegate is FacebookLoginViewController){
                     self.mainSegue(vc:self.delegate as! FacebookLoginViewController)

@@ -16,13 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
 	var listControl: TLListController?
-    var todoControl: TodoListController?
     var fbControl: FBController?
 	var friendsControl: FriendsController?
 	var friendsListControl: FriendsListController?
-	var friendsTodoListsControl: FriendTodoListsController?
-	var friendTodoControl: FriendTodoListController?
-    
+	var sharedListControl: TLListController?
+	
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.

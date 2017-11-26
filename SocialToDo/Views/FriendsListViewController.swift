@@ -35,7 +35,7 @@ class FriendsListViewController: UIViewController, FBControllerDelegate, UITable
 		let friend = friendsListControl?.friendList.getElementAt(atIndex: indexPath.row)
 		let friendID = friend?.id
 		if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "friendTodoListsVC") as? FriendTodoListsViewController {
-			destinationVC.friendsTodoListsControl = FriendTodoListsController(friendID: friendID!)
+			destinationVC.friendsTodoListsControl = TLListController(path: "sharedLists", userID: friendID!, vc: "FriendTodoLists")
 			destinationVC.friendsTodoListsControl?.delegate = destinationVC
 			self.present(destinationVC, animated: true, completion: nil)
 		}

@@ -14,13 +14,14 @@ typealias TodoListControllerDelegate = ListControllerDelegate
 
 class TodoListController: ListController<Todo,TodoList> {
     //If the user selects a UITableView box to edit the due date for an object, it is stored here
-    
-    init(_ todoList:TodoList){
-		super.init(list:todoList, listID:todoList.id, userID: (Auth.auth().currentUser?.uid)!, root: getDatabase ,newListInserted: newListInserted, newListRemoved: newListRemoved)
+	let vc: String
+	init(_ todoList:TodoList, path: String, userID: String, vc: String){
+		self.vc = vc
+		super.init(list:todoList, path: path, userID: userID, listID: todoList.id, root: getDatabase ,newListInserted: newListInserted, newListRemoved: newListRemoved)
     }
     
-    func getDatabase(_ userId: String, _ id:String) -> DatabaseReference {
-        return Database.database().reference().child("privateLists/\(userID)/\(id)/tasks/")
+	func getDatabase(_ path: String, _ userID: String, _ listID: String) -> DatabaseReference {
+		return Database.database().reference().child("\(path)/\(userID)/\(listID)/tasks")
     }
     
     func newListInserted(snapshot:DataSnapshot){
@@ -76,19 +77,51 @@ class TodoListController: ListController<Todo,TodoList> {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        tableView.estimatedRowHeight = 75
-        tableView.rowHeight = UITableViewAutomaticDimension
-		let cell = tableView.dequeueReusableCell(withIdentifier: "todo") as! TodoCell
-		cell.selectionStyle = .none
-		let todo = list.getElement(at: indexPath.row)
-		cell.label!.text = todo.title
-		// initialize checkbox
-		cell.checkbox.isSelected = todo.isChecked
-		cell.checkbox.id = todo.id
-		cell.checkbox.addTarget(self, action: #selector(changeValues(checkbox:)), for: .touchUpInside)
-		cell.trash.id = todo.id
-		cell.trash.addTarget(self, action: #selector(removeElement(trash:)), for: .touchUpInside)
-		return cell
+		if (vc == "TodoList"){
+			tableView.estimatedRowHeight = 75
+			tableView.rowHeight = UITableViewAutomaticDimension
+			let cell = tableView.dequeueReusableCell(withIdentifier: "todo") as! TodoCell
+			cell.selectionStyle = .none
+			let todo = list.getElement(at: indexPath.row)
+			cell.label!.text = todo.title
+			// initialize checkbox
+			cell.checkbox.isSelected = todo.isChecked
+			cell.checkbox.id = todo.id
+			cell.checkbox.addTarget(self, action: #selector(changeValues(checkbox:)), for: .touchUpInside)
+			cell.trash.id = todo.id
+			cell.trash.addTarget(self, action: #selector(removeElement(trash:)), for: .touchUpInside)
+			return cell
+		}
+		else if (vc == "FriendTodoList"){
+			tableView.rowHeight = 75
+			let cell = tableView.dequeueReusableCell(withIdentifier: "FriendTodoListCell") as! FriendTodoListCell
+			cell.selectionStyle = .none
+			let todo = list.getElement(at: indexPath.row)
+			cell.label!.text = todo.title
+			// initialize checkbox
+			cell.checkbox.isSelected = todo.isChecked
+			cell.checkbox.id = todo.id
+			cell.checkbox.addTarget(self, action: #selector(changeValues(checkbox:)), for: .touchUpInside)
+			cell.trash.id = todo.id
+			cell.trash.addTarget(self, action: #selector(removeElement(trash:)), for: .touchUpInside)
+			return cell
+		}
+		else if (vc == "SharedTodoList"){
+			tableView.estimatedRowHeight = 75
+			tableView.rowHeight = UITableViewAutomaticDimension
+			let cell = tableView.dequeueReusableCell(withIdentifier: "SharedTodoCell") as! SharedTodoCell
+			cell.selectionStyle = .none
+			let todo = list.getElement(at: indexPath.row)
+			cell.label!.text = todo.title
+			// initialize checkbox
+			cell.checkbox.isSelected = todo.isChecked
+			cell.checkbox.id = todo.id
+			cell.checkbox.addTarget(self, action: #selector(changeValues(checkbox:)), for: .touchUpInside)
+			cell.trash.id = todo.id
+			cell.trash.addTarget(self, action: #selector(removeElement(trash:)), for: .touchUpInside)
+			return cell
+		}
+		return UITableViewCell()
     }
 }
 

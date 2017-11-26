@@ -10,7 +10,7 @@ import UIKit
 
 class FriendTodoListsViewController: UIViewController, FBControllerDelegate, UITableViewDelegate {
 	let appDelegate = UIApplication.shared.delegate as! AppDelegate
-	var friendsTodoListsControl: FriendTodoListsController?
+	var friendsTodoListsControl: TLListController?
 	var fbControl:FBController?
 	var todoControl: TodoListController?
 	var todoList: TodoList?
@@ -47,18 +47,22 @@ class FriendTodoListsViewController: UIViewController, FBControllerDelegate, UIT
 		todoList = friendsTodoListsControl?.list.getElement(at: indexPath.row)
 		let title = todoList?.title
 		let id = todoList?.id
-		let friendID = friendsTodoListsControl?.friendID
+		let friendID = friendsTodoListsControl?.userID
 		print("TABLE VIEW ROW SELECTED")
 		print("TODOLIST REQUESTED: \(title), \(id)")
 		if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "friendTodoListVC") as? FriendTodoListViewController {
-			destinationVC.friendTodoControl = FriendTodoListController(friendID: friendID!, todoList!)
+			destinationVC.friendTodoControl = TodoListController(todoList!, path: "sharedLists", userID: friendID!, vc: "FriendTodoList") //FriendTodoListController(friendID: friendID!, todoList!)
 			destinationVC.friendTodoControl?.delegate = destinationVC
 			self.present(destinationVC, animated: true, completion: nil)
 		}
 	}
 }
 
-extension FriendTodoListsViewController: FriendTodoListsDelegate {
+extension FriendTodoListsViewController: TLListControllerDelegate {
+	func segue(_ todoList: TodoList) {
+		
+	}
+	
 	func reloadTableView() {
 		self.tableView.reloadData()
 	}
