@@ -67,10 +67,6 @@ class TodoListViewController: UIViewController, UITextFieldDelegate, FBControlle
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-	
-	func textFieldDidBeginEditing(_ textField: UITextField) {
-		
 	}
 	
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -113,14 +109,10 @@ extension TodoListViewController: TodoListControllerDelegate {
 		self.tableView.endUpdates()
 	}
 	func insertRow(indexPath: IndexPath) {
-		self.tableView.beginUpdates()
 		self.tableView.insertRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
-		self.tableView.endUpdates()
 	}
 	func deleteRow(indexPath: IndexPath) {
-		self.tableView.beginUpdates()
 		self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
-		self.tableView.endUpdates()
 	}
 }
 

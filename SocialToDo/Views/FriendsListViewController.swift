@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FriendsListViewController: UIViewController, FBControllerDelegate {
+class FriendsListViewController: UIViewController, FBControllerDelegate, UITableViewDelegate {
 	let appDelegate = UIApplication.shared.delegate as! AppDelegate
 	var friendsListControl: FriendsListController?
 
@@ -21,12 +21,24 @@ class FriendsListViewController: UIViewController, FBControllerDelegate {
 		friendsListControl?.delegate = self
 		
 		tableView.dataSource = friendsListControl
+		tableView.delegate = self
 		// Do any additional setup after loading the view, typically from a nib.
 	}
 
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		print("DID SELECT ROW")
+		let friend = friendsListControl?.friendList.getElementAt(atIndex: indexPath.row)
+		let friendID = friend?.id
+		if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "friendTodoListsVC") as? FriendTodoListsViewController {
+			destinationVC.friendsTodoListsControl = FriendTodoListsController(friendID: friendID!)
+			destinationVC.friendsTodoListsControl?.delegate = destinationVC
+			self.present(destinationVC, animated: true, completion: nil)
+		}
 	}
     
     func promptFacebookLogin() {

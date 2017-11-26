@@ -14,7 +14,7 @@ typealias TodoListControllerDelegate = ListControllerDelegate
 
 class TodoListController: ListController<Todo,TodoList> {
     init(_ todoList:TodoList){
-        super.init(list:todoList, listID:todoList.id, root: getDatabase ,newListInserted: newListInserted, newListRemoved: newListRemoved)
+		super.init(list:todoList, listID:todoList.id, userID: (Auth.auth().currentUser?.uid)!, root: getDatabase ,newListInserted: newListInserted, newListRemoved: newListRemoved)
     }
     
     func getDatabase(_ userId: String, _ id:String) -> DatabaseReference {

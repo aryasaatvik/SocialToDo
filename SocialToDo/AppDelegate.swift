@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var fbControl: FBController?
 	var friendsControl: FriendsController?
 	var friendsListControl: FriendsListController?
+	var friendsTodoListsControl: FriendTodoListsController?
+	var friendTodoControl: FriendTodoListController?
     
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

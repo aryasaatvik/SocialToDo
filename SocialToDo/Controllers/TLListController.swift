@@ -14,12 +14,13 @@ typealias TLListControllerDelegate = ListControllerDelegate
 
 class TLListController: ListController<TodoList,TLList> {
 	init() {
-        super.init(list:TLList(),listID:"",root: getDatabase,newListInserted: newListInserted, newListRemoved: newListRemoved)
+		super.init(list:TLList(),listID:"", userID: (Auth.auth().currentUser?.uid)!, root: getDatabase,newListInserted: newListInserted, newListRemoved: newListRemoved)
 	}
     
     func getDatabase(_ userID:String, _ id:String) -> DatabaseReference{
         return Database.database().reference().child("privateLists/\(userID)/")
-    }
+//		return Database.database().reference().child("sharedLists/\(userID)/")
+	}
     
     func newListInserted(snapshot:DataSnapshot){
         print("SNAPSHOT: \(snapshot)")

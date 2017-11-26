@@ -26,8 +26,8 @@ class FriendsListController: NSObject, UITableViewDataSource {
 
 	
 	override init() {
-		userID = (Auth.auth().currentUser?.uid)!
 		ref = Database.database().reference()
+		userID = (Auth.auth().currentUser?.uid)!
 		friendsRef = ref.child("users/\(userID)/friends")
 		super.init()
 		fetchFriends()

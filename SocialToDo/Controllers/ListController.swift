@@ -29,10 +29,10 @@ class ListController<I,T:List<I>>: NSObject, UITableViewDataSource{
 	//Represents the ViewController attached to the current instance of the list
 	var delegate: ListControllerDelegate?
 	
-	init(list:T, listID:String, root:(String,String) -> DatabaseReference, newListInserted: @escaping (DataSnapshot) -> (), newListRemoved: @escaping (DataSnapshot) -> ()){
+	init(list: T, listID: String, userID: String, root: (String,String) -> DatabaseReference, newListInserted: @escaping (DataSnapshot) -> (), newListRemoved: @escaping (DataSnapshot) -> ()){
 		self.list = list
 		//Gets the current Facebook User ID
-		userID = (Auth.auth().currentUser?.uid)!
+		self.userID = userID
 		self.root = root(userID,listID)
 		super.init()
 		listen(directory: self.root, onInsert: newListInserted, onRemoval: newListRemoved)
