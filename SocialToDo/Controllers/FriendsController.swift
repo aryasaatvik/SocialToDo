@@ -76,7 +76,7 @@ class FriendsController: NSObject, UITableViewDataSource {
 						self.friendsRef.observeSingleEvent(of: .value, with: { (snapshot) in
 							let value = snapshot.value as? NSDictionary
 							let isFriended = "\(value?["\(friendID)"] ?? "false")"
-							self.friendList.add(friends: [Friend(name, friendID, isFriended)])
+                            self.friendList.add(items: [Friend(name, friendID, isFriended)])
 						}) { (error) in
 							print(error.localizedDescription)
 						}
@@ -95,29 +95,31 @@ class FriendsController: NSObject, UITableViewDataSource {
 	}
 	
 	@objc func addFriend(addFriend: AddFriend) {
-		let friend = friendList.getElementAt(atIndex: addFriend.index)
+        let friend = friendList.getElement(at: addFriend.index)
 
-		if(friend.isFriended == "false"){
-			addFriend.isSelected = true
-			addFriend.setImage(UIImage(named: "requested"), for: .selected)
-			let childUpdate = [friend.id: "requestSent"]
-			self.friendsRef.updateChildValues(childUpdate)
-			let friendRef = ref.child("users/\(friend.id)/friends")
-			let friendUpdate = [userID: "requestReceived"]
-			friendRef.updateChildValues(friendUpdate)
-			friend.isFriended = "requestSent"
-		}
-		else if (friend.isFriended == "requestReceived"){
-			addFriend.isSelected = true
-			addFriend.setImage(UIImage(named: "added"), for: .selected)
-			let childUpdate = [friend.id: "true"]
-			self.friendsRef.updateChildValues(childUpdate)
-			let friendRef = ref.child("users/\(friend.id)/friends")
-			let friendUpdate = [userID: "true"]
-			friendRef.updateChildValues(friendUpdate)
-			friend.isFriended = "true"
-		}
-	}
+        switch friend._isFriended {
+        case .notFriends:
+            addFriend.isSelected = true
+            addFriend.setImage(UIImage(named: "requested"), for: .selected)
+            let childUpdate = [friend.id: "requestSent"]
+            self.friendsRef.updateChildValues(childUpdate)
+            let friendRef = ref.child("users/\(friend.id)/friends")
+            let friendUpdate = [userID: "requestReceived"]
+            friendRef.updateChildValues(friendUpdate)
+            friend.isFriended = "requestSent"
+        case .requestRecieved:
+            addFriend.isSelected = true
+            addFriend.setImage(UIImage(named: "added"), for: .selected)
+            let childUpdate = [friend.id: "true"]
+            self.friendsRef.updateChildValues(childUpdate)
+            let friendRef = ref.child("users/\(friend.id)/friends")
+            let friendUpdate = [userID: "true"]
+            friendRef.updateChildValues(friendUpdate)
+            friend.isFriended = "true"
+        default:
+            break
+        }
+    }
 	
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -128,7 +130,7 @@ class FriendsController: NSObject, UITableViewDataSource {
 		tableView.rowHeight = 75
 		let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell") as! FriendCell
 		cell.selectionStyle = .none
-		let friend = friendList.getElementAt(atIndex: indexPath.row)
+		let friend = friendList.getElement(at: indexPath.row)
 		cell.name.text = friend.name
 		cell.addFriend.isSelected = friend.isFriended == "true"
 		cell.addFriend.setImage(UIImage(named: "added"), for: .selected)

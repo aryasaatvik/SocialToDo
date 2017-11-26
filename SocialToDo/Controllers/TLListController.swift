@@ -14,7 +14,7 @@ protocol TLListControllerDelegate:ListControllerDelegate {
     func segue(_ todoList:TodoList)
 }
 
-class TLListController: ListController<TodoList,TLList> {
+class TLListController: ListController<TLList> {
 	let vc: String
 	init(path: String, userID: String, vc: String) {
 		self.vc = vc

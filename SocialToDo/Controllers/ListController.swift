@@ -18,9 +18,9 @@ protocol ListControllerDelegate {
 	func deleteRow(indexPath: IndexPath)
 }
 
-class ListController<I,T:List<I>>: NSObject, UITableViewDataSource{
+class ListController<T:List>: NSObject, UITableViewDataSource{
 	//Represents the list that the controller is managing
-	let list: T
+	var list: T
 	//Represents the directory that the ListController is operating on
 	let root:DatabaseReference
 	//Represents the users unique facebook provided ID

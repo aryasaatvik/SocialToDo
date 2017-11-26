@@ -100,7 +100,7 @@ class TodoListViewController: UIViewController, UITextFieldDelegate, FBControlle
         present(facebookLoginViewController!, animated: true, completion: nil)
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    /*func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         timeEdit = indexPath
         let todoCell = (tableView.cellForRow(at: indexPath) as! TodoCell)
         todoCell.datePicker.isEnabled = true
@@ -114,7 +114,7 @@ class TodoListViewController: UIViewController, UITextFieldDelegate, FBControlle
         todoCell.datePicker.isEnabled = false
         todoCell.datePicker.isHidden = true
         self.tableView.reloadData()
-    }
+    }*/
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if (timeEdit != nil && indexPath == timeEdit){

@@ -32,7 +32,7 @@ class FriendsListViewController: UIViewController, FBControllerDelegate, UITable
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		print("DID SELECT ROW")
-		let friend = friendsListControl?.friendList.getElementAt(atIndex: indexPath.row)
+		let friend = friendsListControl?.friendList.getElement(at: indexPath.row)
 		let friendID = friend?.id
 		if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "friendTodoListsVC") as? FriendTodoListsViewController {
 			destinationVC.friendsTodoListsControl = TLListController(path: "sharedLists", userID: friendID!, vc: "FriendTodoLists")

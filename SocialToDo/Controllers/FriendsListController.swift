@@ -43,7 +43,7 @@ class FriendsListController: NSObject, UITableViewDataSource {
 						if let friendName = friendInfo["name"] {
 							if ("\((isFriended))" == "true") {
 								let friend = Friend("\(friendName)", "\(friendID)", "\(isFriended)")
-								self.friendList.add(friends: [friend])
+								self.friendList.add(items: [friend])
 								self.delegate?.reloadTableView()
 							}
 						}
@@ -62,7 +62,7 @@ class FriendsListController: NSObject, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		tableView.rowHeight = 75
 		let cell = tableView.dequeueReusableCell(withIdentifier: "friend") as! FriendListCell
-		let friend = friendList.getElementAt(atIndex: indexPath.row)
+		let friend = friendList.getElement(at: indexPath.row)
 		cell.name.text = friend.name
 		return cell
 	}

@@ -12,7 +12,7 @@ import FirebaseAuth
 
 typealias TodoListControllerDelegate = ListControllerDelegate
 
-class TodoListController: ListController<Todo,TodoList> {
+class TodoListController: ListController<TodoList> {
     //If the user selects a UITableView box to edit the due date for an object, it is stored here
 	let vc: String
 	init(_ todoList:TodoList, path: String, userID: String, vc: String){

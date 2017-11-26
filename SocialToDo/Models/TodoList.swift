@@ -7,53 +7,36 @@
 //
 
 
-class TodoList:List<Todo>,Equatable {
-    /*A TodoList wrapper so the actual implementation of the TodoList
-    could be changed in the future without breaking everything*/
-    //Using swift arrays to store the items for now
-	private var _title: String
-	private var _id: String
-	
-	var title: String {
-		get {
-			return _title
-		}
-	}
-	
-	var id: String {
-		get {
-			return _id
-		}
-	}
+class TodoList:List,ListElement {
+    typealias Item = Todo
+    var list: [Todo]
+    var name:String
+	var id: String
+    var title: String {
+        get {
+            return name
+        } set(value) {
+            name = value
+        }
+    }
     
 	init(_ title: String, id: String){
         //Returns an empty todolist
-		self._title = title
-		self._id = id
-		super.init()
+		self.name = title
+		self.id = id
+        list = []
     }
     
-    func getElement(id:String) -> Todo? {
-        return getElement(similarTo:Todo("",id:id))
-    }
-    
-    func remove(id:String) -> Int? {
-        return remove(element:Todo("",id:id))
-    }
     
 	init(title: String, id: String, listItems:Todo...){
-		self._title = title
-		self._id = id
-        super.init(listItems)
+		self.name = title
+		self.id = id
+        list = listItems
     }
     
 	init(title: String, id: String, listItems:[Todo]){
-		self._title = title
-		self._id = id
-        super.init(listItems)
-    }
-    
-    static func ==(lhs: TodoList, rhs: TodoList) -> Bool {
-        return (lhs.id == rhs.id)
+		self.name = title
+		self.id = id
+        list = listItems
     }
 }
