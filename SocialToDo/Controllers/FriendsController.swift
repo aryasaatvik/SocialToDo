@@ -95,7 +95,7 @@ class FriendsController: NSObject, UITableViewDataSource {
 	}
 	
 	@objc func addFriend(addFriend: AddFriend) {
-        let friend = friendList.getElement(at: addFriend.index)
+        var friend = friendList.getElement(at: addFriend.index)
 
         switch friend._isFriended {
         case .notFriends:
@@ -107,7 +107,7 @@ class FriendsController: NSObject, UITableViewDataSource {
             let friendUpdate = [userID: "requestReceived"]
             friendRef.updateChildValues(friendUpdate)
             friend.isFriended = "requestSent"
-        case .requestRecieved:
+        case .requestReceived:
             addFriend.isSelected = true
             addFriend.setImage(UIImage(named: "added"), for: .selected)
             let childUpdate = [friend.id: "true"]

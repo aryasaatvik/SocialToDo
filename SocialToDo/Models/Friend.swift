@@ -11,15 +11,15 @@ enum FriendRequestState {
     
     case requestSent
     
-    case requestRecieved
+    case requestReceived
     
     case friends
 }
 
-class Friend:ListElement {
+struct Friend:ListElement {
     var name: String
     var id: String
-//	var email: String
+    //var email: String
     //TODO: Have the code use enums instead of passing around string literals
     var _isFriended: FriendRequestState
     var isFriended: String {
@@ -63,8 +63,8 @@ class Friend:ListElement {
             return "requestSent"
         case .friends:
             return "true"
-        case .requestRecieved:
-            return "requestRecieved"
+        case .requestReceived:
+            return "requestReceived"
         }
     }
     
@@ -76,8 +76,8 @@ class Friend:ListElement {
             return .requestSent
         case "false":
             return .notFriends
-        case "requestRecived":
-            return .requestRecieved
+        case "requestReceived":
+            return .requestReceived
         default:
             return .notFriends
         }

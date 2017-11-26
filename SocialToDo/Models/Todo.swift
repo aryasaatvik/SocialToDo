@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Todo:ListElement {
+struct Todo:ListElement {
     var id:String
     var name:String
     var isChecked:Bool

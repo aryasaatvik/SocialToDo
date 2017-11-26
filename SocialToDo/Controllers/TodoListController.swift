@@ -49,7 +49,7 @@ class TodoListController: ListController<TodoList> {
     }
 	
 	@objc func changeValues(checkbox: Checkbox) {
-		let todo = list.getElement(id: checkbox.id)!
+		var todo = list.getElement(id: checkbox.id)!
 		let todoRef = root.child("/\(todo.id)/")
 
 		if(checkbox.isSelected){
