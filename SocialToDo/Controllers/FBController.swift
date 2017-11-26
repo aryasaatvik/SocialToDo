@@ -30,6 +30,7 @@ class FBController {
                 //Fetch the user's social graph
                 self.fetchGraph(user: user!)
                 self.appDelegate.friendsControl = FriendsController()
+				self.appDelegate.friendsListControl = FriendsListController()
                 self.appDelegate.listControl = TLListController()
                 
                 // segue to tabbarcontroller

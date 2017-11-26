@@ -8,10 +8,19 @@
 
 import UIKit
 
-class NewListViewController: UIViewController, FBControllerDelegate {
+class FriendsListViewController: UIViewController, FBControllerDelegate {
+	let appDelegate = UIApplication.shared.delegate as! AppDelegate
+	var friendsListControl: FriendsListController?
 
+	@IBOutlet weak var tableView: UITableView!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		friendsListControl = appDelegate.friendsListControl
+		friendsListControl?.delegate = self
+		
+		tableView.dataSource = friendsListControl
 		// Do any additional setup after loading the view, typically from a nib.
 	}
 
@@ -26,3 +35,8 @@ class NewListViewController: UIViewController, FBControllerDelegate {
     }
 }
 
+extension FriendsListViewController: FriendsListControllerDelegate {
+	func reloadTableView() {
+		self.tableView.reloadData()
+	}
+}
