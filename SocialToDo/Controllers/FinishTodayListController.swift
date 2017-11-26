@@ -1,8 +1,8 @@
 //
-//  TLListController.swift
+//  FinishTodayListController.swift
 //  SocialToDo
 //
-//  Created by Saatvik Arya on 11/22/17.
+//  Created by Brannen Hall on 17-11-25.
 //  Copyright © 2017 Saatvik Arya. All rights reserved.
 //
 
@@ -10,14 +10,10 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-protocol TLListControllerDelegate:ListControllerDelegate {
-    func segue(_ todoList:TodoList)
-}
-
-class TLListController: ListController<TodoList,TLList> {
-	init() {
+class FinishTodayListController:ListController<Todo,TodoList> {
+    /*init() {
         super.init(list:TLList(),listID:"",root: getDatabase,newListInserted: newListInserted, newListRemoved: newListRemoved)
-	}
+    }
     
     func getDatabase(_ userID:String, _ id:String) -> DatabaseReference{
         return Database.database().reference().child("privateLists/\(userID)/")
@@ -45,16 +41,14 @@ class TLListController: ListController<TodoList,TLList> {
         self.delegate?.deleteRow(indexPath: IndexPath(row: index, section: 0))
         self.delegate?.endUpdates()
     }
-	
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        tableView.estimatedRowHeight = 75
-        tableView.rowHeight = UITableViewAutomaticDimension
-		let cell = tableView.dequeueReusableCell(withIdentifier: "list") as! ListCell
-		let todoList = list.getElement(at: indexPath.row)
-		cell.title.text = todoList.title
-		cell.trash.id = todoList.id
-		cell.trash.addTarget(self, action: #selector(removeElement(trash:)), for: .touchUpInside)
-		return cell
-	}
-	
+        tableView.rowHeight = 75
+        let cell = tableView.dequeueReusableCell(withIdentifier: "list") as! ListCell
+        let todoList = list.getElement(at: indexPath.row)
+        cell.title.text = todoList.title
+        cell.trash.id = todoList.id
+        cell.trash.addTarget(self, action: #selector(removeElement(trash:)), for: .touchUpInside)
+        return cell
+    }*/
 }

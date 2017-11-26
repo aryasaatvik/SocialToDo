@@ -10,7 +10,6 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-
 protocol ListControllerDelegate {
     func reloadTableView()
     func beginUpdates()
@@ -19,7 +18,7 @@ protocol ListControllerDelegate {
     func deleteRow(indexPath: IndexPath)
 }
 
-class ListController<I,T:List<I>>: NSObject, UITableViewDataSource{
+class ListController<I,T:List<I>>: NSObject, UITableViewDataSource {
     //Represents the list that the controller is managing
     let list: T
     //Represents the directory that the ListController is operating on
@@ -83,6 +82,8 @@ class ListController<I,T:List<I>>: NSObject, UITableViewDataSource{
         return UITableViewCell()
     }
     
+    
+ 
     deinit{
         removeObservers()
     }

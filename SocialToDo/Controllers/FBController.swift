@@ -59,7 +59,7 @@ class FBController {
                 print(error)
             case .cancelled:
                 print("User cancelled login.")
-            case .success(let grantedPermissions, let declinedPermissions, let fbAccessToken):
+            case .success(_, _, let fbAccessToken):
                 let credential = FacebookAuthProvider.credential(withAccessToken: fbAccessToken.authenticationToken)
                 // login to firebase
                 Auth.auth().signIn(with: credential, completion: { (user, error) in
