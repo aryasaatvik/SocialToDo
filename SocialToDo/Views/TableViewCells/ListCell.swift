@@ -11,6 +11,7 @@ import UIKit
 class ListCell: UITableViewCell {
 	@IBOutlet weak var title: UILabel!
 	@IBOutlet weak var trash: Trash!
+	@IBOutlet weak var background: UIImageView!
 	
 	
 }

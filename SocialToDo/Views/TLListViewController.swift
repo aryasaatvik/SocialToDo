@@ -90,8 +90,9 @@ class TLListViewController: UIViewController, UITextFieldDelegate, FBControllerD
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 75
+        return 100
     }
+	
 	
 	func promptFacebookLogin() {
 		let facebookLoginViewController = storyboard?.instantiateViewController(withIdentifier: "FacebookLogin")

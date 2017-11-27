@@ -50,10 +50,11 @@ class TLListController: ListController<TLList> {
 	
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if(vc == "TLList") {
-			tableView.estimatedRowHeight = 75
+			tableView.estimatedRowHeight = 100
 			tableView.rowHeight = UITableViewAutomaticDimension
 			let cell = tableView.dequeueReusableCell(withIdentifier: "list") as! ListCell
 			let todoList = list.getElement(at: indexPath.row)
+			cell.background.image = UIImage(named: "TLList-Cell")
 			cell.title.text = todoList.title
 			cell.trash.id = todoList.id
 			cell.trash.addTarget(self, action: #selector(removeElement(trash:)), for: .touchUpInside)
