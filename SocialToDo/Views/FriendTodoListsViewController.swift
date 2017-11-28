@@ -15,7 +15,7 @@ class FriendTodoListsViewController: UIViewController, FBControllerDelegate, UIT
 	var todoControl: TodoListController?
 	var todoList: TodoList?
 	
-	@IBOutlet weak var friendName: UILabel!
+	@IBOutlet weak var navBar: UINavigationItem!
 	@IBOutlet weak var tableView: UITableView!
 	
 	override func viewDidLoad() {
@@ -27,15 +27,10 @@ class FriendTodoListsViewController: UIViewController, FBControllerDelegate, UIT
 		
 		tableView.dataSource = friendsTodoListsControl
 		tableView.delegate = self
-		
 	}
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
-	}
-	
-	@IBAction func handleBackButton(_ sender: Any) {
-		self.dismiss(animated: true, completion: nil)
 	}
 	
 	func promptFacebookLogin() {
@@ -53,7 +48,8 @@ class FriendTodoListsViewController: UIViewController, FBControllerDelegate, UIT
 		if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "friendTodoListVC") as? FriendTodoListViewController {
 			destinationVC.friendTodoControl = TodoListController(todoList!, path: "sharedLists", userID: friendID!, vc: "FriendTodoList") //FriendTodoListController(friendID: friendID!, todoList!)
 			destinationVC.friendTodoControl?.delegate = destinationVC
-			self.present(destinationVC, animated: true, completion: nil)
+			destinationVC.navigationItem.title = destinationVC.friendTodoControl?.list.title
+			self.navigationController?.pushViewController(destinationVC, animated: true)
 		}
 	}
 }

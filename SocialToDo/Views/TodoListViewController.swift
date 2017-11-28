@@ -18,7 +18,6 @@ class TodoListViewController: UIViewController, UITextFieldDelegate, FBControlle
     @IBOutlet weak var addTodoField: UITextField!
     @IBOutlet weak var addTodoButton: UIButton!
     @IBOutlet weak var keyboardHeightLayoutConstraint: NSLayoutConstraint!
-	@IBOutlet weak var todoListTitle: UILabel!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +26,7 @@ class TodoListViewController: UIViewController, UITextFieldDelegate, FBControlle
         fbControl?.checkLogin()
 		tableView.dataSource = todoControl
         tableView.delegate = self
-		todoListTitle.text = todoControl?.list.title
 		addTodoField.delegate = self
-        todoListTitle.adjustsFontSizeToFitWidth = true
 
 		NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
@@ -89,11 +86,6 @@ class TodoListViewController: UIViewController, UITextFieldDelegate, FBControlle
             addTodoField.text = nil
         }
     }
-	
-	@IBAction func handleBackButton(_ sender: Any) {
-        todoControl!.removeObservers()
-		dismiss(animated: true, completion: nil)
-	}
 
 	func promptFacebookLogin() {
         let facebookLoginViewController = storyboard?.instantiateViewController(withIdentifier: "FacebookLogin")
@@ -120,7 +112,7 @@ class TodoListViewController: UIViewController, UITextFieldDelegate, FBControlle
         if (timeEdit != nil && indexPath == timeEdit){
             return 140
         }
-        return 75
+        return 60
     }
 }
 

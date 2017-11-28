@@ -85,7 +85,8 @@ class TLListViewController: UIViewController, UITextFieldDelegate, FBControllerD
         if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "todoListVC") as? TodoListViewController {
 			destinationVC.todoControl = TodoListController(todoList!, path: "privateLists", userID: Auth.auth().currentUser!.uid, vc: "TodoList")
             destinationVC.todoControl?.delegate = destinationVC
-            self.present(destinationVC, animated: true, completion: nil)
+			destinationVC.navigationItem.title = destinationVC.todoControl?.list.title
+			self.navigationController?.pushViewController(destinationVC, animated: true)
         }
     }
     

@@ -78,7 +78,7 @@ class TodoListController: ListController<TodoList> {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if (vc == "TodoList"){
-			tableView.estimatedRowHeight = 75
+			tableView.estimatedRowHeight = 60
 			tableView.rowHeight = UITableViewAutomaticDimension
 			let cell = tableView.dequeueReusableCell(withIdentifier: "todo") as! TodoCell
 			cell.selectionStyle = .none

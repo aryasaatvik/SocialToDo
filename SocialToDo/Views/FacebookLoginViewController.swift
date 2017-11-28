@@ -24,10 +24,6 @@ class FacebookLoginViewController: UIViewController, FBControllerDelegate {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func backPress(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
-    
     @IBAction func handleLoginButton(_ sender: Any) {
         //If the application is already logged-in and the button happens to be pressed, segues instead
         if (checkState()){

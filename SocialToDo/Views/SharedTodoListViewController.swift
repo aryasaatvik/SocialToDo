@@ -17,7 +17,7 @@ class SharedTodoListViewController: UIViewController, UITextFieldDelegate, FBCon
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var addTodoField: UITextField!
 	@IBOutlet weak var keyboardHeightLayoutConstraint: NSLayoutConstraint!
-	@IBOutlet weak var todoListTitle: UILabel!
+
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -26,9 +26,7 @@ class SharedTodoListViewController: UIViewController, UITextFieldDelegate, FBCon
 		fbControl?.checkLogin()
 		tableView.dataSource = sharedTodoControl
 		tableView.delegate = self
-		todoListTitle.text = sharedTodoControl?.list.title
 		addTodoField.delegate = self
-		todoListTitle.adjustsFontSizeToFitWidth = true
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
 	}

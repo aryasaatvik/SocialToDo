@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Icon.png",
+      "filename" : "TodoCell.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Icon@2x.png",
+      "filename" : "TodoCell@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Icon@3x.png",
+      "filename" : "TodoCell@3x.png",
       "scale" : "3x"
     }
   ],
