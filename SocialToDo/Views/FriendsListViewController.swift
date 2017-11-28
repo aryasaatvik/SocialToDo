@@ -37,7 +37,8 @@ class FriendsListViewController: UIViewController, FBControllerDelegate, UITable
 		if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "friendTodoListsVC") as? FriendTodoListsViewController {
 			destinationVC.friendsTodoListsControl = TLListController(path: "sharedLists", userID: friendID!, vc: "FriendTodoLists")
 			destinationVC.friendsTodoListsControl?.delegate = destinationVC
-			self.present(destinationVC, animated: true, completion: nil)
+			destinationVC.navigationItem.title = friend?.name
+			self.navigationController?.pushViewController(destinationVC, animated: true)
 		}
 	}
     

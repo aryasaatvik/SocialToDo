@@ -86,7 +86,8 @@ class SharedTLListViewController: UIViewController, UITextFieldDelegate, FBContr
 		if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "sharedTodoListVC") as? SharedTodoListViewController {
 			destinationVC.sharedTodoControl = TodoListController(todoList!, path: "sharedLists", userID: Auth.auth().currentUser!.uid, vc: "SharedTodoList")
 			destinationVC.sharedTodoControl?.delegate = destinationVC
-			self.present(destinationVC, animated: true, completion: nil)
+			destinationVC.navigationItem.title = destinationVC.sharedTodoControl?.list.title
+			self.navigationController?.pushViewController(destinationVC, animated: true)
 		}
 	}
 

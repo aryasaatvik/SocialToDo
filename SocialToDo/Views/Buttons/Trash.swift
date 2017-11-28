@@ -26,8 +26,8 @@ class Trash: UIButton {
 	// MARK: Private Methods
 	
 	private func setupTrash() {
-		setImage(UIImage(named: "trash"), for: .normal)
-		setImage(UIImage(named: "trash"), for: .selected)
+		setImage(UIImage(named: "Trash"), for: .normal)
+		setImage(UIImage(named: "Trash"), for: .selected)
 	}
 	
 	// MARK: Button Action

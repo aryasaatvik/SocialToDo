@@ -13,7 +13,6 @@ class FriendTodoListViewController: UIViewController, UITextFieldDelegate, FBCon
 	var fbControl:FBController?
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var addTodoField: UITextField!
-	@IBOutlet weak var todoListTitle: UILabel!
 	@IBOutlet weak var keyboardHeightLayoutConstraint: NSLayoutConstraint!
 	
 	override func viewDidLoad() {
@@ -22,7 +21,6 @@ class FriendTodoListViewController: UIViewController, UITextFieldDelegate, FBCon
 		fbControl?.delegate = self
 		fbControl?.checkLogin()
 		tableView.dataSource = friendTodoControl
-		todoListTitle.text = friendTodoControl?.list.title
 		addTodoField.delegate = self
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
@@ -74,10 +72,6 @@ class FriendTodoListViewController: UIViewController, UITextFieldDelegate, FBCon
 	
 	@IBAction func handleAddTodoButton(_ sender: Any) {
 		addTodoToDelegate()
-	}
-	
-	@IBAction func handleBackButton(_ sender: Any) {
-		self.dismiss(animated: true, completion: nil)
 	}
 	
 	func promptFacebookLogin() {
