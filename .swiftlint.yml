@@ -1,0 +1,11 @@
+opt_in_rules:
+  - empty_count
+
+disabled_rules:
+  - force_cast
+  - implicit_getter
+  - identifier_name
+  - line_length
+
+excluded:
+  - Pods
