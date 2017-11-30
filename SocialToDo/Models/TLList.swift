@@ -8,6 +8,8 @@
 //
 
 class TLList: List {
+  var firebaseId: String?
+  
     typealias Item = TodoList
     var list: [TodoList]
 

@@ -6,6 +6,7 @@ disabled_rules:
   - implicit_getter
   - identifier_name
   - line_length
+  - force_try
 
 excluded:
   - Pods

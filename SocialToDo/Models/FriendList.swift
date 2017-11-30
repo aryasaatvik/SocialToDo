@@ -7,19 +7,20 @@
 //
 
 class FriendList: List, Codable {
-    var list: [Friend]
-    typealias Item = Friend
+  var firebaseId: String?
+  var list: [Friend]
+  typealias Item = Friend
 
-    init() {
-        //Returns an empty list
-        list = [Friend]()
-    }
+  init() {
+    //Returns an empty list
+    list = [Friend]()
+  }
 
-    init(_ listItems: Friend...) {
-        list = listItems
-    }
+  init(_ listItems: Friend...) {
+    list = listItems
+  }
 
-    init(_ listItems: [Friend]) {
-        list = listItems
-    }
+  init(_ listItems: [Friend]) {
+    list = listItems
+  }
 }

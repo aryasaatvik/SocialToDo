@@ -1,53 +1,38 @@
 //
-//  DataController.swift
+//  FacebookIntegration.swift
 //  SocialToDo
 //
 //  Created by Brannen Hall on 11/28/17.
 //  Copyright © 2017 Saatvik Arya. All rights reserved.
 //
 
-import FirebaseAuth
-import FacebookLogin
 import FacebookCore
-import FirebaseDatabase
+import FacebookAuth
 
-// DataController is a singleton that will handle DatabaseAccess and Facebook Login.
-class DataController: DatabaseAccess {
-  var loggedIn: Bool
-  var root: DatabaseReference
+protocol  FacebookIntegration {
+  var loggedIn: Bool { get set }
+}
 
-  init() {
-    loggedIn = false
-    root = Database.database().reference()
-    facebookLogin()
-  }
-
-  init(child:String){
-    loggedIn = false
-    root = Database.database().reference().child(child)
-    facebookLogin()
-    var testToDo = Todo(title: "To do 1", identifier: "what is the identifier?")
-    var secondTestToDo = Todo(title:"To do 1", identifier: "I think it maybe obsolete, maybe get rid of")
-    self.upload(elements: TodoList(title: "TodoList One", identifier: "stuff", listItems: testToDo,secondTestToDo))
-  }
-
-  //MARK: Database Logic
-
-  //MARK: Facebook Logic
-
-  func facebookLogin() {
+extension FacebookIntegration {
+  initlaizeFacebook() {
     Auth.auth().addStateDidChangeListener { (auth, user) in
       if (user != nil) {
-        self.loggedIn = true
+        /*If the user is already logged in, this code runs on application launch.
+         Otherwise, it runs as soon as the user is logged into firebase*/
+        loggedIn = true
         //Fetch the user's social graph
         self.fetchGraph(user: user!)
+        
         // segue to tabbarcontroller
+        if (self.delegate is FacebookLoginViewController) {
+          self.mainSegue(vc:self.delegate as! FacebookLoginViewController)
+        }
       } else {
         self.loggedIn = false
       }
     }
   }
-
+  
   func loginToFacebook() {
     let loginManager = LoginManager()
     loginManager.logIn(readPermissions: [.publicProfile, .email, .userFriends]) { (loginResult) in
@@ -70,7 +55,7 @@ class DataController: DatabaseAccess {
       }
     }
   }
-
+  
   func fetchGraph(user: User) {
     // create facebook graph request
     // If this assertion fails, try commenting it out, logging out, then uncommenting it and logging back in.
@@ -89,24 +74,24 @@ class DataController: DatabaseAccess {
           if let name = response["name"] as? String {
             self.name = name
           }
-
+          
           if let id = response["id"] as? String {
             self.id = id
           }
-
+          
           if let email = response["email"] as? String {
             self.email = email
           }
         }
       }
-
+      
       var graphPath = "/me"
       var parameters: [String: Any]? = ["fields": "name, email, id"]
       var accessToken = AccessToken.current
       var httpMethod: GraphRequestHTTPMethod = .GET
       var apiVersion: GraphAPIVersion = .defaultVersion
     }
-
+    
     // initiate facebook graph request
     let connection = GraphRequestConnection()
     connection.add(UserInfoRequest()) { response, result in
@@ -128,19 +113,20 @@ class DataController: DatabaseAccess {
     }
     connection.start()
   }
-
+  
   func logoutOfFacebook() {
     let loginManager = LoginManager()
     loginManager.logOut()
-
+    
     // TODO:// firebase logout
     do {
       try Auth.auth().signOut()
     } catch let signOutError as NSError {
       print("Error signing out: \(signOutError)")
     }
-
+    
     // TODO:// present loginvc
     let loginVC = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "FacebookLogin")
+    vc.present(loginVC, animated: true, completion: nil)
   }
 }

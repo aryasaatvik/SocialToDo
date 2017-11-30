@@ -14,3 +14,15 @@ target 'SocialToDo' do
   pod 'SwiftLint'
 
 end
+
+target 'SocialToDoTests' do
+
+  use_frameworks!
+
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Firebase/Auth'
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+
+end

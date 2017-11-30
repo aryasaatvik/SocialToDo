@@ -8,14 +8,20 @@
 
 import Foundation
 import FirebaseDatabase
+import FirebaseAuth
 
 protocol DatabaseAccess {
   var root: DatabaseReference { get }
 }
 
 extension DatabaseAccess {
-  func upload<T:List>(directory:DatabaseReference, elements: T) {
-    root.setValue(try? JSONEncoder().encode(elements))
+  func upload<T:List>(elements: T) {
+    let serializedElements = try! JSONSerialization.jsonObject(with: try! JSONEncoder().encode(elements), options: []) as! [String : Any]
+    if let itemId = elements.firebaseId {
+      root.child("tests").child("\((Auth.auth().currentUser?.uid)!)").child(itemId).setValue(serializedElements)
+    } else {
+      root.child("tests").child("\((Auth.auth().currentUser?.uid)!)").childByAutoId().setValue(serializedElements)
+    }
   }
 
   func load(onLoad: @escaping (DataSnapshot) -> ()) {

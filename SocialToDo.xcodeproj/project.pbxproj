@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AAF9B8CDD0013C14632AC8EA /* Pods_SocialToDoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8B24C4F6EB70BEC7613A3D /* Pods_SocialToDoTests.framework */; };
 		C71F64401FC9EB0D002658AC /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F643F1FC9EB0D002658AC /* ListController.swift */; };
 		C71F64461FCA2285002658AC /* FriendTodoListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F64451FCA2285002658AC /* FriendTodoListsViewController.swift */; };
 		C71F64561FCA4BB5002658AC /* FriendTodoListsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F64551FCA4BB5002658AC /* FriendTodoListsCell.swift */; };
@@ -40,6 +41,7 @@
 		E943744F1FCB6C4200105B4D /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E943744E1FCB6C4200105B4D /* ListViewController.swift */; };
 		E953CED91FC107D000FDDF91 /* FacebookLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E953CED81FC107D000FDDF91 /* FacebookLoginViewController.swift */; };
 		E984133C1FCE7D5800C2DCFA /* DatabaseAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = E984133B1FCE7D5800C2DCFA /* DatabaseAccess.swift */; };
+		E9C135E21FCFA20C000EAE08 /* TodoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C135E11FCFA20C000EAE08 /* TodoListTests.swift */; };
 		E9D8D1C81FC940AD007F490E /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D8D1C71FC940AD007F490E /* List.swift */; };
 		E9DE6C741FCE138F00350DD9 /* AccessPermissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DE6C731FCE138C00350DD9 /* AccessPermissions.swift */; };
 		E9DE6C7C1FCE144D00350DD9 /* SocialToDoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DE6C7B1FCE144D00350DD9 /* SocialToDoTests.swift */; };
@@ -60,7 +62,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02D88E3A5B495D8B260D3B7E /* Pods-SocialToDoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialToDoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialToDoTests/Pods-SocialToDoTests.release.xcconfig"; sourceTree = "<group>"; };
 		2097AD559D73D5438FDA6227 /* Pods-SocialToDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialToDo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialToDo/Pods-SocialToDo.release.xcconfig"; sourceTree = "<group>"; };
+		6B29B1C5F4A7B42B58FB7DDE /* Pods-SocialToDoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialToDoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialToDoTests/Pods-SocialToDoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9B2342B2372430E41BF44EC3 /* Pods_SocialToDo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialToDo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C71F643F1FC9EB0D002658AC /* ListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
 		C71F64451FCA2285002658AC /* FriendTodoListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTodoListsViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 		E943744E1FCB6C4200105B4D /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		E953CED81FC107D000FDDF91 /* FacebookLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookLoginViewController.swift; sourceTree = "<group>"; };
 		E984133B1FCE7D5800C2DCFA /* DatabaseAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseAccess.swift; sourceTree = "<group>"; };
+		E9C135E11FCFA20C000EAE08 /* TodoListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListTests.swift; sourceTree = "<group>"; };
 		E9D8D1C71FC940AD007F490E /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		E9DE6C731FCE138C00350DD9 /* AccessPermissions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessPermissions.swift; sourceTree = "<group>"; };
 		E9DE6C791FCE144D00350DD9 /* SocialToDoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialToDoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +112,7 @@
 		E9E37AD41FCBA72C00EE5880 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		E9EB2DF91FCE238500E6E99B /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		E9EF071C1FB674660096CBCD /* TodoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
+		EC8B24C4F6EB70BEC7613A3D /* Pods_SocialToDoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialToDoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAF9B8CDD0013C14632AC8EA /* Pods_SocialToDoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				9B2342B2372430E41BF44EC3 /* Pods_SocialToDo.framework */,
+				EC8B24C4F6EB70BEC7613A3D /* Pods_SocialToDoTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -207,6 +215,8 @@
 			children = (
 				DFAC99766192C08585D4E5A4 /* Pods-SocialToDo.debug.xcconfig */,
 				2097AD559D73D5438FDA6227 /* Pods-SocialToDo.release.xcconfig */,
+				6B29B1C5F4A7B42B58FB7DDE /* Pods-SocialToDoTests.debug.xcconfig */,
+				02D88E3A5B495D8B260D3B7E /* Pods-SocialToDoTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -241,6 +251,7 @@
 		E9DE6C7A1FCE144D00350DD9 /* SocialToDoTests */ = {
 			isa = PBXGroup;
 			children = (
+				E9C135E11FCFA20C000EAE08 /* TodoListTests.swift */,
 				E9DE6C7B1FCE144D00350DD9 /* SocialToDoTests.swift */,
 				E9DE6C7D1FCE144E00350DD9 /* Info.plist */,
 			);
@@ -313,9 +324,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E9DE6C801FCE144E00350DD9 /* Build configuration list for PBXNativeTarget "SocialToDoTests" */;
 			buildPhases = (
+				ED7134363D80BAAE0500D58A /* [CP] Check Pods Manifest.lock */,
 				E9DE6C751FCE144D00350DD9 /* Sources */,
 				E9DE6C761FCE144D00350DD9 /* Frameworks */,
 				E9DE6C771FCE144D00350DD9 /* Resources */,
+				B7097599C7365C8BEDDB402F /* [CP] Embed Pods Frameworks */,
+				7F12A039569BA04B4789258A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -444,6 +458,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialToDo/Pods-SocialToDo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7F12A039569BA04B4789258A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialToDoTests/Pods-SocialToDoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AF520B90B147A9584BBC996C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -462,6 +491,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B7097599C7365C8BEDDB402F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SocialToDoTests/Pods-SocialToDoTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialToDoTests/Pods-SocialToDoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E94374501FCB9CE900105B4D /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -475,6 +538,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+		};
+		ED7134363D80BAAE0500D58A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SocialToDoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -524,6 +605,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9DE6C7C1FCE144D00350DD9 /* SocialToDoTests.swift in Sources */,
+				E9C135E21FCFA20C000EAE08 /* TodoListTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,6 +780,7 @@
 		};
 		E9DE6C811FCE144E00350DD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B29B1C5F4A7B42B58FB7DDE /* Pods-SocialToDoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -714,6 +797,7 @@
 		};
 		E9DE6C821FCE144E00350DD9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02D88E3A5B495D8B260D3B7E /* Pods-SocialToDoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;

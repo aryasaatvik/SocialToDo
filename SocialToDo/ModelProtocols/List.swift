@@ -11,6 +11,7 @@ import Foundation
 protocol List: Codable {
   associatedtype Item: ListElement
   var list: [Item] { get set }
+  var firebaseId: String? { get }
 }
 
 extension List {

@@ -10,6 +10,7 @@ class TodoList: List, ListElement, AccessPermissions, Codable {
   typealias Item = Todo
   var list: [Todo]
   var accessList: FriendList = FriendList()
+  var firebaseId: String? = nil
   var name: String
   var identifier: String
   var title: String {
