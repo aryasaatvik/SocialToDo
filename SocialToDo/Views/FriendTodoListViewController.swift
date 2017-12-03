@@ -44,7 +44,7 @@ class FriendTodoListViewController: UIViewController, UITextFieldDelegate, FBCon
 			if (endFrame?.origin.y)! >= UIScreen.main.bounds.size.height {
 				self.keyboardHeightLayoutConstraint?.constant = 0.0
 			} else {
-				self.keyboardHeightLayoutConstraint?.constant = endFrame!.size.height
+				self.keyboardHeightLayoutConstraint?.constant = -50 + endFrame!.size.height
 			}
 			print(keyboardHeightLayoutConstraint.constant)
 			UIView.animate(withDuration: duration,

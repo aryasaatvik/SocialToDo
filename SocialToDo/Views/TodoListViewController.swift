@@ -51,7 +51,7 @@ class TodoListViewController: UIViewController, UITextFieldDelegate, FBControlle
             if (endFrame?.origin.y)! >= UIScreen.main.bounds.size.height {
                 self.keyboardHeightLayoutConstraint?.constant = 0.0
             } else {
-                self.keyboardHeightLayoutConstraint?.constant = -endFrame!.size.height
+                self.keyboardHeightLayoutConstraint?.constant = -endFrame!.size.height + 50
             }
 			print(keyboardHeightLayoutConstraint.constant)
             UIView.animate(withDuration: duration,

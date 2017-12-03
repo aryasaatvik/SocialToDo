@@ -492,9 +492,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1i5-3J-S0e">
                                                     <rect key="frame" x="8" y="5" width="359" height="70"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TLList-Cell" translatesAutoresizingMaskIntoConstraints="NO" id="bJU-Im-exF">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TLList-Cell" translatesAutoresizingMaskIntoConstraints="NO" id="bJU-Im-exF">
                                                             <rect key="frame" x="0.0" y="0.0" width="359" height="70"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Todo List 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M22-Hu-cT3">
                                                             <rect key="frame" x="28" y="10" width="257" height="50"/>
@@ -517,11 +516,15 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="M22-Hu-cT3" firstAttribute="centerY" secondItem="1i5-3J-S0e" secondAttribute="centerY" id="3NR-ay-u0w"/>
+                                                        <constraint firstItem="bJU-Im-exF" firstAttribute="leading" secondItem="1i5-3J-S0e" secondAttribute="leading" id="97s-cd-7vJ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="bJU-Im-exF" secondAttribute="trailing" id="DIm-Us-zh4"/>
+                                                        <constraint firstAttribute="bottom" secondItem="bJU-Im-exF" secondAttribute="bottom" id="Eun-jl-02t"/>
                                                         <constraint firstItem="M22-Hu-cT3" firstAttribute="leading" secondItem="1i5-3J-S0e" secondAttribute="leadingMargin" constant="20" id="M8S-ma-oVl"/>
                                                         <constraint firstItem="HzH-OR-TcA" firstAttribute="leading" secondItem="M22-Hu-cT3" secondAttribute="trailing" constant="8" id="RIe-MG-D9U"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="HzH-OR-TcA" secondAttribute="trailing" constant="8" id="ahI-0v-BAl"/>
                                                         <constraint firstItem="HzH-OR-TcA" firstAttribute="centerY" secondItem="1i5-3J-S0e" secondAttribute="centerY" id="bp7-gX-Gvh"/>
                                                         <constraint firstAttribute="height" constant="70" id="dD3-wS-UBs"/>
+                                                        <constraint firstItem="bJU-Im-exF" firstAttribute="top" secondItem="1i5-3J-S0e" secondAttribute="top" id="ll4-oY-UtF"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -848,9 +851,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vy0-vO-ZRl">
                                                     <rect key="frame" x="8" y="5" width="359" height="70"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TLList-Cell" translatesAutoresizingMaskIntoConstraints="NO" id="czP-eI-CVM">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TLList-Cell" translatesAutoresizingMaskIntoConstraints="NO" id="czP-eI-CVM">
                                                             <rect key="frame" x="0.0" y="0.0" width="359" height="70"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzY-V7-X41">
                                                             <rect key="frame" x="28" y="10" width="303" height="50"/>
@@ -864,10 +866,14 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="czP-eI-CVM" secondAttribute="bottom" id="1s4-jr-lyd"/>
+                                                        <constraint firstAttribute="trailing" secondItem="czP-eI-CVM" secondAttribute="trailing" id="C8Z-Gm-xaJ"/>
+                                                        <constraint firstItem="czP-eI-CVM" firstAttribute="top" secondItem="Vy0-vO-ZRl" secondAttribute="top" id="HM1-ac-RNK"/>
                                                         <constraint firstItem="bzY-V7-X41" firstAttribute="leading" secondItem="Vy0-vO-ZRl" secondAttribute="leadingMargin" constant="20" id="M49-Uc-7Gi"/>
                                                         <constraint firstAttribute="height" constant="70" id="get-Cd-CNc"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="bzY-V7-X41" secondAttribute="trailing" constant="20" id="oDc-PR-dOB"/>
                                                         <constraint firstItem="bzY-V7-X41" firstAttribute="centerY" secondItem="Vy0-vO-ZRl" secondAttribute="centerY" id="qan-w3-si6"/>
+                                                        <constraint firstItem="czP-eI-CVM" firstAttribute="leading" secondItem="Vy0-vO-ZRl" secondAttribute="leading" id="s3T-Rp-6zl"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
