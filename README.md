@@ -1,8 +1,3 @@
 # Social ToDo
 
-[![Build Status](https://travis-ci.org/aryasaatvik/SocialToDo.svg?branch=master)](https://travis-ci.org/aryasaatvik/SocialToDo)
-
-To run the project
-install CocoaPods
-run pod install 
-open SocialTodo.xcworkspace
+This project is deprecated. Repositories related to this project are now located at [***SocialTodo Organization***](https://github.com/SocialTodo)
